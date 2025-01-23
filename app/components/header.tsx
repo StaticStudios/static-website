@@ -7,14 +7,13 @@ import {PlayIcon} from "~/components/icons/play";
 export const Header = () => {
     return (
         <div className="relative">
-            <img alt="skyblock island" src={banner} className="w-full aspect-[16/3] object-cover"/>
+            <img alt="skyblock island" src={banner} className="w-full aspect-[16/9] md:aspect-[16/3] object-cover "/>
             <div className="absolute right-0 left-0 bottom-0 top-0 flex flex-col justify-end">
                 <div className="mt-auto h-[50%] w-full bg-gradient-to-b from-theme-800/0 to-theme-800"/>
                 <div className="h-[3%] w-full bg-theme-800"/>
             </div>
             <div className="absolute left-0 right-0 bottom-4">
                 <Container>
-
                     <div className="flex flex-row justify-between">
                         <ServerButton/>
                         <DiscordButton/>
@@ -87,7 +86,7 @@ const HeaderButton = ({icon, title, right, description, onClick}: HeaderButtonPr
                 <div className="text-theme-500">
                     {icon}
                 </div>
-                <div className="flex flex-col" style={{textAlign: right ? "end" : "start"}}>
+                <div className="hidden md:flex flex-col" style={{textAlign: right ? "end" : "start"}}>
                     <p className="text-theme-500 font-bold text-2xl tracking-tight">{title.toUpperCase()}</p>
                     <p className="text-white font-semibold text-xs tracking-tight">{description}</p>
                 </div>
