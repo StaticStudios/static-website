@@ -2,6 +2,7 @@ import {Navbar} from "~/components/nav";
 import {Header} from "~/components/header";
 import {Container} from "~/components/content";
 import React from "react";
+import {Footer} from "~/components/footer";
 
 
 export function Layout({children}: { children: React.ReactNode }) {
@@ -12,6 +13,7 @@ export function Layout({children}: { children: React.ReactNode }) {
             <Container className="flex flex-grow my-8">
                 {children}
             </Container>
+            <Footer/>
         </div>
     )
 }
