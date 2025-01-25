@@ -8,10 +8,10 @@ import {Outlet} from "react-router";
 
 export default function Layout() {
     return (
-        <div className="flex flex-col min-h-[100vh]">
+        <div className="flex flex-col">
             <Header/>
             <Navbar/>
-            <Container className="flex flex-grow my-8">
+            <Container className="flex grow my-8 text-white text-lg ">
                 <Outlet/>
             </Container>
             <Footer/>

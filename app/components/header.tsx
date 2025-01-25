@@ -7,9 +7,9 @@ import {PlayIcon} from "~/components/icons/play";
 export const Header = () => {
     return (
         <div className="relative">
-            <img alt="skyblock island" src={banner} className="w-full aspect-[16/9] md:aspect-[16/3] object-cover "/>
+            <img alt="skyblock island" src={banner} className="w-full aspect-16/9 md:aspect-16/3 object-cover "/>
             <div className="absolute right-0 left-0 bottom-0 top-0 flex flex-col justify-end">
-                <div className="mt-auto h-[50%] w-full bg-gradient-to-b from-theme-800/0 to-theme-800"/>
+                <div className="mt-auto h-[50%] w-full bg-linear-to-b from-theme-800/0 to-theme-800"/>
                 <div className="h-[3%] w-full bg-theme-800"/>
             </div>
             <div className="absolute left-0 right-0 bottom-4">
@@ -24,8 +24,6 @@ export const Header = () => {
     )
 }
 
-//todo: mobile support
-
 const DiscordButton = () => {
     const [members, setMembers] = useState<null | number>(null);
     useEffect(() => {
@@ -38,7 +36,6 @@ const DiscordButton = () => {
             .catch(console.error);
 
     }, [setMembers])
-    //todo: fetch these in the background
 
     const onClick = useCallback(() => {
         window.open("https://discord.gg/9S6K9E5", "_blank");

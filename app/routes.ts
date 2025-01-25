@@ -11,3 +11,8 @@ export default [
         ])
     ])
 ] satisfies RouteConfig;
+
+//todo: add TOS (/tos) page
+//todo: add privacy policy (/privacy) page
+//todo: add /rules
+//todo: add /store

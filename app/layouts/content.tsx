@@ -6,7 +6,7 @@ export default function Content() {
         <div className="bg-theme-700 rounded-xl flex grow" style={{
             boxShadow: "0 0 20px 0 rgba(0,0,0,0.3)"
         }}>
-            <div className="m-8 text-white text-lg w-full">
+            <div className="m-8 w-full">
                 <Outlet/>
             </div>
         </div>

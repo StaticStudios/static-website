@@ -1,29 +1,17 @@
 import {Link} from "react-router";
-import React, {useCallback, useEffect} from "react";
+import React, {useCallback} from "react";
 import {HouseIcon} from "~/components/icons/house";
 import {ShieldIcon} from "~/components/icons/shield";
 import {TicketIcon} from "~/components/icons/ticket";
-import {QuestionMarkIcon} from "~/components/icons/question-mark";
 import {CartIcon} from "~/components/icons/cart";
 import {cva, type VariantProps} from "class-variance-authority";
 import {Container} from "~/components/content";
 import {MenuIcon} from "~/components/icons/menu";
+import {useIsMobile} from "~/lib/mobile";
 
 export const Navbar = () => {
     const [open, setOpen] = React.useState(false);
-    const [mobile, setMobile] = React.useState(window.innerWidth < 768);
-
-    useEffect(() => {
-        const updateDimensions = () => {
-            if (window.innerWidth < 768) {
-                setMobile(true);
-            } else {
-                setMobile(false);
-            }
-        }
-        window.addEventListener("resize", updateDimensions);
-        return () => window.removeEventListener("resize", updateDimensions);
-    }, []);
+    const mobile = useIsMobile();
 
     const toggle = useCallback(() => {
         setOpen(prev => !prev);
@@ -43,9 +31,8 @@ export const Navbar = () => {
                      }}>
                     <div className="flex flex-col md:flex-row gap-4 md:gap-2">
                         <NavItem icon={<HouseIcon/>} href="/">Home</NavItem>
-                        <NavItem icon={<ShieldIcon/>} href="rules">Rules</NavItem>
-                        <NavItem icon={<TicketIcon/>} href="vote">Vote</NavItem>
-                        <NavItem icon={<QuestionMarkIcon/>} href="support">Support</NavItem>
+                        <NavItem icon={<ShieldIcon/>} href="/rules">Rules</NavItem>
+                        <NavItem icon={<TicketIcon/>} href="/vote">Vote</NavItem>
                     </div>
                     <div>
                         <NavItem special icon={<CartIcon/>} href="/store">Store</NavItem>
@@ -73,9 +60,6 @@ interface NavItemProps extends VariantProps<typeof item> {
     href: string;
     children: string;
 }
-
-//todo: mobile support
-
 
 const NavItem = ({icon, href, children, special}: NavItemProps) => {
     return (

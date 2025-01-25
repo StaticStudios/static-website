@@ -4,10 +4,10 @@ import {Link} from "react-router";
 
 export const Footer = () => {
     return (
-        <div className="w-full bg-theme-700 py-6 text-white/60 font-normal">
+        <div className="w-full bg-theme-700 py-6 text-theme-100 font-normal">
             <Container>
                 <div className="flex flex-col md:flex-row justify-between gap-4">
-                    <div className="flex flex-col flex-1 hover:[&>a]:underline [&>a]:hover:w-fit">
+                    <div className="flex flex-col flex-1 [&>a]:hover:underline hover:[&>a]:w-fit">
                         <p className="font-bold text-white text-lg">Other links</p>
                         <a href="https://discord.gg/9S6K9E5" target="_blank" rel="noreferrer">Discord</a>
                         <a href="https://discord.gg/9S6K9E5" target="_blank" rel="noreferrer">Contact us</a>
