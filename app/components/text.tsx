@@ -4,13 +4,13 @@ interface TextProps {
 
 export const Title = ({children}: TextProps) => {
     return (
-        <h1 className="text-5xl text-theme-500 font-bold tracking-tight">{children}</h1>
+        <h1 className="text-5xl text-white font-bold tracking-tight">{children}</h1>
     );
 }
 
 export const SubTitle = ({children}: TextProps) => {
     return (
-        <h1 className="text-4xl text-theme-500 font-bold tracking-tight">{children}</h1>
+        <h1 className="text-4xl text-white font-bold tracking-tight">{children}</h1>
     );
 }
 

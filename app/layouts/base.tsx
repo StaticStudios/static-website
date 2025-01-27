@@ -11,7 +11,7 @@ export default function Layout() {
         <div className="flex flex-col">
             <Header/>
             <Navbar/>
-            <Container className="flex grow my-8 text-white text-lg ">
+            <Container className="flex grow my-8 text-theme-100 text-lg ">
                 <Outlet/>
             </Container>
             <Footer/>

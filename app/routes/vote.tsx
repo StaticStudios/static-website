@@ -26,17 +26,23 @@ export default function Vote() {
                 <div>
                     <Title>Vote for us</Title>
                     <p className="font-medium">Visit the following links and enter your Minecraft username.</p>
-                    <p>You will be automatically rewarded in-game for each vote!</p>
+                    <p className="font-medium">You will be automatically rewarded in-game for each vote!</p>
                 </div>
                 <div className="w-full md:w-1/2 bg-white/50 h-[2px] mx-auto"/>
             </div>
             <div className="flex flex-col md:flex-row gap-4">
-                <div className="flex flex-col w-full items-center gap-2 flex-1">
+                <div className="flex flex-col items-center gap-2 flex-1">
                     <div>
-                        <SubTitle>Daily rewards</SubTitle>
-                        <p className="font-medium">You can use each vote link once a day.</p>
+                        <SubTitle>Vote party</SubTitle>
+                        <p className="font-medium">Work as a community to get additional rewards!</p>
                     </div>
                     <div className="w-3/4 bg-white/50 h-[2px]"/>
+                    <div className="md:w-[70%] mt-4">
+                        Did you know that each time 200 votes are made, an in-game vote party
+                        activates? Make sure to encourage others to vote so you too can experience the vote party!
+                        It's another way to earn free rewards! You must vote at least once to be eligible for the vote
+                        party.
+                    </div>
                 </div>
                 <div className="flex flex-col w-full gap-2 items-center flex-1">
                     <div>
