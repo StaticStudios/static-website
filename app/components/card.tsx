@@ -20,7 +20,7 @@ const HorizontalCard = ({imageSrc, title, description, footer}: CardProps) => {
             boxShadow: "0 0 20px 0 rgba(0,0,0,0.3)"
         }}>
             <div
-                className="ring-1 flex flex-1 overflow-hidden rounded-bl-none rounded-t-lg md:rounded-l-lg">
+                className="ring-1 flex flex-1 overflow-hidden rounded-bl-none rounded-t-lg md:rounded-tr-none md:rounded-l-lg">
                 <img src={imageSrc}
                      className="object-center object-cover w-full h-[250px] md:h-auto"
                      alt="Card Image"/>
