@@ -9,14 +9,14 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
-//todo: add vote links
 const links = [
-    "",
-    "",
-    "",
-    "",
-    "",
-    ""
+    "https://minecraftservers.org/vote/670673",
+    "https://minecraft-server-list.com/server/510054/vote/",
+    "https://servers-minecraft.net/server-static-studios.41149",
+    "https://minecraft.buzz/vote/13401",
+    "https://best-minecraft-servers.co/server-static-studios.27338/vote",
+    "https://minecraft-mp.com/server/340665/vote/",
+    "https://minecraft-serverlist.com/server/2261/vote"
 ]
 
 export default function Vote() {
