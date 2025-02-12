@@ -52,7 +52,18 @@ const DiscordButton = () => {
 
 const ServerButton = () => {
     const [onlinePlayers, setOnlinePlayers] = useState<null | number>(null);
-    //todo: fetch these in the background
+
+    useEffect(() => {
+        const url = "https://api.staticstudios.net/api/v1/minecraft/player_count";
+        fetch(url)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                setOnlinePlayers(data);
+            })
+            .catch(console.error);
+
+    }, [setOnlinePlayers])
 
     const onClick = useCallback(async () => {
         await navigator.clipboard.writeText("play.staticstudios.net");
