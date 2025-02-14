@@ -75,7 +75,7 @@ const ServerButton = () => {
         title="play.staticstudios.net"
         right={false}
         onClick={onClick}
-        description={`${onlinePlayers ? onlinePlayers.toLocaleString() : "Loading..."} ONLINE • CLICK TO COPY`}
+        description={`${onlinePlayers != null ? onlinePlayers.toLocaleString() : "Loading..."} ONLINE • CLICK TO COPY`}
     />
 }
 
