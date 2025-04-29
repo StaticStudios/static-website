@@ -18,6 +18,7 @@ const links = [
     "https://minecraft-mp.com/server/340665/vote/",
     "https://minecraft-serverlist.com/server/2261/vote"
 ]
+//todo: overhaul
 
 export default function Vote() {
     return (

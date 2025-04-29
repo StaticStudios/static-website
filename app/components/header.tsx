@@ -1,5 +1,4 @@
-import banner from "~/assets/banner.png";
-import {Container} from "~/components/content";
+import banner from "~/assets/hero.png";
 import React, {useCallback, useEffect, useState} from "react";
 import {DiscordIcon} from "~/components/icons/discord";
 import {PlayIcon} from "~/components/icons/play";
@@ -13,12 +12,10 @@ export const Header = () => {
                 <div className="h-[3%] w-full bg-theme-800"/>
             </div>
             <div className="absolute left-0 right-0 bottom-4">
-                <Container>
-                    <div className="flex flex-row justify-between">
-                        <ServerButton/>
-                        <DiscordButton/>
-                    </div>
-                </Container>
+                <div className="flex flex-row justify-between container mx-auto">
+                    <ServerButton/>
+                    <DiscordButton/>
+                </div>
             </div>
         </div>
     )

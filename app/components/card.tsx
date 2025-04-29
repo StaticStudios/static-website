@@ -6,6 +6,9 @@ interface CardProps {
     layout: "vertical" | "horizontal";
 }
 
+import parse from 'html-react-parser';
+
+
 export const Card = (props: CardProps) => {
     if (props.layout === "horizontal") {
         return <HorizontalCard {...props}/>
@@ -15,8 +18,9 @@ export const Card = (props: CardProps) => {
 }
 
 const HorizontalCard = ({imageSrc, title, description, footer}: CardProps) => {
+    const htmlDescription = parse(description);
     return (
-        <div className="flex flex-col md:flex-row w-full bg-theme-700 rounded-lg p-[1px] md:h-[350px]" style={{
+        <div className="flex flex-col md:flex-row w-full bg-slate-800 rounded-lg p-[1px] md:h-[350px]" style={{
             boxShadow: "0 0 20px 0 rgba(0,0,0,0.3)"
         }}>
             <div
@@ -30,7 +34,7 @@ const HorizontalCard = ({imageSrc, title, description, footer}: CardProps) => {
                 <div className="relative size-full">
                     <div className="flex flex-col text-center gap-4">
                         <h1 className="text-[26px] font-bold tracking-tight text-white">{title}</h1>
-                        <p className="font-light text-[17px]">{description}</p>
+                        <div className="font-light text-[17px]">{htmlDescription}</div>
                         <p className="absolute bottom-0 right-0 font-semibold text-lg">{footer}</p>
                     </div>
                 </div>
@@ -40,8 +44,9 @@ const HorizontalCard = ({imageSrc, title, description, footer}: CardProps) => {
 }
 
 const VerticalCard = ({imageSrc, title, description, footer}: CardProps) => {
+    const htmlDescription = parse(description);
     return (
-        <div className="flex flex-col md:basis-1/3 w-full bg-theme-700 rounded-lg p-[1px]" style={{
+        <div className="flex flex-col md:basis-1/3 w-full bg-slate-800 rounded-lg p-[1px]" style={{
             boxShadow: "0 0 20px 0 rgba(0,0,0,0.3)"
         }}>
             <div className="ring-1 flex flex-1 overflow-hidden rounded-t-lg">
@@ -50,11 +55,11 @@ const VerticalCard = ({imageSrc, title, description, footer}: CardProps) => {
                      alt="Card Image"/>
             </div>
 
-            <section className="p-6 h-[300px]">
+            <section className="p-6 h-[300px] overflow-hidden">
                 <div className="relative size-full">
                     <div className="flex flex-col text-center gap-4">
                         <h1 className="text-[26px] font-bold tracking-tight text-white">{title}</h1>
-                        <p className="font-light text-[17px]">{description}</p>
+                        <div className="font-light text-[17px]">{htmlDescription}</div>
                         <p className="absolute bottom-0 right-0 font-semibold text-lg">{footer}</p>
                     </div>
                 </div>

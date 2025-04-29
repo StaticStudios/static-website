@@ -5,7 +5,6 @@ import {ShieldIcon} from "~/components/icons/shield";
 import {TicketIcon} from "~/components/icons/ticket";
 import {CartIcon} from "~/components/icons/cart";
 import {cva, type VariantProps} from "class-variance-authority";
-import {Container} from "~/components/content";
 import {MenuIcon} from "~/components/icons/menu";
 import {useIsMobile} from "~/lib/mobile";
 
@@ -19,7 +18,7 @@ export const Navbar = () => {
 
     return (
         <div className="w-full bg-theme-700 min-h-16 overflow-hidden md:min-h-0">
-            <Container className="relative">
+            <div className="container relative mx-auto">
 
                 <button className="md:hidden absolute top-4 right-4" onClick={toggle}>
                     <MenuIcon className="text-white size-8"/>
@@ -38,7 +37,7 @@ export const Navbar = () => {
                         <NavItem special icon={<CartIcon/>} href="/store">Store</NavItem>
                     </div>
                 </div>
-            </Container>
+            </div>
         </div>
     )
 }
