@@ -2,7 +2,7 @@ import type {Route} from "../../+types/root";
 import {type TebexCategory, type TebexPackage, useTebexContent} from "~/lib/tebex";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "~/components/ui/collapsible";
 import {ChevronDown, InfoIcon, ShoppingCartIcon} from "lucide-react";
-import {Link} from "react-router";
+import {Link, ScrollRestoration} from "react-router";
 import {
     SidebarContent,
     SidebarGroup,
@@ -14,22 +14,20 @@ import {
     SidebarProvider
 } from "~/components/ui/sidebar";
 import {Button} from "~/components/ui/button";
-import {HeroV2} from "~/components/v2/hero";
 import React from "react";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "~/components/ui/tooltip";
 import {useCurrencyFormatter} from "~/lib/currency";
-import {Cart} from "~/components/v2/cart";
+import {Cart} from "~/components/cart";
 import {useAccount} from "~/lib/account";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios"},
+        {title: "Static Studios | Store"},
         {name: "description", content: "Static Studios is a Minecraft server network."},
     ];
 }
 
 export default function Store({params}: Route.LoaderArgs) {
-    //todo: we need some category picker
     const {categoryId} = params;
     const {parentCategories, useCategory} = useTebexContent();
     const _category = useCategory(categoryId);
@@ -52,7 +50,7 @@ export default function Store({params}: Route.LoaderArgs) {
 
     return (
         <>
-            <HeroV2/>
+            <ScrollRestoration/>
             <div className="mx-2 my-8">
                 <div className="container mx-auto">
                     <div className="flex flex-col md:flex-row gap-6">
@@ -81,6 +79,7 @@ const Category = ({category}: { category: TebexCategory }) => {
                 <div className="flex-1 md:self-end flex flex-row flex-wrap [&>a]:flex-1 md:[&>a]:flex-0 text-center">
                     {parent?.children?.map(child => (
                         <Link
+                            preventScrollReset={true}
                             key={child.id}
                             to={`/store/${child.slug}`}
                             data-active={child.id == category.id}
@@ -100,7 +99,6 @@ const Category = ({category}: { category: TebexCategory }) => {
 }
 
 const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
-    //todo add tos, refund policy
     const {addToCart} = useAccount()
     const price = useCurrencyFormatter(pkg.base_price);
     return (
@@ -153,8 +151,6 @@ const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
     )
 }
 
-//todo add tos, refund policy
-
 const Sidebar = () => {
     const {parentCategories} = useTebexContent();
     //todo: at the bottom add a check gift card section
@@ -167,8 +163,10 @@ const Sidebar = () => {
                         <SidebarContent>
                             {parentCategories.map((parent, i) => (
                                 <div key={i}>
-                                    <Link to={`/store/${parent.slug}`}
-                                          className="text-xl text-white font-semibold hover:underline">{parent.name}
+                                    <Link
+                                        preventScrollReset={true}
+                                        to={`/store/${parent.slug}`}
+                                        className="text-xl text-white font-semibold hover:underline">{parent.name}
                                     </Link>
                                     {parent.children?.map((category, j) => (
                                         <Collapsible defaultOpen={j == 0} className="group/collapsible"

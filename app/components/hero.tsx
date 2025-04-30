@@ -3,9 +3,10 @@ import {useEffect, useState} from "react";
 import {CheckIcon, CopyIcon, ExternalLinkIcon, UsersIcon} from "lucide-react";
 import {Link} from "react-router";
 
-
-//todo: allow specifying the title and description. eg. on the store page
-export const HeroV2 = () => {
+export const HeroV2 = ({title, subtitle}: {
+    title: { content: string, highlighted?: boolean }[],
+    subtitle: string
+}) => {
     return (
         <div className="relative h-[500px] overflow-hidden">
             <div className="absolute top-0 right-0 bottom-0 left-0">
@@ -17,12 +18,14 @@ export const HeroV2 = () => {
                     <div
                         className="container mx-auto flex flex-col justify-center items-center gap-6 h-full">
                         <p className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg text-center">
-                            Welcome to <span className="text-purple-400">Static Studios</span>
+                            {title.map((part, index) => (
+                                <span key={index} className={part.highlighted ? "text-purple-400" : ""}>
+                                        {part.content}{index < title.length - 1 ? " " : ""}
+                                    </span>
+                            ))}
                         </p>
                         <p className="text-xl text-white/80 max-w-2xl mb-8 drop-shadow-md text-center">
-                            Experience the ultimate Minecraft server with custom gameplay, unique features, and an
-                            amazing
-                            community
+                            {subtitle}
                         </p>
                     </div>
                 </div>

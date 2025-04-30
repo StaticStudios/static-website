@@ -3,7 +3,7 @@ import type {Route} from "../+types/root";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Page Not Found • Static Studios"},
+        {title: "Static Studios | Not Found"},
         {name: "description", content: "The page you searched for does not exist."},
     ];
 }

@@ -16,6 +16,9 @@ import {
     DropdownMenuTrigger
 } from "~/components/ui/dropdown-menu";
 import {useStore} from "~/lib/persist";
+import {Dialog, DialogContent, DialogTitle} from "~/components/ui/dialog";
+import {DialogDescription} from "@radix-ui/react-dialog";
+import {Link} from "react-router";
 
 export const Cart = () => {
     const {account, promptLogin, logout} = useAccount();
@@ -104,12 +107,7 @@ export const Cart = () => {
                             {account.basket.packages.map(pkg => (
                                 <CartItem key={pkg.id} item={pkg}/>
                             ))}
-                            <Button
-                                onClick={e => {
-                                    if (account.basket.packages.length > 0) {
-                                        window.open(account.basket.links.checkout, "_self");
-                                    }
-                                }}>Checkout</Button>
+                            <CheckoutButton/>
                         </div>
                         <Button
                             onClick={e => {
@@ -123,6 +121,55 @@ export const Cart = () => {
             </SheetContent>
         </Sheet>
 
+    )
+}
+
+const CheckoutButton = () => {
+    const {account} = useAccount();
+    const [open, setOpen] = useState(false);
+    return (
+        <>
+            <Button
+                onClick={e => {
+                    // if (account.basket.packages.length > 0) {
+                    //     window.open(account.basket.links.checkout, "_self");
+                    // }
+                    setOpen(true);
+                }}>Checkout</Button>
+            <Dialog onOpenChange={open => {
+                setOpen(open);
+            }} open={open}>
+                <DialogContent
+                    className="md:max-w-[95vw] w-[900px] max-h-[95vh] overflow-y-auto animate-in text-white border-indigo-800/30 p-6 bg-slate-800">
+                    <DialogTitle>Continue to Checkout</DialogTitle>
+                    <DialogDescription className="text-white/70">
+                        By clicking <b>Continue to Checkout</b>, you are agreeing to our{" "}
+                        <Link to={"/tos"} target="_blank"
+                              className="text-purple-400 hover:text-purple-500 transition-colors">
+                            Terms of Service
+                        </Link>{" "}and our{" "}
+                        <Link to={"/privacy"} target="_blank"
+                              className="text-purple-400 hover:text-purple-500 transition-colors">
+                            Privacy Policy.
+                        </Link>
+                        <br/>
+                        <br/>
+                        All purchases are final and non-refundable. If you have any issues with your purchase, please
+                        contact us
+                        via Discord.
+                    </DialogDescription>
+                    <Button
+                        onClick={e => {
+                            if (!account) {
+                                return
+                            }
+                            if (account.basket.packages.length > 0) {
+                                window.open(account.basket.links.checkout, "_self");
+                            }
+                        }}>Continue to Checkout</Button>
+                </DialogContent>
+            </Dialog>
+        </>
     )
 }
 

@@ -4,7 +4,7 @@ import {Tabs, TabsContent, TabsList, TabsTrigger} from "~/components/ui/tabs";
 import {ArrowRightIcon, CheckIcon, ShoppingCartIcon} from "lucide-react";
 import React, {useState} from "react";
 import {Button} from "~/components/ui/button";
-import {Cart} from "~/components/v2/cart";
+import {Cart} from "~/components/cart";
 import {useAccount} from "~/lib/account";
 import {Link} from "react-router";
 import {useCurrencyFormatter} from "~/lib/currency";
@@ -14,7 +14,7 @@ import axios from "axios";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios"},
+        {title: "Static Studios | Store"},
         {name: "description", content: "Static Studios is a Minecraft server network."},
     ];
 }

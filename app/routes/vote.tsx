@@ -4,7 +4,7 @@ import type {Route} from "../+types/root";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Vote • Static Studios"},
+        {title: "Static Studios | Vote"},
         {name: "description", content: "Vote for Static Studios to receive in-game rewards!"},
     ];
 }

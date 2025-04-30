@@ -160,8 +160,6 @@ export const useTebex = () => {
                 const parents: RawTebexCategory[] = data.filter((category: RawTebexCategory) => category.parent === null);
                 const children: RawTebexCategory[] = data.filter((category: RawTebexCategory) => category.parent !== null);
 
-                //todo: parse the price into the local currency
-                //todo: parse the raw description into a description and a feature list
                 const withChildren = parents.map((category => ({
                     ...category,
                     children: children.filter((child: RawTebexCategory) => child.parent?.id === category.id)

@@ -4,7 +4,7 @@ import skyblockSpawn from "~/assets/skyblock/spawn.png";
 import skyblockSpawnSneakPeak from "~/assets/skyblock/spawn_sneak_peak.png";
 import skyblockOasis from "~/assets/skyblock/oasis_1.png";
 import React from "react";
-import {HeroV2} from "~/components/v2/hero";
+import {HeroV2} from "~/components/hero";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -17,7 +17,8 @@ export function meta({}: Route.MetaArgs) {
 export default function Home() {
     return (
         <>
-            <HeroV2/>
+            <HeroV2 title={[{content: "Welcome to"}, {content: "Static Studios", highlighted: true}]}
+                    subtitle="Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community"/>
             <div className="container flex grow my-8 text-theme-100 text-lg mx-auto">
                 <div className="flex flex-row flex-wrap gap-8">
                     <Card
