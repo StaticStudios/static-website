@@ -5,6 +5,7 @@ export default [
         layout("layouts/cards.tsx", [
             index("routes/home.tsx"),
             route("tos", "routes/tos.tsx"),
+            route("rules", "routes/rules.tsx"),
             route("privacy", "routes/privacy.tsx"),
             route("store/:categoryId?", "routes/store/index.tsx"),
             route("store/item/:itemId", "routes/store/item.tsx"),
