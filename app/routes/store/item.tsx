@@ -176,15 +176,15 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                 </div>
             )}
             <Button variant="secondary" onClick={() => {
+                if (!account) {
+                    alert("You must be logged in to do this");
+                    return
+                }
                 setOpen(true)
             }} className="flex-1">
                 Gift To a Friend
             </Button>
             <Dialog onOpenChange={open => {
-                if (!account) {
-                    alert("You must be logged in to do this");
-                    return
-                }
                 setOpen(open);
                 if (!open) {
                     setUsername("");

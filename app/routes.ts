@@ -9,13 +9,13 @@ export default [
             route("privacy", "routes/privacy.tsx"),
             route("store/:categoryId?", "routes/store/index.tsx"),
             route("store/item/:itemId", "routes/store/item.tsx"),
-        ]),
-        layout("layouts/content.tsx", [
             route("vote", "routes/vote.tsx"),
             route("*", "routes/not-found.tsx"),
-        ])
+        ]),
 
     ])
 ] satisfies RouteConfig;
 
-//todo: add /rules
+
+//todo: discord page redirect
+//todo: update not-found

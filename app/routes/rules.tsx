@@ -15,7 +15,7 @@ export default function TOS() {
         <MarkdownPage markdown={markdown} location={
             [
                 {href: "/", name: "Home"},
-                {href: "/tos", name: "Rules"},
+                {href: "/rules", name: "Rules"},
             ]
         }/>
     );
