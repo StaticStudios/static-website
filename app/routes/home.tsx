@@ -13,6 +13,8 @@ export function meta({}: Route.MetaArgs) {
     ];
 }
 
+//todo: animate loading in
+//todo: ideally the cards should point to an article
 //todo: advertise the store
 export default function Home() {
     return (

@@ -81,9 +81,6 @@ export type TebexBasket = {
     }
 }
 
-//todo: support additional currencies. tebex won't do the conversion so we have to do it manually
-// at checkout the currency will be usd, but allow users to see the price in their local currency
-
 function parseDescription(raw: string): { description: string; features: string[] } {
     const parser = new DOMParser();
     const doc = parser.parseFromString(raw, 'text/html');
@@ -142,8 +139,6 @@ type Tebex = {
 }
 
 const token = "mgtb-45837037c480f55fd9d70f5923b95623349a8ba7"
-
-//todo: set token in env
 export const useTebex = () => {
     const getListings = useCallback(() => new Promise<TebexCategory[]>((resolve, reject) => {
         axios.get(`https://headless.tebex.io/api/accounts/${token}/categories?includePackages=1`)

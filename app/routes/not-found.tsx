@@ -1,4 +1,3 @@
-import {Title} from "~/components/text";
 import type {Route} from "../+types/root";
 
 export function meta({}: Route.MetaArgs) {
@@ -11,10 +10,9 @@ export function meta({}: Route.MetaArgs) {
 
 export default function NotFound() {
     return (
-        <div className="flex items-center flex-col w-full gap-1">
-            <Title>Page not found</Title>
+        <div className="flex items-center flex-col w-full gap-1 mt-8">
+            <h1>Page not found</h1>
             <p>The page you searched for does not exist</p>
-            <div className="w-1/2 bg-white/50 h-[2px]"/>
         </div>
     );
 }
