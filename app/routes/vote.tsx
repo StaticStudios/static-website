@@ -51,7 +51,7 @@ export default function Vote() {
         if (topVotersAPI[i] && topVotersAPI[i].voteCount > 0) {
             topVoters.push(topVotersAPI[i]);
         } else {
-            topVoters.push({name: "No data!", voteCount: 0});
+            topVoters.push({name: "No data", voteCount: -1});
         }
     }
 
@@ -223,7 +223,7 @@ export default function Vote() {
                                             </div>
                                             <p className="text-white">{voter.name}</p>
                                         </div>
-                                        <p className="text-purple-400 font-semibold">{voter.voteCount}</p>
+                                        <p className="text-purple-400 font-semibold">{voter.voteCount > 0 ? voter.voteCount : "N/A"}</p>
                                     </div>
                                 ))}
                             </div>
