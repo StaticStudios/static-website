@@ -1,5 +1,6 @@
 import {createContext, type ReactNode, useContext, useEffect, useState} from "react";
 import {useStore} from "~/lib/persist";
+import axios from "axios";
 
 type CurrencyRatesContextType = {
     rates: { [key: string]: number };
@@ -17,9 +18,7 @@ export const CurrencyRatesProvider = ({children}: { children: ReactNode }) => {
     );
 }
 
-//todo: impl caching on the backend
-//todo: only include a handful of these
-const tempRates: { [key: string]: number } = {
+const fallbackRates: { [key: string]: number } = {
     "USD": 1,
     "AED": 3.67,
     "AFN": 71.14,
@@ -185,21 +184,67 @@ const tempRates: { [key: string]: number } = {
     "ZWL": 26.81
 }
 
+const currencies = [
+    "USD",
+    "EUR",
+    "JPY",
+    "GBP",
+    "AUD",
+    "CAD",
+    "CHF",
+    "CNY",
+    "SEK",
+    "MXN",
+    "NZD",
+    "SGD",
+    "HKD",
+    "NOK",
+    "KRW",
+    "TRY",
+    "INR",
+    "RUB",
+    "BRL",
+    "ZAR",
+    "DKK",
+    "PLN",
+    "TWD",
+    "THB",
+    "MYR"
+].sort()
+
 const useRates = () => {
     const [rates, setRates] = useState<{ [key: string]: number }>({});
 
     useEffect(() => {
-        const fetchRates = async () => {
-            // // @ts-ignore
-            // const rates = await new Convert().from("USD").fetch();
-            // console.log(rates.rates)
-            const rates = tempRates;
+        const applyRates = (rates: { [key: string]: number }) => {
             const obj: { [key: string]: number } = {}
             for (const key in rates) {
-                obj[key] = rates[key];
+                obj[key.toUpperCase()] = rates[key];
             }
-            console.log(obj)
             setRates(obj);
+        }
+
+        let rates: { [key: string]: number } | undefined;
+        const fetchRates = async () => {
+            axios.get("https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/usd.json")
+                .then((response) => {
+                    rates = response.data.usd;
+                    applyRates(rates as { [key: string]: number });
+                }).finally(() => {
+                if (!rates) {
+                    axios.get("https://latest.currency-api.pages.dev/v1/currencies/usd.json")
+                        .then((response) => {
+                            rates = response.data.usd;
+                            applyRates(rates as { [key: string]: number });
+                        }).finally(() => {
+                        if (!rates) {
+                            console.warn("Currency API failed, using fallback rates");
+                            rates = fallbackRates;
+                            applyRates(rates as { [key: string]: number });
+                        }
+                    })
+                }
+            })
         };
 
         fetchRates();
@@ -209,8 +254,6 @@ const useRates = () => {
 }
 
 export const useCurrencies = () => {
-    const exchangeRates = useExchangeRates();
-    const currencies = Object.keys(exchangeRates.rates);
     return currencies;
 }
 
@@ -228,6 +271,7 @@ export const useCurrencyFormatter = (usd?: number) => {
     const exchangeRates = useExchangeRates();
     useEffect(() => {
         const currencyToUse = currency ?? "USD";
+        console.log(currencyToUse, exchangeRates)
         const converted = exchangeRates ? exchangeRates.rates[currencyToUse] ?? 1 : 0;
         setFormattedCurrency(usd ? (usd * converted).toLocaleString(undefined, {
             style: "currency",

@@ -42,9 +42,7 @@ export default function Store({params}: Route.LoaderArgs) {
 
     if (!category) {
         return (
-            <p>
-                Error
-            </p>
+            <></>
         )
     }
 

@@ -39,7 +39,7 @@ export default function Package({params}: Route.LoaderArgs) {
     const decrementQuantity = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1))
 
     if (!pkg) {
-        return <div>Package not found</div>;
+        return <></>
     }
 
     const category = parentCategories
