@@ -14,7 +14,3 @@ export default [
         route("*", "routes/not-found.tsx"),
     ])
 ] satisfies RouteConfig;
-
-//todo: add a /article/{article} route.
-// render forms in md. these will be used for like server releases where we yap about features and stuff.
-// dynamically fetch the md from ~/md/articles/{article}.md
