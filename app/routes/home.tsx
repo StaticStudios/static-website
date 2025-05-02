@@ -18,11 +18,11 @@ export function meta({}: Route.MetaArgs) {
 const cards: CardProps[] = [
     {
         title: "Static Skyblock | Season 1.0",
-        description: "TODO:", //TODO: THIS
+        description: "After more than a year of active development, Static Skyblock Season 1.0 goes live! This release brings numerous changes - be sure to check them out!", //TODO: THIS
         imageSrc: skyblockSpawn,
         date: "May 30, 2025",
         layout: "horizontal",
-        href: "test" //todo: create article
+        href: "/article/skyblock-season-1"
     },
     {
         title: "Static Skyblock | Beta #3",
@@ -47,7 +47,6 @@ const cards: CardProps[] = [
     }
 ];
 
-//todo: ideally the cards should point to an article
 //todo: advertise the store
 export default function Home() {
     return (

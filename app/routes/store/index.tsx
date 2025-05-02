@@ -1,5 +1,5 @@
 import type {Route} from "../../+types/root";
-import {type TebexCategory, type TebexPackage, useTebexContent} from "~/lib/tebex";
+import {type TebexCategory, type TebexPackage, useIsTebexEnabled, useTebexContent} from "~/lib/tebex";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "~/components/ui/collapsible";
 import {ChevronDown, InfoIcon, ShoppingCartIcon} from "lucide-react";
 import {Link, ScrollRestoration} from "react-router";
@@ -31,6 +31,7 @@ export default function Store({params}: Route.LoaderArgs) {
     const {categoryId} = params;
     const {parentCategories, useCategory} = useTebexContent();
     const _category = useCategory(categoryId);
+    const tebexEnabled = useIsTebexEnabled()
 
     const rawParentCategory = _category ? (_category.parent ?? _category) : parentCategories[0] ? parentCategories[0] : undefined;
     const parentCategory = useCategory(rawParentCategory?.slug);
@@ -38,6 +39,14 @@ export default function Store({params}: Route.LoaderArgs) {
     let category = children?.find(child => child.slug == categoryId);
     if (!category) {
         category = parentCategory?.children ? parentCategory!.children![0] : undefined
+    }
+
+    if (!tebexEnabled) {
+        return (
+            <div className="mx-auto mt-8">
+                <p className="text-white text-lg">The store is currently disabled.</p>
+            </div>
+        )
     }
 
     if (!category) {
