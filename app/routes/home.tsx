@@ -54,12 +54,14 @@ export default function Home() {
         <>
             <HeroV2 title={[{content: "Welcome to"}, {content: "Static Studios", highlighted: true}]}
                     subtitle="Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community"/>
-            <div className="container flex grow my-8 text-lg mx-auto flex-col gap-8">
-                <Card {...cards[0]} index={0}/>
-                <div className="grid grid-cols-3 flex-wrap gap-8">
-                    {cards.slice(1).map((card, index) => (
-                        <Card key={index} {...card} index={index + 1}/>
-                    ))}
+            <div className="mx-2">
+                <div className="container flex grow my-8 text-lg mx-auto flex-col gap-8">
+                    <Card {...cards[0]} index={0}/>
+                    <div className="grid grid-cols-1 md:grid-cols-3 flex-wrap gap-8">
+                        {cards.slice(1).map((card, index) => (
+                            <Card key={index} {...card} index={index + 1}/>
+                        ))}
+                    </div>
                 </div>
             </div>
         </>
@@ -79,12 +81,12 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
     const navigate = useNavigate();
     return (
         <div data-layout={layout}
-             className={`flex data-[layout=horizontal]:flex-row data-[layout=vertical]:flex-col border-indigo-800/50 border rounded-lg overflow-hidden bg-slate-800/70 opacity-0 animate-fade-in-up`}
+             className={`flex md:data-[layout=horizontal]:flex-row flex-col border-indigo-800/50 border rounded-lg overflow-hidden bg-slate-800/70 opacity-0 animate-fade-in-up`}
              style={{
                  animationDelay: (index + 1) * 0.3 + "s"
              }}>
             <img data-layout={layout} src={imageSrc} alt={title}
-                 className="data-[layout=horizontal]:w-[50%] object-cover h-[250px]"/>
+                 className="md:data-[layout=horizontal]:w-[50%] object-cover h-[250px]"/>
             <div className="flex flex-col gap-4 p-4 flex-1">
                 <div className="flex flex-row gap-1 items-center text-white/70">
                     <CalendarIcon className="size-5"/>
