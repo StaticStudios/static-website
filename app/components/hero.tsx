@@ -84,7 +84,7 @@ const ServerIPPanel = () => {
 
 const DiscordPanel = () => {
     const [members, setMembers] = useState<null | number>(null);
-    useEffect(() => { //todo: store members & online players in some global state to avoid rerendering on page change
+    useEffect(() => {
         const url = 'https://discord.com/api/v9/invites/9S6K9E5?with_counts=true&with_expiration=true';
         fetch(url)
             .then(response => response.json())
