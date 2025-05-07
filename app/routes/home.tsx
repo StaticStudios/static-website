@@ -2,7 +2,7 @@ import type {Route} from "../+types/root";
 import skyblockSpawn from "~/assets/skyblock/spawn.png";
 import skyblockSpawnSneakPeak from "~/assets/skyblock/spawn_sneak_peak.png";
 import skyblockOasis from "~/assets/skyblock/oasis_1.png";
-import React, {type ReactNode} from "react";
+import React, {type ReactNode, useEffect} from "react";
 import {HeroV2} from "~/components/hero";
 import {CalendarIcon, ClockIcon, ShoppingCartIcon, StarIcon, UsersIcon} from "lucide-react";
 import {Button} from "~/components/ui/button";
@@ -11,7 +11,25 @@ import {Link, useNavigate} from "react-router";
 export function meta({}: Route.MetaArgs) {
     return [
         {title: "Static Studios"},
-        {name: "description", content: "Static Studios is a Minecraft server network."},
+        {
+            name: "description",
+            content: "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!"
+        },
+        {
+            name: "keywords",
+            content: "minecraft server, skyblock, minecraft skyblock, static studios, custom enchants, quests, minecraft community, minecraft"
+        },
+        {name: "robots", content: "index, follow"},
+        {name: "viewport", content: "width=device-width, initial-scale=1"},
+        {property: "og:title", content: "Static Studios"},
+        {
+            property: "og:description",
+            content: "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!"
+        },
+        {property: "og:type", content: "website"},
+        {property: "og:image", content: "/images/skyblock.png"},
+        {property: "og:url", content: "https://staticstudios.net"},
+        {name: "twitter:card", content: "summary_large_image"},
     ];
 }
 
@@ -49,8 +67,34 @@ const cards: CardProps[] = [
 
 //todo: advertise the store - display featured store items
 export default function Home() {
+    // Add this in your Home component
+    useEffect(() => {
+        const structuredData = {
+            "@context": "https://schema.org",
+            "@type": "VideoGame",
+            "name": "Static Studios",
+            "description": "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!",
+            "genre": "Sandbox, Survival",
+            "gamePlatform": "Minecraft Java Edition",
+            "offers": {
+                "@type": "Offer",
+                "availability": "https://schema.org/InStock"
+            }
+        };
+
+        const script = document.createElement('script');
+        script.type = 'application/ld+json';
+        script.text = JSON.stringify(structuredData);
+        document.head.appendChild(script);
+
+        return () => {
+            document.head.removeChild(script);
+        };
+    }, []);
+
     return (
         <>
+            <link rel="canonical" href="https://staticstudios.net/"/>
             <HeroV2 title={[{content: "Welcome to"}, {content: "Static Studios", highlighted: true}]}
                     subtitle="Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community"/>
             <div className="mx-2">
@@ -76,10 +120,10 @@ export default function Home() {
                         <QuickLink title="Vote Rewards" description="Vote daily for awesome in-game rewards and help trigger vote
                                 parties!" icon={<StarIcon className=""/>} href="/vote"/>
                         <QuickLink title="Join Discord"
-                                   description="Connect with our community, get support, and star updated on server news."
+                                   description="Connect with our community, get support, and stay updated on server news."
                                    icon={<UsersIcon className=""/>} href="/discord"/>
                         <QuickLink title="Server Rules"
-                                   description="Review our server fules to ensure a posive experience for everyone"
+                                   description="Review our server rules to ensure a positive experience for everyone"
                                    icon={<ClockIcon className=""/>} href="/rules"/>
                         <QuickLink title="Store"
                                    description="Browse our selection of ranks, bundles, and items to enhance your gameplay."
