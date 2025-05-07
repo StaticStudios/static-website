@@ -10,86 +10,62 @@ current rules. Enforcement of rules may vary depending on context, severity, and
 
 ### Chat Behavior
 
-Players are expected to communicate respectfully and responsibly at all times. Spamming, flooding, or sending repeated
-or disruptive messages is not permitted. Excessive use of capital letters or special characters is discouraged. Hate
-speech, slurs, racism, homophobia, or any form of discriminatory language will not be tolerated under any circumstances.
-Encouraging self-harm, suicide, or issuing threats of violence is strictly prohibited.
+Players are expected to be respectful and considerate in all forms of communication, including public chat and direct
+messages. Disrespectful behavior such as spamming, flooding the chat, hate speech, harassment, or personal attacks will
+not be tolerated. This includes threats of violence, threats of self-harm, or engaging in excessive toxicity toward
+other players.
 
-Personal attacks, targeted harassment, or excessive toxicity directed toward players or staff is not allowed.
-Impersonating staff, trolling, or intentionally causing drama within the community is also considered disruptive
-behavior. Use of inappropriate or sensitive topics in public chat is discouraged, and any attempt to bypass filters or
-moderation tools will be treated as a violation.
+Disruption in direct messages (DMs) is also considered a violation, especially if it is unwanted or aggressive in
+nature. Impersonating staff members, sharing or promoting NSFW content, and posting unrelated or unsafe links—especially
+those not connected to Static Studios—are strictly forbidden.
 
-Links unrelated to Static Studios, including advertisements for other servers or websites, are not allowed. Sharing
-explicit, NSFW, or otherwise offensive content is strictly prohibited.
+### Modified Clients and Allowed Mods
 
-### Game Integrity and Client Modifications
+You are allowed to use modified clients provided they do not offer any gameplay advantage over other players. Mods that
+improve performance or aesthetics are generally permitted. For example, you may use Optifine, basic minimap mods (that
+do not reveal entities or caves), HUD customizers, and shader packs. These modifications enhance visual experience
+without altering gameplay mechanics.
 
-All players must use unmodified Minecraft clients that do not provide unfair advantages. Hacked clients, cheat software,
-automation tools, or macros are not allowed. This includes but is not limited to fly hacks, nukers, auto-clickers, X-ray
-modifications, or scripting that automates gameplay. Only cosmetic or performance-enhancing clients such as LunarClient,
-Badlion, or Optifine are permitted.
+However, any client or mod that gives an unfair advantage is not allowed. Disallowed modifications include, but are not
+limited to, X-Ray or resource detection tools, auto clickers, aim assists, aimbots, auto fishing, movement or speed
+hacks, and pathing/farming bots. These create imbalances in gameplay and will result in penalties if used.
 
-Use of software or input modifications to remain active while AFK or perform repeated tasks without interaction is not
-permitted. Any attempt to bypass AFK detection or simulate player input through hardware or software will be considered
-automation. Using alternative methods to exploit game mechanics or intentionally glitch into restricted areas is not
-allowed.
+### Server Bugs and Exploits
 
-### Fair Play and Competition
+If you discover a bug or exploit, you are required to report it immediately to a member of the staff. Intentionally
+exploiting a bug, glitch, or unintended mechanic will result in disciplinary action. This includes duplication glitches
+and any form of behavior that circumvents intended gameplay mechanics.
 
-Players are expected to engage in fair competition. Kill farming, feeding, or kill boosting to gain PvP advantages or
-rank progression is not permitted. Teaming in solo events or intentionally avoiding PvP objectives is considered unfair
-play. Boosting through coordinated actions across multiple accounts or accounts controlled by others is not allowed.
+Additionally, if a bug causes server lag or performance degradation, it must not be abused. These issues also need to be
+reported promptly so they can be addressed. Continued abuse of performance-impacting bugs is considered a form of
+exploitation.
 
-Scamming other players in any form, including in-game trades or auction house transactions, is against the rules.
-Sharing or logging into other players’ accounts, or distributing free or public accounts such as from EasyMC or
-TheAltening, is not allowed. Vote abuse or reward manipulation across multiple accounts is strictly prohibited.
+### Real World Trades
 
-### Server Economy and Exploits
+Trading in-game items, services, or currency for real-world goods or money is strictly prohibited. All transactions must
+remain within the Static Studios environment. This means you may not pay or accept payment in any form of real-world
+currency—including PayPal, gift cards, or cryptocurrency—for anything that affects in-game gameplay or resources.
 
-Exploiting bugs, dupes, or unintended mechanics for personal or team gain is not allowed. Any such behavior must be
-reported immediately through a support ticket. Attempting to conceal, reproduce, or distribute exploits is grounds for
-serious enforcement.
+### Alt Accounts
 
-Real-world trading, including the buying, selling, or trading of in-game items, accounts, or services in exchange for
-real currency, gift cards, crypto, or services outside of the server’s supported systems, is not permitted. Chargebacks
-or fraudulent purchases through our store will result in permanent account sanctions.
+Players are allowed to use alternate accounts on the server, but there are specific restrictions. You may not use auto
+clickers, macros, or other automation tools on alt accounts. Furthermore, using alts to exploit mechanics, perform
+duplication glitches, or otherwise gain an unfair advantage is not permitted.
 
-### Alts and Multi-Account Restrictions
+Each account should be used in a way that does not abuse server mechanics or bypass limitations intended for
+single-player use.
 
-You may use alternate accounts within limits defined by the server, but abuse of alts to gain unfair advantages is not
-allowed. Examples include farming ranks, bypassing cooldowns or punishments, or using alts to create duplicate islands,
-teams, or gangs. Each user is expected to play in good faith and within fair-use limits of multiple account access.
-Using VPNs to bypass account limits is not permitted.
+### AFK Clicking and Macros
 
-### Building and Server Performance
+AFK auto clicking is allowed on the server. However, the use of macros—defined as scripts or automation that performs
+chains of actions or complex input sequences—is strictly disallowed. Macros often provide advantages that go beyond what
+a player could reasonably achieve manually and are therefore not acceptable in any form.
 
-Any attempt to intentionally lag the server or interfere with gameplay through redstone machines, block spam, or
-resource-heavy contraptions will be treated as malicious behavior. Creating builds that are offensive, inappropriate, or
-disruptive in theme is not allowed, including symbols or language that violates other server rules.
+### Staff Authority and Enforcement
 
-### Discord Conduct
+Staff members have the final say in all rule interpretations and enforcement decisions. Not all disruptive or harmful
+behaviors can be anticipated or explicitly listed, so players are expected to use common sense at all times.
 
-All players are expected to follow the same rules within the Static Studios Discord community. This includes no
-spamming, harassment, or toxicity. Excessive pinging, sending unrelated or harmful links, and misuse of channels or bots
-is not permitted. Sharing inappropriate content such as NSFW material, offensive memes, or suggestive imagery is not
-allowed in any channel.
-
-Use of voice changers, soundboards, or intentionally disruptive behavior in voice channels is also prohibited. Any
-attempts to troll staff, open fake support tickets, or waste time with false reports may result in removal from Discord
-access. Advertising other communities or sending unsolicited DMs to promote content is not permitted.
-
-### Enforcement and Staff Authority
-
-All decisions regarding rule violations are made at the discretion of server staff. Depending on the severity and
-context of the situation, punishments may vary. Attempting to bypass punishments by using alternate accounts or other
-means will result in further enforcement action.
-
-If you believe a punishment was made in error, you may submit a ticket through Discord to appeal. Appeals will be
-reviewed on a case-by-case basis, but submission does not guarantee reversal.
-
-### Final Notes
-
-These rules are not exhaustive and may be updated or expanded over time. Just because something is not explicitly listed
-here does not mean it is allowed. Use common sense and act in good faith when interacting with the community. If you are
-unsure whether something is allowed, open a support ticket to ask a staff member before taking action.
+In cases where behavior is harmful or exploitative, a punishment may still be issued even if no specific rule was
+broken. The rules are designed to be a guideline, and the staff reserves the right to act in the best interest of the
+community.
