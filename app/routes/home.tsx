@@ -27,7 +27,7 @@ export function meta({}: Route.MetaArgs) {
             content: "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!"
         },
         {property: "og:type", content: "website"},
-        {property: "og:image", content: "https://staticstudios.net/images/skyblock.png"},
+        {property: "og:image", content: "https://staticstudios.net/image/skyblock.png"},
         {property: "og:url", content: "https://staticstudios.net"},
         {property: "og:site_name", content: "Static Studios"},
         {name: "twitter:card", content: "summary_large_image"},
