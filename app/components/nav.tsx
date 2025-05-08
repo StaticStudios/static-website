@@ -1,4 +1,4 @@
-import logo from "~/assets/alt_logo.png"
+import logo from "~/assets/logo.png"
 import {BookIcon, HomeIcon, MenuIcon, ShoppingCartIcon, UsersIcon, VoteIcon} from "lucide-react";
 import {Link} from "react-router";
 import {Sheet, SheetContent, SheetTrigger} from "~/components/ui/sheet";
