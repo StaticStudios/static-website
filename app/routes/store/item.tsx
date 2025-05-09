@@ -1,16 +1,16 @@
 import type {Route} from "../../+types/root";
 import {type TebexCategory, type TebexPackage, useTebexContent} from "~/lib/tebex";
 import {Tabs, TabsContent, TabsList, TabsTrigger} from "~/components/ui/tabs";
-import {ArrowRightIcon, CheckIcon, ShoppingCartIcon} from "lucide-react";
+import {CheckIcon, ShoppingCartIcon} from "lucide-react";
 import React, {useState} from "react";
 import {Button} from "~/components/ui/button";
 import {Cart} from "~/components/cart";
 import {useAccount} from "~/lib/account";
-import {Link} from "react-router";
 import {useCurrencyFormatter} from "~/lib/currency";
 import {Dialog, DialogContent, DialogTitle} from "~/components/ui/dialog";
 import {DialogDescription} from "@radix-ui/react-dialog";
 import axios from "axios";
+import {PageLocation} from "~/components/markdown-page";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -57,25 +57,18 @@ export default function Package({params}: Route.LoaderArgs) {
                             </div>
                             <p className="text-base lg:text-3xl font-semibold text-white text-nowrap">
                                 {category.parent ? (
-                                    <span className="flex flex-row items-center gap-1 flex-wrap">
-                                        <Link to={`/store/${category.parent.slug}`} className="hover:underline">
-                                            {category.parent.name}
-                                        </Link>
-                                        <ArrowRightIcon className="size-4 lg:size-8"/>
-                                        <Link to={`/store/${category.slug}`} className="hover:underline">
-                                            {category.name}
-                                        </Link>
-                                        <ArrowRightIcon className="size-4 lg:size-8"/>
-                                        {pkg.name}
-                                    </span>
+                                    <PageLocation location={[
+                                        {href: `/`, name: "Home"},
+                                        {href: `/store/${category.parent.slug}`, name: category.parent.name},
+                                        {href: `/store/${category.slug}`, name: category.name},
+                                        {href: `/store/${pkg.id}`, name: pkg.name},
+                                    ]}/>
                                 ) : (
-                                    <span className="flex flex-row items-center gap-1 flex-wrap">
-                                        <Link to={`/store/${category.slug}`} className="hover:underline">
-                                            {category.name}
-                                        </Link>
-                                        <ArrowRightIcon className="size-8"/>
-                                        {pkg.name}
-                                    </span>
+                                    <PageLocation location={[
+                                        {href: `/`, name: "Home"},
+                                        {href: `/store/${category.slug}`, name: category.name},
+                                        {href: `/store/${pkg.id}`, name: pkg.name},
+                                    ]}/>
                                 )}
                             </p>
 
@@ -131,7 +124,7 @@ export default function Package({params}: Route.LoaderArgs) {
                         </div>
 
                         <div className="text-white/70">
-                            <Tabs defaultValue="description" className="pt-4">
+                            <Tabs defaultValue="features" className="pt-4">
                                 <TabsList className="bg-slate-800 border border-indigo-800/30">
                                     <TabsTrigger value="description"
                                                  className="data-[state=active]:bg-white">Description</TabsTrigger>
@@ -145,7 +138,7 @@ export default function Package({params}: Route.LoaderArgs) {
                                         {pkg.features.map((feature, index) => (
                                             <li key={index} className="flex items-start text-white/80">
                                                 <CheckIcon className="size-5 text-purple-400 mr-2 mt-0.5"/>
-                                                <span>{feature}</span>
+                                                <span className="flex-1">{feature}</span>
                                             </li>
                                         ))}
                                     </ul>
