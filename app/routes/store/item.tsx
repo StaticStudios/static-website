@@ -9,7 +9,6 @@ import {useAccount} from "~/lib/account";
 import {useCurrencyFormatter} from "~/lib/currency";
 import {Dialog, DialogContent, DialogTitle} from "~/components/ui/dialog";
 import {DialogDescription} from "@radix-ui/react-dialog";
-import axios from "axios";
 import {PageLocation} from "~/components/markdown-page";
 
 export function meta({}: Route.MetaArgs) {
@@ -156,7 +155,7 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
     const [open, setOpen] = useState(false);
     const [username, setUsername] = useState("");
     const [loading, setLoading] = useState(false);
-    const {addToCart, account} = useAccount()
+    const {addToCart, account, validateUsername} = useAccount()
     return (
         <>
             {loading && (
@@ -204,19 +203,17 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                             <Button
                                 onClick={e => {
                                     setLoading(true)
-                                    axios.get(`https://mcprofile.io/api/v1/java/username/${username}`)
-                                        .then(res => {
-                                            if (res.status === 200) {
-                                                addToCart(pkg.id, 1, username)
+                                    validateUsername(username, "java")
+                                        .then(known => {
+                                            if (known) {
+                                                addToCart(pkg.id, 1, known.name)
                                                 setOpen(false)
+                                                setUsername("")
                                             } else {
-                                                alert("Invalid username");
+                                                alert("Invalid username, have they joined the server before?");
                                             }
-                                            setLoading(false)
                                         })
-                                        .catch(err => {
-                                            console.error(err);
-                                            alert("Invalid username");
+                                        .finally(() => {
                                             setLoading(false)
                                         })
                                 }}
@@ -225,19 +222,17 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                             </Button>
                             <Button onClick={e => {
                                 setLoading(true)
-                                axios.get(`https://mcprofile.io/api/v1/bedrock/gamertag/${username}`)
-                                    .then(res => {
-                                        if (res.status === 200) {
-                                            addToCart(pkg.id, 1, `.${username}`.replaceAll(/\s/g, "_"));
+                                validateUsername(username, "bedrock")
+                                    .then(known => {
+                                        if (known) {
+                                            addToCart(pkg.id, 1, known.name)
                                             setOpen(false)
+                                            setUsername("")
                                         } else {
-                                            alert("Invalid username");
+                                            alert("Invalid username, have they joined the server before?");
                                         }
-                                        setLoading(false)
                                     })
-                                    .catch(err => {
-                                        console.error(err);
-                                        alert("Invalid username");
+                                    .finally(() => {
                                         setLoading(false)
                                     })
                             }} disabled={username.length == 0} variant="secondary" className="flex-1">

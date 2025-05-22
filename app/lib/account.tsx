@@ -14,6 +14,10 @@ export type Account = {
     basket: TebexBasket
 }
 
+type KnownAccount = {
+    id: string
+    name: string
+}
 
 const AccountContext = createContext<{
     account?: Account,
@@ -21,6 +25,7 @@ const AccountContext = createContext<{
     promptLogin: (callback?: (account: Account) => void) => void,
     addToCart: (packageId: number, quantity: number, giftTo?: string) => void,
     removeFromCart: (packageId: number) => void,
+    validateUsername: (username: string, platform: "java" | "bedrock") => Promise<KnownAccount | null>,
     logout: () => void
 } | undefined>(undefined);
 export const AccountProvider = ({children}: { children: ReactNode }) => {
@@ -66,11 +71,33 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
         setCb(callback);
     }
 
+    const validateUsername = (username: string, platform: "java" | "bedrock") => {
+        return new Promise<KnownAccount | null>((resolve, reject) => {
+            if (platform === "bedrock") {
+                username = `.${username}`.replaceAll(/\s/g, "_")
+            }
+            axios.get(`https://api.staticstudios.net/api/v1/minecraft/player/name/${username}`)
+                .then(res => {
+                    const data = res.data as KnownAccount
+                    if (data) {
+                        resolve(data);
+                    } else {
+                        resolve(null);
+                    }
+                })
+                .catch(err => {
+                    console.error(err);
+                    resolve(null);
+                })
+        });
+    }
+
     return (
         <AccountContext.Provider value={{
             account: account,
             updateBasket,
             promptLogin,
+            validateUsername,
             logout: () => {
                 setAccount(undefined);
             },
@@ -139,17 +166,18 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                             <Button
                                 onClick={e => {
                                     setLoading(true)
-                                    axios.get(`https://mcprofile.io/api/v1/java/username/${username}`)
-                                        .then(res => {
-                                            if (res.status === 200) {
-                                                createBasket(res.data.username).then(basket => {
+                                    validateUsername(username, "java")
+                                        .then(known => {
+                                            if (known) {
+                                                createBasket(known.name).then(basket => {
                                                     const account = {
-                                                        name: res.data.username,
-                                                        uuid: res.data.uuid,
+                                                        name: known.name,
+                                                        uuid: known.id,
                                                         mcje: true,
                                                         basket
                                                     }
                                                     setOpen(false);
+                                                    setUsername("");
                                                     setAccount(account);
                                                     if (cb) {
                                                         cb(account);
@@ -158,14 +186,9 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                                                     setLoading(false)
                                                 })
                                             } else {
-                                                alert("Invalid username");
+                                                alert("Invalid username, have you joined the server before?");
                                                 setLoading(false)
                                             }
-                                        })
-                                        .catch(err => {
-                                            console.error(err);
-                                            alert("Invalid username");
-                                            setLoading(false)
                                         })
                                 }}
                                 disabled={username.length == 0} className="flex-1">
@@ -173,18 +196,18 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                             </Button>
                             <Button onClick={e => {
                                 setLoading(true)
-                                axios.get(`https://mcprofile.io/api/v1/bedrock/gamertag/${username}`)
-                                    .then(res => {
-                                        if (res.status === 200) {
-                                            const username = `.${res.data.gamertag}`.replaceAll(/\s/g, "_")
-                                            createBasket(username).then(basket => {
+                                validateUsername(username, "bedrock")
+                                    .then(known => {
+                                        if (known) {
+                                            createBasket(known.name).then(basket => {
                                                 const account = {
-                                                    name: username,
-                                                    uuid: res.data.floodgateuid,
+                                                    name: known.name,
+                                                    uuid: known.id,
                                                     mcje: false,
                                                     basket
-                                                };
+                                                }
                                                 setOpen(false);
+                                                setUsername("");
                                                 setAccount(account);
                                                 if (cb) {
                                                     cb(account);
@@ -193,14 +216,9 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                                                 setLoading(false)
                                             })
                                         } else {
-                                            alert("Invalid username");
+                                            alert("Invalid username, have you joined the server before?");
                                             setLoading(false)
                                         }
-                                    })
-                                    .catch(err => {
-                                        console.error(err);
-                                        alert("Invalid username");
-                                        setLoading(false)
                                     })
                             }} disabled={username.length == 0} variant="secondary" className="flex-1">
                                 Log in with Bedrock Edition
