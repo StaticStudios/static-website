@@ -1,6 +1,6 @@
 # Terms of Service
 
-**Effective Date:** May 1, 2025
+**Effective Date:** May 28, 2025
 
 By accessing or using any part of the Static Studios Minecraft server, store, or related services (collectively, the
 “Services”), you agree to be bound by these Terms of Service. This agreement is binding upon you, and if you are under
@@ -42,6 +42,12 @@ open a ticket via our Discord server. However, approval is not guaranteed, and w
 
 Purchases of digital content and services do not transfer ownership or any intellectual property rights. You are granted
 access to use purchased content as long as you retain access to the Services and remain in good standing.
+
+At any time, we may change the content, features, or availability of any purchased items without prior notice. You
+acknowledge that any in-game items, ranks, or other benefits are provided as part of the Services and may be modified,
+removed, or replaced at our discretion.
+
+If our services are discontinued, you will not be entitled to any refunds or compensation for any purchases made.
 
 ### 5. Limitation of Liability
 
