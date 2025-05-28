@@ -123,7 +123,8 @@ export default function Package({params}: Route.LoaderArgs) {
                         </div>
 
                         <div className="text-white/70">
-                            <Tabs defaultValue="features" className="pt-4">
+                            <Tabs defaultValue={category.slug?.includes("ranks") ? "features" : "description"}
+                                  className="pt-4">
                                 <TabsList className="bg-slate-800 border border-indigo-800/30">
                                     <TabsTrigger value="description"
                                                  className="data-[state=active]:bg-white">Description</TabsTrigger>
