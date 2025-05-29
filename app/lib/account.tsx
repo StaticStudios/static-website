@@ -32,7 +32,7 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
     const {account, setAccount, updateBasket} = useStore()
     const [open, setOpen] = useState(false);
     const [username, setUsername] = useState("");
-    const [cb, setCb] = useState<((account: Account) => void) | undefined>();
+    const cbRef = useRef<undefined | ((account: Account) => void)>(undefined);
     const {createBasket, getBasket, addToBasket, removeFromBasket} = useTebex();
     const [loading, setLoading] = useState(false);
     const initialPageLoadRef = useRef(true)
@@ -68,7 +68,7 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
 
     const promptLogin = (callback?: (account: Account) => void) => {
         setOpen(true);
-        setCb(callback);
+        cbRef.current = callback;
     }
 
     const validateUsername = (username: string, platform: "java" | "bedrock") => {
@@ -120,6 +120,7 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
             },
             removeFromCart: (packageId) => {
                 setLoading(true)
+                console.log("remove")
                 removeFromBasket(account!.basket, packageId).then(updateBasket)
                     .catch(() => {
                         toast.error("Failed to add to cart")
@@ -179,8 +180,8 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                                                     setOpen(false);
                                                     setUsername("");
                                                     setAccount(account);
-                                                    if (cb) {
-                                                        cb(account);
+                                                    if (cbRef.current) {
+                                                        cbRef.current(account);
                                                     }
                                                 }).finally(() => {
                                                     setLoading(false)
@@ -209,8 +210,8 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                                                 setOpen(false);
                                                 setUsername("");
                                                 setAccount(account);
-                                                if (cb) {
-                                                    cb(account);
+                                                if (cbRef.current) {
+                                                    cbRef.current(account);
                                                 }
                                             }).finally(() => {
                                                 setLoading(false)
