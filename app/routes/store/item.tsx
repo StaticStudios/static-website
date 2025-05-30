@@ -32,6 +32,7 @@ export default function Package({params}: Route.LoaderArgs) {
         .flatMap(category => category.packages)
         .find(pkg => pkg.id === Number(itemId));
     const price = useCurrencyFormatter(pkg?.base_price);
+    const salePrice = useCurrencyFormatter(pkg?.sale_price);
 
     const [quantity, setQuantity] = useState(1)
     const incrementQuantity = () => setQuantity((prev) => prev + 1)
@@ -79,7 +80,11 @@ export default function Package({params}: Route.LoaderArgs) {
                         <div className="flex flex-row justify-between items-center">
                             <div className="flex flex-col gap-2">
                                 <p className="text-white text-4xl font-bold">{pkg.name}</p>
-                                <p className="text-purple-400 text-4xl font-bold">{price}</p>
+                                <div className="flex flex-row gap-2">
+                                    <p data-sale={price != salePrice}
+                                       className="text-purple-400/50 text-4xl font-bold line-through hidden data-[sale=true]:flex">{price}</p>
+                                    <p className="text-purple-400 text-4xl font-bold">{salePrice}</p>
+                                </div>
                             </div>
                             <div className="hidden md:inline-block">
                                 <Cart/>

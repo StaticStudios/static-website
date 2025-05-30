@@ -42,6 +42,7 @@ export type TebexPackage = RawTebexPackage & {
     rawDescription: string;
     description: string;
     features: string[];
+    sale_price: number;
 }
 
 export type TebexBasket = {
@@ -64,6 +65,7 @@ export type TebexBasket = {
     username_id: number
     base_price: number
     sales_tax: number
+    discount: number
     currency: string
     packages: {
         id: number,
@@ -125,6 +127,8 @@ function parsePackage(pkg: any) {
     return {
         ...pkg,
         rawDescription: pkg.description,
+        base_price: pkg.discount == 0 ? pkg.base_price : pkg.base_price + pkg.discount,
+        sale_price: pkg.base_price,
         description,
         features
     } as TebexPackage;

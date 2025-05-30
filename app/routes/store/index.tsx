@@ -108,6 +108,7 @@ const Category = ({category}: { category: TebexCategory }) => {
 const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
     const {addToCart} = useAccount()
     const price = useCurrencyFormatter(pkg.base_price);
+    const salePrice = useCurrencyFormatter(pkg.sale_price);
     return (
         <div className="rounded-lg border border-indigo-800/30 overflow-hidden">
             <img alt={pkg.name}
@@ -137,7 +138,11 @@ const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                <p className="text-xl font-semibold text-purple-400">{price}</p>
+                <div className="flex flex-row gap-2">
+                    <p data-sale={price != salePrice}
+                       className="text-xl font-semibold text-purple-400/50 line-through hidden data-[sale=true]:flex">{price}</p>
+                    <p className="text-xl font-semibold text-purple-400">{salePrice}</p>
+                </div>
                 <div className="w-full flex flex-col xl:flex-row gap-2 items-center">
                     <Button
                         onClick={() => {
