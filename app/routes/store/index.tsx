@@ -146,7 +146,7 @@ const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
                 <div className="w-full flex flex-col xl:flex-row gap-2 items-center">
                     <Button
                         onClick={() => {
-                            addToCart(pkg.id, 1)
+                            addToCart(pkg, 1)
                         }}
                         className="bg-purple-600 flex-1 w-full xl:w-auto">
                         <ShoppingCartIcon/>
@@ -169,7 +169,7 @@ const Sidebar = () => {
 
     return (
         <div className="md:flex flex-col gap-4 hidden">
-            <SidebarProvider>
+            <SidebarProvider className="flex flex-col gap-4">
                 <div className="w-[300px] h-max rounded-lg border border-indigo-800/30 overflow-hidden">
                     <SidebarInset className="p-4 bg-slate-800">
                         <SidebarContent>
@@ -216,7 +216,39 @@ const Sidebar = () => {
                         </SidebarContent>
                     </SidebarInset>
                 </div>
+                {/*<div className="rounded-lg border border-indigo-800/30 bg-slate-800 w-full p-4">*/}
+                {/*    <GiftCardBalance/>*/}
+                {/*</div>*/}
             </SidebarProvider>
+
         </div>
     )
 }
+
+// const GiftCardBalance = () => {
+//     const [cardNumber, setCardNumber] = useState("");
+//     const [value, setValue] = useState<number | undefined>();
+//     const formattedValue = useCurrencyFormatter(value);
+//     return (
+//         <>
+//             <div className="mb-1 flex flex-row justify-between">
+//                 <p className="font-semibold">Giftcard Balance</p>
+//                 <p data-hidden={value === undefined}
+//                    className="font-semibold text-purple-400 data-[hidden=true]:hidden">{formattedValue}</p>
+//             </div>
+//             <div className="relative">
+//                 <input
+//                     type="text"
+//                     className="w-full px-3 py-2 bg-black/20 rounded-md focus:border-wildphire-blue focus:ring-wildphire-blue mt-auto"
+//                     placeholder="Notch"
+//                     value={cardNumber}
+//                     onChange={e => setCardNumber(e.target.value)}
+//                 />
+//                 <Button className="absolute top-0 right-0 bottom-0 my-auto hover:scale-105" variant="empty"
+//                         disabled={cardNumber.replaceAll(" ", "").length != 16}>
+//                     <ExternalLinkIcon className="scale-125"/>
+//                 </Button>
+//             </div>
+//         </>
+//     )
+// }

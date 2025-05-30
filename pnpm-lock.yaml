@@ -50,6 +50,9 @@ dependencies:
   clsx:
     specifier: ^2.1.1
     version: 2.1.1
+  email-validator:
+    specifier: ^2.0.4
+    version: 2.0.4
   html-react-parser:
     specifier: ^5.2.3
     version: 5.2.3(@types/react@19.0.7)(react@19.0.0)
@@ -2271,6 +2274,11 @@ packages:
   /electron-to-chromium@1.5.84:
     resolution: {integrity: sha512-I+DQ8xgafao9Ha6y0qjHHvpZ9OfyA1qKlkHkjywxzniORU2awxyz7f/iVJcULmrF2yrM3nHQf+iDjJtbbexd/g==}
     dev: true
+
+  /email-validator@2.0.4:
+    resolution: {integrity: sha512-gYCwo7kh5S3IDyZPLZf6hSS0MnZT8QmJFqYvbqlDZSbwdZlY6QZWxJ4i/6UhITOJ4XzyI647Bm2MXKCLqnJ4nQ==}
+    engines: {node: '>4.0'}
+    dev: false
 
   /emoji-regex@8.0.0:
     resolution: {integrity: sha512-MSjYzcWNOA0ewAHpz0MxpYFvwg6yjy1NG3xteoqz644VCo/RPgnr1/GGt+ic3iJTzQ8Eu3TdM14SawnVUmGE6A==}

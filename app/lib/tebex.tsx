@@ -137,7 +137,7 @@ function parsePackage(pkg: any) {
 type Tebex = {
     getCategories: () => Promise<TebexCategory[]>;
     createBasket: (username: string) => Promise<TebexBasket>;
-    addToBasket: (basket: TebexBasket, packageId: number, quantity: number, giftTo?: string) => Promise<TebexBasket>;
+    addToBasket: (basket: TebexBasket, packageId: number, quantity: number, variableData?: Record<string, any>, giftTo?: string) => Promise<TebexBasket>;
     removeFromBasket: (basket: TebexBasket, packageId: number) => Promise<TebexBasket>; //todo: creator codes, giftcards, coupons
     getBasket: (basket: TebexBasket) => Promise<TebexBasket>;
 }
@@ -197,11 +197,12 @@ export const useTebex = () => {
             })
     }), []);
 
-    const addToBasket = useCallback((basket: TebexBasket, packageId: number, quantity: number, giftTo?: string) => new Promise<TebexBasket>((resolve, reject) => {
+    const addToBasket = useCallback((basket: TebexBasket, packageId: number, quantity: number, variableData?: Record<string, any>, giftTo?: string) => new Promise<TebexBasket>((resolve, reject) => {
         axios.post(`https://headless.tebex.io/api/baskets/${basket.ident}/packages`, {
             package_id: packageId,
             quantity: quantity,
-            target_username: giftTo
+            target_username: giftTo,
+            variable_data: variableData,
         })
             .then(response => {
                 console.log(response.data.data)

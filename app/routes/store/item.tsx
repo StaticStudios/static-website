@@ -104,7 +104,7 @@ export default function Package({params}: Route.LoaderArgs) {
                                 </Button>
                             </div>
                             <Button onClick={() => {
-                                addToCart(pkg.id, quantity)
+                                addToCart(pkg, quantity)
                             }} className="flex-1 lg:flex hidden">
                                 <ShoppingCartIcon className="size-4 mr-2"/>
                                 Add to Cart
@@ -112,7 +112,7 @@ export default function Package({params}: Route.LoaderArgs) {
                             <GiftToAFriend pkg={pkg}/>
                         </div>
                         <Button onClick={() => {
-                            addToCart(pkg.id, quantity)
+                            addToCart(pkg, quantity)
                         }} className="flex-1 lg:hidden flex">
                             <ShoppingCartIcon className="size-4 mr-2"/>
                             Add to Cart
@@ -212,7 +212,7 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                                     validateUsername(username, "java")
                                         .then(known => {
                                             if (known) {
-                                                addToCart(pkg.id, 1, known.name)
+                                                addToCart(pkg, 1, known.name)
                                                 setOpen(false)
                                                 setUsername("")
                                             } else {
@@ -231,7 +231,7 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                                 validateUsername(username, "bedrock")
                                     .then(known => {
                                         if (known) {
-                                            addToCart(pkg.id, 1, known.name)
+                                            addToCart(pkg, 1, known.name)
                                             setOpen(false)
                                             setUsername("")
                                         } else {
