@@ -16,7 +16,7 @@ export function MarkdownPage({markdown, location}: MarkdownPageProps) {
                     <PageLocation location={location}/>
                 </div>
                 <div
-                    className="bg-slate-800/70 border border-indigo-800/30 rounded-lg px-8 py-4 [&_p]:text-white/70 space-y-4">
+                    className="bg-slate-800/70 border border-indigo-800/30 rounded-lg px-8 py-4 [&_p]:text-white/70 [&_li]:text-white/70 space-y-4 [&_ul]:list-disc [&_ul]:ml-4 [&_img]:rounded-lg [&_img]:border [&_img]:border-gray-300/30">
                     <Markdown>{markdown}</Markdown>
                 </div>
             </div>
