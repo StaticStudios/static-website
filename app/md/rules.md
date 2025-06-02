@@ -27,7 +27,7 @@ do not reveal entities or caves), HUD customizers, and shader packs. These modif
 without altering gameplay mechanics.
 
 However, any client or mod that gives an unfair advantage is not allowed. Disallowed modifications include, but are not
-limited to, X-Ray or resource detection tools, auto clickers, aim assists, aimbots, auto fishing, movement or speed
+limited to, X-Ray or resource detection tools, aim assists, aimbots, auto fishing, movement or speed
 hacks, and pathing/farming bots. These create imbalances in gameplay and will result in penalties if used.
 
 ### Server Bugs and Exploits
