@@ -52,8 +52,12 @@ Players are allowed to use alternate accounts on the server, but there are speci
 clickers, macros, or other automation tools on alt accounts. Furthermore, using alts to exploit mechanics, perform
 duplication glitches, or otherwise gain an unfair advantage is not permitted.
 
+You may not use an alt account to grind skills and claim additional rewards, which gives an unfair advantage.
+
 Each account should be used in a way that does not abuse server mechanics or bypass limitations intended for
 single-player use.
+
+You may use an alt account to AFK on the server for spawners.
 
 ### AFK Clicking and Macros
 
