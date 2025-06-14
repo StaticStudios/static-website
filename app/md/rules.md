@@ -46,6 +46,12 @@ Trading in-game items, services, or currency for real-world goods or money is st
 remain within the Static Studios environment. This means you may not pay or accept payment in any form of real-world
 currency—including PayPal, gift cards, or cryptocurrency—for anything that affects in-game gameplay or resources.
 
+### Boosting
+
+Players/teams are not allowed to boost other players or teams in any way which gives a competitive advantage. It is okay
+in moderation, but boosting players for seasonal rewards is not allowed and will result in both parties being
+disqualified from the seasonal rewards.
+
 ### Alt Accounts
 
 Players are allowed to use alternate accounts on the server, but there are specific restrictions. You may not use auto
@@ -58,6 +64,8 @@ Each account should be used in a way that does not abuse server mechanics or byp
 single-player use.
 
 You may use an alt account to AFK on the server for spawners.
+
+You are allowed to have up to 5 alt account.
 
 ### AFK Clicking and Macros
 
