@@ -75,7 +75,8 @@ a player could reasonably achieve manually and are therefore not acceptable in a
 
 ### English Only
 
-All communication on the server, including chat and Discord, must be conducted in English. This ensures that our team
+All communication on the server, including in-game chat, Discord chat, and any other text or voice chats, must be
+conducted in English. This ensures that our team
 can effectively moderate and assist all players.
 
 ### Staff Authority and Enforcement
