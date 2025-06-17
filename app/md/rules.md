@@ -73,6 +73,11 @@ AFK auto clicking is allowed on the server. However, the use of macros—defined
 chains of actions or complex input sequences—is strictly disallowed. Macros often provide advantages that go beyond what
 a player could reasonably achieve manually and are therefore not acceptable in any form.
 
+### English Only
+
+All communication on the server, including chat and Discord, must be conducted in English. This ensures that our team
+can effectively moderate and assist all players.
+
 ### Staff Authority and Enforcement
 
 Staff members have the final say in all rule interpretations and enforcement decisions. Not all disruptive or harmful
