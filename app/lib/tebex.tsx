@@ -188,7 +188,6 @@ export const useTebex = () => {
             username
         })
             .then(response => {
-                console.log(response.data.data)
                 resolve(response.data.data as TebexBasket);
             })
             .catch(error => {

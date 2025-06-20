@@ -14,7 +14,8 @@ export type Account = {
     name: string;
     uuid: string;
     mcje: boolean
-    basket: TebexBasket
+    basket: TebexBasket,
+    signed_in_at?: string
 }
 
 type KnownAccount = {
@@ -55,21 +56,27 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
 
         initialPageLoadRef.current = false
 
-        getBasket(account.basket)
-            .then(basket => {
-                if (basket) {
-                    if (basket.complete) {
-                        createBasket(account.name).then(updateBasket)
+        if (Date.now() > new Date(account.signed_in_at ?? 0).getTime() + 2 * 24 * 60 * 60 * 1000) { // 2 days
+            setAccount(undefined);
+            toast.error("Session expired, please log in again")
+        } else {
+            getBasket(account.basket)
+                .then(basket => {
+                    if (basket) {
+                        if (basket.complete) {
+                            createBasket(account.name).then(updateBasket)
+                        } else {
+                            updateBasket(basket);
+                        }
                     } else {
-                        updateBasket(basket);
+                        setAccount(undefined)
                     }
-                } else {
+                })
+                .catch(err => {
+                    console.error(err);
                     setAccount(undefined)
-                }
-            })
-            .catch(err => {
-                console.error(err);
-            })
+                })
+        }
 
     }, [account, getBasket, updateBasket]);
 
@@ -205,8 +212,9 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                                                         name: known.name,
                                                         uuid: known.id,
                                                         mcje: true,
-                                                        basket
-                                                    }
+                                                        basket,
+                                                        signed_in_at: new Date().toISOString()
+                                                    } satisfies Account
                                                     setLoginOpen(false);
                                                     setUsername("");
                                                     setAccount(account);
@@ -235,8 +243,9 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                                                     name: known.name,
                                                     uuid: known.id,
                                                     mcje: false,
-                                                    basket
-                                                }
+                                                    basket,
+                                                    signed_in_at: new Date().toISOString()
+                                                } satisfies Account
                                                 setLoginOpen(false);
                                                 setUsername("");
                                                 setAccount(account);
