@@ -87,3 +87,9 @@ behaviors can be anticipated or explicitly listed, so players are expected to us
 In cases where behavior is harmful or exploitative, a punishment may still be issued even if no specific rule was
 broken. The rules are designed to be a guideline, and the staff reserves the right to act in the best interest of the
 community.
+
+### Scamming
+
+Scamming is strictly prohibited on the server. This includes any form of deception or trickery to gain items, currency,
+or other in-game advantages from other players. Insiding or betraying a team for personal gain is also considered
+scamming and will not be tolerated.
