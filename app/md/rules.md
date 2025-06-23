@@ -6,7 +6,8 @@ platforms, you agree to follow these rules. Failure to do so may result in disci
 limited to mutes, kicks, bans, or permanent removal from the server.
 
 Rules are subject to change at any time without prior notice. It is your responsibility to remain up to date with
-current rules. Enforcement of rules may vary depending on context, severity, and staff discretion.
+current rules. Enforcement of rules may vary depending on context, severity, and staff discretion. Ignorance of the
+rules does not excuse inappropriate behavior.
 
 ### Chat Behavior
 
