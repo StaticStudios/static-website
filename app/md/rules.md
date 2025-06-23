@@ -65,6 +65,8 @@ single-player use.
 
 You may use an alt account to AFK on the server for spawners.
 
+All of your accounts MUST be on the same Skyblock island.
+
 You are allowed to have up to 5 alt account.
 
 ### AFK Clicking and Macros
