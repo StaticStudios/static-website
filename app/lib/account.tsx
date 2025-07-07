@@ -8,6 +8,7 @@ import {type TebexBasket, type TebexPackage, useTebex} from "~/lib/tebex";
 import {toast} from "sonner";
 import {getPackageVariables, type PackageVariable} from "~/lib/utils";
 import * as EmailValidator from 'email-validator';
+import {FullScreenLoading} from "~/components/FullScreenLoading";
 
 
 export type Account = {
@@ -168,15 +169,7 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                     })
             }
         }}>
-            {loading && (
-                <div
-                    className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/30 pointer-events-none">
-                    <div className="flex flex-col items-center space-y-4">
-                        <div
-                            className="relative h-12 w-12 animate-spin rounded-full border-4 border-white border-t-transparent"/>
-                    </div>
-                </div>
-            )}
+            <FullScreenLoading loading={loading}/>
             <Dialog onOpenChange={open => {
                 setLoginOpen(open);
                 if (!open) {

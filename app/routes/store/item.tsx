@@ -10,6 +10,7 @@ import {useCurrencyFormatter} from "~/lib/currency";
 import {Dialog, DialogContent, DialogTitle} from "~/components/ui/dialog";
 import {DialogDescription} from "@radix-ui/react-dialog";
 import {PageLocation} from "~/components/markdown-page";
+import {FullScreenLoading} from "~/components/FullScreenLoading";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -164,15 +165,7 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
     const {addToCart, account, validateUsername} = useAccount()
     return (
         <>
-            {loading && (
-                <div
-                    className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/30 pointer-events-none">
-                    <div className="flex flex-col items-center space-y-4">
-                        <div
-                            className="relative h-12 w-12 animate-spin rounded-full border-4 border-white border-t-transparent"/>
-                    </div>
-                </div>
-            )}
+            <FullScreenLoading loading={loading}/>
             <Button variant="secondary" onClick={() => {
                 if (!account) {
                     alert("You must be logged in to do this");

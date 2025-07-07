@@ -138,8 +138,9 @@ type Tebex = {
     getCategories: () => Promise<TebexCategory[]>;
     createBasket: (username: string) => Promise<TebexBasket>;
     addToBasket: (basket: TebexBasket, packageId: number, quantity: number, variableData?: Record<string, any>, giftTo?: string) => Promise<TebexBasket>;
-    removeFromBasket: (basket: TebexBasket, packageId: number) => Promise<TebexBasket>; //todo: creator codes, giftcards, coupons
+    removeFromBasket: (basket: TebexBasket, packageId: number) => Promise<TebexBasket>; //todo: creator codes, coupons
     getBasket: (basket: TebexBasket) => Promise<TebexBasket>;
+    getGiftCardBalance: (cardNumber: string) => Promise<number>;
 }
 
 const token = import.meta.env.VITE_PUBLIC_TEBEX_TOKEN;
@@ -239,12 +240,24 @@ export const useTebex = () => {
             })
     }), []);
 
+    const getGiftCardBalance = useCallback((cardNumber: string) => new Promise<number>((resolve, reject) => {
+        axios.get(`https://api.staticstudios.net/api/v1/tebex/gift_card_balance/${cardNumber}`)
+            .then(response => {
+                resolve(response.data as number);
+            })
+            .catch(error => {
+                console.error(error);
+                reject(error);
+            })
+    }), []);
+
     return {
         getCategories: getListings,
         createBasket,
         addToBasket,
         removeFromBasket,
-        getBasket
+        getBasket,
+        getGiftCardBalance
     } satisfies Tebex;
 }
 

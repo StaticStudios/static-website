@@ -1,7 +1,7 @@
 import type {Route} from "../../+types/root";
-import {type TebexCategory, type TebexPackage, useIsTebexEnabled, useTebexContent} from "~/lib/tebex";
+import {type TebexCategory, type TebexPackage, useIsTebexEnabled, useTebex, useTebexContent} from "~/lib/tebex";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "~/components/ui/collapsible";
-import {ChevronDown, InfoIcon, ShoppingCartIcon} from "lucide-react";
+import {ChevronDown, ExternalLinkIcon, InfoIcon, ShoppingCartIcon} from "lucide-react";
 import {Link, ScrollRestoration} from "react-router";
 import {
     SidebarContent,
@@ -14,11 +14,12 @@ import {
     SidebarProvider
 } from "~/components/ui/sidebar";
 import {Button} from "~/components/ui/button";
-import React from "react";
+import React, {useState} from "react";
 import {Tooltip, TooltipContent, TooltipProvider, TooltipTrigger} from "~/components/ui/tooltip";
 import {useCurrencyFormatter} from "~/lib/currency";
 import {Cart} from "~/components/cart";
 import {useAccount} from "~/lib/account";
+import {FullScreenLoading} from "~/components/FullScreenLoading";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -165,7 +166,6 @@ const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
 
 const Sidebar = () => {
     const {parentCategories} = useTebexContent();
-    //todo: at the bottom add a check gift card section
 
     return (
         <div className="md:flex flex-col gap-4 hidden">
@@ -216,39 +216,72 @@ const Sidebar = () => {
                         </SidebarContent>
                     </SidebarInset>
                 </div>
-                {/*<div className="rounded-lg border border-indigo-800/30 bg-slate-800 w-full p-4">*/}
-                {/*    <GiftCardBalance/>*/}
-                {/*</div>*/}
+                <div className="rounded-lg border border-indigo-800/30 bg-slate-800 w-full p-4">
+                    <GiftCardBalance/>
+                </div>
             </SidebarProvider>
 
         </div>
     )
 }
 
-// const GiftCardBalance = () => {
-//     const [cardNumber, setCardNumber] = useState("");
-//     const [value, setValue] = useState<number | undefined>();
-//     const formattedValue = useCurrencyFormatter(value);
-//     return (
-//         <>
-//             <div className="mb-1 flex flex-row justify-between">
-//                 <p className="font-semibold">Giftcard Balance</p>
-//                 <p data-hidden={value === undefined}
-//                    className="font-semibold text-purple-400 data-[hidden=true]:hidden">{formattedValue}</p>
-//             </div>
-//             <div className="relative">
-//                 <input
-//                     type="text"
-//                     className="w-full px-3 py-2 bg-black/20 rounded-md focus:border-wildphire-blue focus:ring-wildphire-blue mt-auto"
-//                     placeholder="Notch"
-//                     value={cardNumber}
-//                     onChange={e => setCardNumber(e.target.value)}
-//                 />
-//                 <Button className="absolute top-0 right-0 bottom-0 my-auto hover:scale-105" variant="empty"
-//                         disabled={cardNumber.replaceAll(" ", "").length != 16}>
-//                     <ExternalLinkIcon className="scale-125"/>
-//                 </Button>
-//             </div>
-//         </>
-//     )
-// }
+const GiftCardBalance = () => {
+    const [cardNumber, setCardNumber] = useState("");
+    const [value, setValue] = useState<number | undefined>();
+    const formattedValue = useCurrencyFormatter(value);
+    const [loading, setLoading] = useState(false);
+    const {getGiftCardBalance} = useTebex();
+
+
+    const fetchBalance = (cardNumber: string) => {
+        setLoading(true)
+
+        getGiftCardBalance(cardNumber)
+            .then(amount => {
+                setValue(amount);
+            })
+            .catch(() => {
+                alert("Invalid card number")
+            })
+            .finally(() => {
+                setLoading(false);
+            })
+    }
+
+    return (
+        <>
+            <FullScreenLoading loading={loading}/>
+            <div className="mb-2 flex flex-row justify-between">
+                <p className="font-semibold">Giftcard Balance</p>
+                <p data-hidden={value === undefined}
+                   className="font-semibold text-purple-400 data-[hidden=true]:hidden">{formattedValue}</p>
+            </div>
+            <div className="relative">
+                <input
+                    type="text"
+                    className="w-full px-3 py-2 bg-black/20 rounded-md focus:border-wildphire-blue focus:ring-wildphire-blue mt-auto"
+                    placeholder="0000 0000 0000 0000"
+                    value={cardNumber}
+                    onChange={e => {
+                        if (cardNumber.replaceAll(" ", "") !== e.target.value.replaceAll(" ", "")) {
+                            setValue(undefined);
+                        }
+
+                        setCardNumber(e.target.value)
+                    }}
+                    onKeyDown={e => {
+                        if (e.key === "Enter") {
+                            e.preventDefault();
+                            fetchBalance(cardNumber.replaceAll(" ", ""));
+                        }
+                    }}
+                />
+                <Button className="absolute top-0 right-0 bottom-0 my-auto hover:scale-105" variant="empty"
+                        onClick={() => fetchBalance(cardNumber.replaceAll(" ", ""))}
+                        disabled={cardNumber.replaceAll(" ", "").length != 16}>
+                    <ExternalLinkIcon className="scale-125"/>
+                </Button>
+            </div>
+        </>
+    )
+}
