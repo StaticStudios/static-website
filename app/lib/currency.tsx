@@ -273,7 +273,7 @@ export const useCurrencyFormatter = (usd?: number) => {
         const currencyToUse = currency ?? "USD";
         console.log(currencyToUse, exchangeRates)
         const converted = exchangeRates ? exchangeRates.rates[currencyToUse] ?? 1 : 0;
-        setFormattedCurrency(usd ? (usd * converted).toLocaleString(undefined, {
+        setFormattedCurrency(usd != undefined || usd != null ? (usd * converted).toLocaleString(undefined, {
             style: "currency",
             currency: currencyToUse,
             minimumFractionDigits: 0,
