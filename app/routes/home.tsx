@@ -36,11 +36,19 @@ export function meta({}: Route.MetaArgs) {
 
 const cards: CardProps[] = [
     {
+        title: "Static Skyblock | Season 2.0",
+        description: "We are excited to announce the launch of Static Skyblock Season 2.0! This season brings hundreds of changes, increases the grind, and most notably adds PvP!",
+        imageSrc: skyblockSpawn,
+        date: "Aug 8, 2025",
+        layout: "horizontal",
+        href: "/article/skyblock-season-2"
+    },
+    {
         title: "Static Skyblock | Season 1.0",
         description: "After more than a year of active development, Static Skyblock Season 1.0 goes live! This release brings numerous changes - be sure to check them out!",
         imageSrc: skyblockSpawn,
         date: "May 30, 2025",
-        layout: "horizontal",
+        layout: "vertical",
         href: "/article/skyblock-season-1"
     },
     {
