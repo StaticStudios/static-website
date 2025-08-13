@@ -96,6 +96,9 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
     const validateUsername = (username: string, platform: "java" | "bedrock") => {
         return new Promise<KnownAccount | null>((resolve, reject) => {
             if (platform === "bedrock") {
+                if (username.startsWith(".")) {
+                    username = username.substring(1);
+                }
                 username = `.${username}`.replaceAll(/\s/g, "_")
             }
             axios.get(`https://api.staticstudios.net/api/v1/minecraft/player/name/${username}`)
