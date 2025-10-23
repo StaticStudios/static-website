@@ -231,12 +231,13 @@ const GiftCardBalance = () => {
     const formattedValue = useCurrencyFormatter(value);
     const [loading, setLoading] = useState(false);
     const {getGiftCardBalance} = useTebex();
+    const {account} = useAccount();
 
 
     const fetchBalance = (cardNumber: string) => {
         setLoading(true)
 
-        getGiftCardBalance(cardNumber)
+        getGiftCardBalance(cardNumber, account)
             .then(amount => {
                 setValue(amount);
             })

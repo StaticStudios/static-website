@@ -1,5 +1,6 @@
 import {createContext, type ReactNode, useCallback, useContext, useEffect, useState} from "react";
 import axios from "axios";
+import type {Account} from "~/lib/account";
 
 type RawTebexCategory = {
     id: number;
@@ -140,7 +141,7 @@ type Tebex = {
     addToBasket: (basket: TebexBasket, packageId: number, quantity: number, variableData?: Record<string, any>, giftTo?: string) => Promise<TebexBasket>;
     removeFromBasket: (basket: TebexBasket, packageId: number) => Promise<TebexBasket>; //todo: creator codes, coupons
     getBasket: (basket: TebexBasket) => Promise<TebexBasket>;
-    getGiftCardBalance: (cardNumber: string) => Promise<number>;
+    getGiftCardBalance: (cardNumber: string, user?: Account) => Promise<number>;
 }
 
 const token = import.meta.env.VITE_PUBLIC_TEBEX_TOKEN;
@@ -240,8 +241,8 @@ export const useTebex = () => {
             })
     }), []);
 
-    const getGiftCardBalance = useCallback((cardNumber: string) => new Promise<number>((resolve, reject) => {
-        axios.get(`https://api.staticstudios.net/api/v1/tebex/gift_card_balance/${cardNumber}`)
+    const getGiftCardBalance = useCallback((cardNumber: string, user?: Account) => new Promise<number>((resolve, reject) => {
+        axios.get(`https://api.staticstudios.net/api/v1/tebex/gift_card_balance?code=${cardNumber}${user ? `&user=${user.name}` : ''}`)
             .then(response => {
                 resolve(response.data as number);
             })
