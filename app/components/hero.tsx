@@ -51,7 +51,7 @@ const ServerIPPanel = () => {
     const [onlinePlayers, setOnlinePlayers] = useState<null | number>(null);
 
     useEffect(() => {
-        const url = "https://api.staticstudios.net/api/v1/minecraft/player_count";
+        const url = "https://api.staticstudios.net/api/v1/public/minecraft/player_count";
         fetch(url)
             .then(response => response.json())
             .then(data => {

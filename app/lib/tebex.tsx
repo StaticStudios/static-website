@@ -242,7 +242,7 @@ export const useTebex = () => {
     }), []);
 
     const getGiftCardBalance = useCallback((cardNumber: string, user?: Account) => new Promise<number>((resolve, reject) => {
-        axios.get(`https://api.staticstudios.net/api/v1/tebex/gift_card_balance?code=${cardNumber}${user ? `&user=${user.name}` : ''}`)
+        axios.get(`https://api.staticstudios.net/api/v1/public/tebex/gift_card_balance?code=${cardNumber}${user ? `&user=${user.name}` : ''}`)
             .then(response => {
                 resolve(response.data as number);
             })
@@ -254,8 +254,8 @@ export const useTebex = () => {
 
     return {
         getCategories: getListings,
-        createBasket,
         addToBasket,
+        createBasket,
         removeFromBasket,
         getBasket,
         getGiftCardBalance

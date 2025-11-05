@@ -101,7 +101,7 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                 }
                 username = `.${username}`.replaceAll(/\s/g, "_")
             }
-            axios.get(`https://api.staticstudios.net/api/v1/minecraft/player/name/${username}`)
+            axios.get(`https://api.staticstudios.net/api/v1/public/minecraft/player/name/${username}`)
                 .then(res => {
                     const data = res.data as KnownAccount
                     if (data) {

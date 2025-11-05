@@ -57,10 +57,10 @@ export default function Vote() {
 
     useEffect(() => {
         const fetchData = () => {
-            axios.get("https://api.staticstudios.net/api/v1/minecraft/top_voters").then(res => {
+            axios.get("https://api.staticstudios.net/api/v1/public/minecraft/top_voters").then(res => {
                 setTopVotersAPI(res.data);
             })
-            axios.get("https://api.staticstudios.net/api/v1/minecraft/current_votes").then(res => {
+            axios.get("https://api.staticstudios.net/api/v1/public/minecraft/current_votes").then(res => {
                 setCurrentVotes(res.data);
             })
         }
