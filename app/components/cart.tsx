@@ -45,11 +45,12 @@ export const Cart = () => {
                         </div>
                         <div className="absolute right-4 top-3 overflow-hidden -mb-4">
                             {account.mcje ? (
-                                <img alt={account.name} src={`https://crafatar.com/renders/body/${account.uuid}`}
+                                <img alt={account.name}
+                                     src={`https://avatars.cloudhaven.gg/renders/body/${account.uuid}`}
                                      className="object-cover h-25"/>
                             ) : (
                                 <img alt="unknown skin"
-                                     src={`https://crafatar.com/renders/body/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
+                                     src={`https://avatars.cloudhaven.gg/renders/body/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
                                      className="object-cover h-25"/>
                             )}
                         </div>
@@ -71,7 +72,7 @@ export const Cart = () => {
                         </div>
                         <div className="absolute right-4 top-3 overflow-hidden -mb-4">
                             <img alt="unknown skin"
-                                 src={`https://crafatar.com/renders/body/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
+                                 src={`https://avatars.cloudhaven.gg/renders/body/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
                                  className="object-cover h-25"/>
                         </div>
                     </div>
