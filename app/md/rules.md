@@ -70,6 +70,9 @@ All of your accounts MUST be members of the same Skyblock island.
 
 You are allowed to have up to 5 alt account.
 
+You MAY use multiple accounts to vote and claim vote rewards on. This rule may change in the future, it is your
+responsibility to stay updated with the rules.
+
 ### AFK Clicking and Macros
 
 AFK auto clicking is allowed on the server. However, the use of macros—defined as scripts or automation that performs
