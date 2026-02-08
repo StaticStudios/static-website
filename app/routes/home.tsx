@@ -1,4 +1,5 @@
 import type {Route} from "../+types/root";
+import wz1 from "~/assets/skyblock/wz1.png";
 import skyblockSpawn from "~/assets/skyblock/spawn.png";
 import skyblockSpawnSneakPeak from "~/assets/skyblock/spawn_sneak_peak.png";
 import skyblockOasis from "~/assets/skyblock/oasis_1.png";
@@ -36,11 +37,19 @@ export function meta({}: Route.MetaArgs) {
 
 const cards: CardProps[] = [
     {
+        title: "Static Skyblock | 2,000+ Unique Players",
+        description: "We are proud to announce that Static Skyblock Season 2.0 has reached a major milestone of 2,000+ unique players!",
+        imageSrc: wz1,
+        date: "Feb 8, 2025",
+        layout: "horizontal",
+        href: "/article/skyblock-season-2-2k-players"
+    },
+    {
         title: "Static Skyblock | Season 2.0",
         description: "We are excited to announce the launch of Static Skyblock Season 2.0! This season brings hundreds of changes, increases the grind, and most notably adds PvP!",
         imageSrc: skyblockSpawn,
         date: "Aug 8, 2025",
-        layout: "horizontal",
+        layout: "vertical",
         href: "/article/skyblock-season-2"
     },
     {
