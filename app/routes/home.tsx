@@ -40,7 +40,7 @@ const cards: CardProps[] = [
         title: "Static Skyblock | 2,000+ Unique Players",
         description: "We are proud to announce that Static Skyblock Season 2.0 has reached a major milestone of 2,000+ unique players!",
         imageSrc: wz1,
-        date: "Feb 8, 2025",
+        date: "Feb 8, 2026",
         layout: "horizontal",
         href: "/article/skyblock-season-2-2k-players"
     },
