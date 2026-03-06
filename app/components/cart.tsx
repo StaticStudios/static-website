@@ -43,15 +43,15 @@ export const Cart = () => {
                             </div>
                             <p className="text-white/70 font-medium text-lg">{account.name}</p>
                         </div>
-                        <div className="absolute right-4 top-3 overflow-hidden -mb-4">
+                        <div className="absolute right-0 botton-0 -mb-2 overflow-hidden">
                             {account.mcje ? (
                                 <img alt={account.name}
-                                     src={`https://avatars.cloudhaven.gg/renders/body/${account.uuid}`}
-                                     className="object-cover h-25"/>
+                                     src={`https://render.crafty.gg/3d/bust/${account.uuid}`}
+                                     className="object-cover h-20"/>
                             ) : (
                                 <img alt="unknown skin"
-                                     src={`https://avatars.cloudhaven.gg/renders/body/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
-                                     className="object-cover h-25"/>
+                                     src={`https://render.crafty.gg/3d/bust/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
+                                     className="object-cover h-20"/>
                             )}
                         </div>
                     </div>
@@ -70,10 +70,10 @@ export const Cart = () => {
                             </div>
                             <p className="text-white/70 font-medium text-lg">Click to Login</p>
                         </div>
-                        <div className="absolute right-4 top-3 overflow-hidden -mb-4">
+                        <div className="absolute right-0 botton-0 -mb-2 overflow-hidden">
                             <img alt="unknown skin"
-                                 src={`https://avatars.cloudhaven.gg/renders/body/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
-                                 className="object-cover h-25"/>
+                                 src={`https://render.crafty.gg/3d/bust/c06f8906-4c8a-4911-9c29-ea1dbd1aab82`}
+                                 className="object-cover h-20"/>
                         </div>
                     </div>
                 )}
