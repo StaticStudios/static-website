@@ -1,7 +1,7 @@
 import type {Route} from "../../+types/root";
 import {type TebexCategory, type TebexPackage, useIsTebexEnabled, useTebex, useTebexContent} from "~/lib/tebex";
 import {Collapsible, CollapsibleContent, CollapsibleTrigger} from "~/components/ui/collapsible";
-import {ChevronDown, ExternalLinkIcon, InfoIcon, ShoppingCartIcon} from "lucide-react";
+import {CheckIcon, ChevronDown, ExternalLinkIcon, InfoIcon, ShoppingCartIcon} from "lucide-react";
 import {Link, ScrollRestoration} from "react-router";
 import {
     SidebarContent,
@@ -78,12 +78,12 @@ export default function Store({params}: Route.LoaderArgs) {
 const Category = ({category}: { category: TebexCategory }) => {
     const {useCategory} = useTebexContent();
     const parent = useCategory(category.parent?.slug) ?? category;
-    //todo: handle sale price
     return (
         <div className="flex flex-col gap-4">
             <div
-                className="relative flex flex-col-reverse gap-4 lg:flex-row lg:items-center justify-between">
+                className="relative flex flex-col gap-4 lg:flex-row lg:items-center justify-between">
                 <p className="hidden md:flex absolute top-0 left-0 text-3xl text-white font-bold">{parent.name}</p>
+                <MobileParentCategorySelect currentParent={parent}/>
                 <div className="flex-1 md:self-end flex flex-row flex-wrap [&>a]:flex-1 md:[&>a]:flex-0 text-center">
                     {parent?.children?.map(child => (
                         <Link
@@ -105,6 +105,71 @@ const Category = ({category}: { category: TebexCategory }) => {
         </div>
     )
 }
+
+
+const MobileParentCategorySelect = ({
+                                        currentParent
+                                    }: {
+    currentParent: TebexCategory;
+}) => {
+    const {parentCategories} = useTebexContent();
+    const [open, setOpen] = useState(false);
+
+    return (
+        <div className="md:hidden">
+            <Collapsible open={open} onOpenChange={setOpen}>
+                <div className="rounded-xl border border-indigo-700/50 bg-slate-800/90 overflow-hidden">
+                    <CollapsibleTrigger asChild>
+                        <Button
+                            variant="ghost"
+                            className="w-full h-auto px-4 py-4 rounded-none flex items-center justify-between text-left hover:bg-purple-500/10"
+                        >
+                            <div className="flex flex-col items-start">
+                                <span className="text-xs uppercase tracking-wide text-white/50">
+                                    Category
+                                </span>
+                                <span className="text-xl font-semibold text-white">
+                                    {currentParent.name}
+                                </span>
+                            </div>
+                            <ChevronDown
+                                className={`h-5 w-5 text-white/70 transition-transform ${open ? "rotate-180" : ""}`}
+                            />
+                        </Button>
+                    </CollapsibleTrigger>
+
+                    <CollapsibleContent>
+                        <div className="border-t border-indigo-800/40 bg-gradient-to-b from-purple-950/40 to-slate-900">
+                            {parentCategories.map(parent => {
+                                const active = parent.id === currentParent.id;
+
+                                return (
+                                    <Link
+                                        key={parent.id}
+                                        preventScrollReset={true}
+                                        to={`/store/${parent.slug}`}
+                                        onClick={() => setOpen(false)}
+                                        className={`flex items-center gap-3 px-4 py-4 text-lg transition-colors border-b border-white/5 last:border-b-0 ${
+                                            active
+                                                ? "bg-purple-600/15 text-white"
+                                                : "text-white/80 hover:bg-white/5 hover:text-white"
+                                        }`}
+                                    >
+                                        <span className="w-5 flex justify-center">
+                                            {active ? <CheckIcon className="h-5 w-5 text-purple-400"/> : null}
+                                        </span>
+                                        <span>{parent.name}</span>
+                                    </Link>
+                                );
+                            })}
+                        </div>
+                    </CollapsibleContent>
+                </div>
+            </Collapsible>
+        </div>
+    );
+};
+
 
 const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
     const {addToCart} = useAccount()
