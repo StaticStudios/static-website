@@ -3,6 +3,8 @@ import wz1 from "~/assets/skyblock/wz1.png";
 import skyblockSpawn from "~/assets/skyblock/spawn.png";
 import skyblockSpawnSneakPeak from "~/assets/skyblock/spawn_sneak_peak.png";
 import skyblockOasis from "~/assets/skyblock/oasis_1.png";
+import mine from "~/assets/skyblock/mine.png";
+import wz2 from "~/assets/skyblock/wz2.png";
 import React, {type ReactNode, useEffect} from "react";
 import {HeroV2} from "~/components/hero";
 import {CalendarIcon, ClockIcon, ShoppingCartIcon, StarIcon, UsersIcon} from "lucide-react";
@@ -47,7 +49,7 @@ const cards: CardProps[] = [
     {
         title: "Static Skyblock | Season 2.0",
         description: "We are excited to announce the launch of Static Skyblock Season 2.0! This season brings hundreds of changes, increases the grind, and most notably adds PvP!",
-        imageSrc: skyblockSpawn,
+        imageSrc: wz2,
         date: "Aug 8, 2025",
         layout: "vertical",
         href: "/article/skyblock-season-2"
@@ -55,7 +57,7 @@ const cards: CardProps[] = [
     {
         title: "Static Skyblock | Season 1.0",
         description: "After more than a year of active development, Static Skyblock Season 1.0 goes live! This release brings numerous changes - be sure to check them out!",
-        imageSrc: skyblockSpawn,
+        imageSrc: mine,
         date: "May 30, 2025",
         layout: "vertical",
         href: "/article/skyblock-season-1"
