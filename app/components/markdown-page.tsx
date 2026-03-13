@@ -6,15 +6,17 @@ import React from "react";
 type MarkdownPageProps = {
     markdown: string;
     location: PageLocationProps["location"];
+    children?: React.ReactNode;
 }
 
-export function MarkdownPage({markdown, location}: MarkdownPageProps) {
+export function MarkdownPage({markdown, location, children}: MarkdownPageProps) {
     return (
         <div className="mx-2">
             <div className="container mx-auto mb-8">
                 <div className="mt-8 mb-4">
                     <PageLocation location={location}/>
                 </div>
+                {children}
                 <div
                     className="bg-slate-800/70 border border-indigo-800/30 rounded-lg px-8 py-4 [&_p]:text-white/70 [&_li]:text-white/70 space-y-4 [&_ul]:list-disc [&_ul]:ml-4 [&_img]:rounded-lg [&_img]:border [&_img]:border-gray-300/30 [&_code]:bg-slate-900/70">
                     <Markdown>{markdown}</Markdown>
