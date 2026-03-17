@@ -5,6 +5,7 @@ import skyblockSpawnSneakPeak from "~/assets/skyblock/spawn_sneak_peak.png";
 import skyblockOasis from "~/assets/skyblock/oasis_1.png";
 import mine from "~/assets/skyblock/mine.png";
 import wz2 from "~/assets/skyblock/wz2.png";
+import prisonCherryMine from "~/assets/prison/cherry_mine.png";
 import React, {type ReactNode, useEffect} from "react";
 import {HeroV2} from "~/components/hero";
 import {CalendarIcon, ClockIcon, ShoppingCartIcon, StarIcon, UsersIcon} from "lucide-react";
@@ -39,11 +40,19 @@ export function meta({}: Route.MetaArgs) {
 
 const cards: CardProps[] = [
     {
+        title: "Static Prison | Season 1.0",
+        description: "We are excited to announce the launch of Static Prison Season 1.0! This release brings a new prison gamemode with custom enchants, fast-paced progression, pets, and more!",
+        imageSrc: prisonCherryMine,
+        date: "March 13, 2026",
+        layout: "horizontal",
+        href: "/article/prison-season-1"
+    },
+    {
         title: "Static Skyblock | 2,000+ Unique Players",
         description: "We are proud to announce that Static Skyblock Season 2.0 has reached a major milestone of 2,000+ unique players!",
         imageSrc: wz1,
         date: "Feb 8, 2026",
-        layout: "horizontal",
+        layout: "vertical",
         href: "/article/skyblock-season-2-2k-players"
     },
     {

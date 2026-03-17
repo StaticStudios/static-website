@@ -15,6 +15,7 @@ export default [
         route("/article/skyblock-season-1", "routes/article/skyblock-season-1.tsx"),
         route("/article/skyblock-season-2", "routes/article/skyblock-season-2.tsx"),
         route("/article/skyblock-season-2-2k-players", "routes/article/skyblock-season-2-2k-players.tsx"),
+        route("/article/prison-season-1", "routes/article/prison-season-1.tsx"),
         route("*", "routes/not-found.tsx"),
     ])
 ] satisfies RouteConfig;
