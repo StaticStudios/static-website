@@ -14,8 +14,12 @@ import {FullScreenLoading} from "~/components/FullScreenLoading";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Store"},
-        {name: "description", content: "Static Studios is a Minecraft server network."},
+        {title: "Static Studios | Store Item"},
+        {name: "description", content: "View item details on the Static Studios Minecraft server store. Browse ranks, bundles, and cosmetic items for Skyblock and Prison gamemodes."},
+        {name: "robots", content: "index, follow"},
+        {property: "og:title", content: "Static Studios Store"},
+        {property: "og:type", content: "website"},
+        {property: "og:site_name", content: "Static Studios"},
     ];
 }
 

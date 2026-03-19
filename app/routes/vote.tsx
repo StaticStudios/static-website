@@ -7,8 +7,16 @@ import axios from "axios";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Vote"},
-        {name: "description", content: "Vote for Static Studios to receive in-game rewards!"},
+        {title: "Static Studios | Vote for Rewards"},
+        {name: "description", content: "Vote daily for Static Studios Minecraft server to earn in-game rewards, trigger vote parties, and support the community. IP: play.staticstudios.net"},
+        {name: "robots", content: "index, follow"},
+        {property: "og:title", content: "Vote for Static Studios - Earn Minecraft Rewards"},
+        {property: "og:description", content: "Vote daily for in-game rewards and help trigger vote parties on Static Studios Minecraft server."},
+        {property: "og:type", content: "website"},
+        {property: "og:url", content: "https://staticstudios.net/vote"},
+        {property: "og:image", content: "https://staticstudios.net/image/skyblock.png"},
+        {property: "og:site_name", content: "Static Studios"},
+        {name: "twitter:card", content: "summary_large_image"},
     ];
 }
 

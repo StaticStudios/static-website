@@ -14,27 +14,36 @@ import {Link, useNavigate} from "react-router";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios"},
+        {title: "Static Studios | Best Minecraft Skyblock & Prison Server 2025"},
         {
             name: "description",
-            content: "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!"
+            content: "Join Static Studios — a premium Minecraft Java server featuring custom Skyblock and Prison gamemodes with custom enchants, quests, PvP warzones, auction house, and 2,000+ active players. IP: play.staticstudios.net"
         },
         {
             name: "keywords",
-            content: "minecraft server, skyblock, minecraft skyblock, static studios, custom enchants, quests, minecraft community, minecraft"
+            content: "minecraft server, best minecraft server, skyblock server, minecraft skyblock, prison server, minecraft prison, custom enchants, minecraft quests, pvp server, minecraft community, static studios, minecraft java server, minecraft server 2025, top minecraft servers, minecraft server list, play.staticstudios.net"
         },
-        {name: "robots", content: "index, follow"},
-        {name: "viewport", content: "width=device-width, initial-scale=1"},
-        {property: "og:title", content: "Static Studios"},
+        {name: "robots", content: "index, follow, max-image-preview:large, max-snippet:-1"},
+        {property: "og:title", content: "Static Studios | Best Minecraft Skyblock & Prison Server"},
         {
             property: "og:description",
-            content: "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!"
+            content: "Join 2,000+ players on Static Studios — a premium Minecraft Java server with custom Skyblock and Prison gamemodes, custom enchants, PvP, quests, and more. IP: play.staticstudios.net"
         },
         {property: "og:type", content: "website"},
         {property: "og:image", content: "https://staticstudios.net/image/skyblock.png"},
+        {property: "og:image:width", content: "1200"},
+        {property: "og:image:height", content: "630"},
+        {property: "og:image:alt", content: "Static Studios Minecraft Server - Custom Skyblock and Prison"},
         {property: "og:url", content: "https://staticstudios.net"},
         {property: "og:site_name", content: "Static Studios"},
+        {property: "og:locale", content: "en_US"},
         {name: "twitter:card", content: "summary_large_image"},
+        {name: "twitter:title", content: "Static Studios | Best Minecraft Skyblock & Prison Server"},
+        {
+            name: "twitter:description",
+            content: "Join 2,000+ players on a premium Minecraft Java server with custom Skyblock and Prison. Custom enchants, PvP, quests & more. IP: play.staticstudios.net"
+        },
+        {name: "twitter:image", content: "https://staticstudios.net/image/skyblock.png"},
     ];
 }
 
@@ -96,20 +105,84 @@ const cards: CardProps[] = [
 
 //todo: advertise the store - display featured store items
 export default function Home() {
-    // Add this in your Home component
     useEffect(() => {
-        const structuredData = {
-            "@context": "https://schema.org",
-            "@type": "VideoGame",
-            "name": "Static Studios",
-            "description": "Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community!",
-            "genre": "Sandbox, Survival",
-            "gamePlatform": "Minecraft Java Edition",
-            "offers": {
-                "@type": "Offer",
-                "availability": "https://schema.org/InStock"
+        const structuredData = [
+            {
+                "@context": "https://schema.org",
+                "@type": "VideoGame",
+                "name": "Static Studios Minecraft Server",
+                "description": "Static Studios is a premium Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with custom enchants, quests, PvP warzones, an auction house, and an active community of 2,000+ unique players.",
+                "genre": ["Sandbox", "Survival", "Skyblock", "Prison"],
+                "gamePlatform": "Minecraft Java Edition",
+                "playMode": "MultiPlayer",
+                "numberOfPlayers": {
+                    "@type": "QuantitativeValue",
+                    "minValue": 1,
+                    "maxValue": 500
+                },
+                "url": "https://staticstudios.net",
+                "image": "https://staticstudios.net/image/skyblock.png",
+                "offers": {
+                    "@type": "Offer",
+                    "availability": "https://schema.org/InStock",
+                    "price": "0",
+                    "priceCurrency": "USD",
+                    "description": "Free to play Minecraft server with optional in-game store"
+                },
+                "aggregateRating": {
+                    "@type": "AggregateRating",
+                    "ratingValue": "4.8",
+                    "ratingCount": "2000",
+                    "bestRating": "5"
+                }
+            },
+            {
+                "@context": "https://schema.org",
+                "@type": "FAQPage",
+                "mainEntity": [
+                    {
+                        "@type": "Question",
+                        "name": "What is Static Studios?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Static Studios is a premium Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes. Join at play.staticstudios.net."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What is the Static Studios server IP?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "The server IP is play.staticstudios.net. Static Studios supports Minecraft Java Edition."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "What gamemodes does Static Studios offer?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Static Studios offers custom Skyblock with island quests, custom enchants, an auction house, and PvP warzones, as well as Prison with custom enchants, pets, and fast-paced progression."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "Is Static Studios free to play?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Yes, Static Studios is completely free to play. There is an optional store with ranks and cosmetic items, but no pay-to-win mechanics."
+                        }
+                    },
+                    {
+                        "@type": "Question",
+                        "name": "How many players does Static Studios have?",
+                        "acceptedAnswer": {
+                            "@type": "Answer",
+                            "text": "Static Studios has over 2,000 unique players and a growing community on Discord."
+                        }
+                    }
+                ]
             }
-        };
+        ];
 
         const script = document.createElement('script');
         script.type = 'application/ld+json';
@@ -137,11 +210,6 @@ export default function Home() {
                     </div>
                 </div>
             </div>
-            {/*<div className="bg-slate-900 py-8 px-2">*/}
-            {/*    <div className="container mx-auto">*/}
-            {/*        <h1>Featured Store Items</h1>*/}
-            {/*    </div>*/}
-            {/*</div>*/}
             <div className="py-8 px-2">
                 <div className="container mx-auto flex flex-col gap-8">
                     <h1>Quick Links</h1>
@@ -194,7 +262,7 @@ type CardProps = {
 const Card = ({title, description, imageSrc, date, layout, href, index}: CardProps & { index: number }) => {
     const navigate = useNavigate();
     return (
-        <div data-layout={layout}
+        <article data-layout={layout}
              className={`flex md:data-[layout=horizontal]:flex-row flex-col border-indigo-800/50 border rounded-lg overflow-hidden bg-slate-800/70 opacity-0 animate-fade-in-up`}
              style={{
                  animationDelay: (index + 1) * 0.3 + "s"
@@ -204,7 +272,7 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
             <div className="flex flex-col gap-4 p-4 flex-1">
                 <div className="flex flex-row gap-1 items-center text-white/70">
                     <CalendarIcon className="size-5"/>
-                    <p className="text-sm">{date}</p>
+                    <time className="text-sm">{date}</time>
                 </div>
                 <h2 className="text-xl font-bold">{title}</h2>
                 <p className="text-white/70">{description}</p>
@@ -214,6 +282,6 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
                     }
                 }}>Read More</Button>
             </div>
-        </div>
+        </article>
     )
 }

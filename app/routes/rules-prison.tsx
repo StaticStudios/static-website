@@ -6,7 +6,12 @@ import {MarkdownPage} from "~/components/markdown-page";
 export function meta({}: Route.MetaArgs) {
     return [
         {title: "Static Studios | Prison Rules"},
-        {name: "description", content: "Static Studios is a Minecraft server network."},
+        {name: "description", content: "Official rules for Static Prison gamemode. Review mine, PvP, economy, and gameplay rules to ensure fair play on play.staticstudios.net."},
+        {name: "robots", content: "index, follow"},
+        {property: "og:title", content: "Static Studios Prison Rules"},
+        {property: "og:type", content: "website"},
+        {property: "og:url", content: "https://staticstudios.net/rules/prison"},
+        {property: "og:site_name", content: "Static Studios"},
     ];
 }
 

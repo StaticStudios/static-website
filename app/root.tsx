@@ -30,8 +30,40 @@ export function Layout({ children }: { children: React.ReactNode }) {
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta name="theme-color" content="#0f172a" />
+        <meta name="author" content="Static Studios" />
+        <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         <Meta />
         <Links />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Organization",
+          "name": "Static Studios",
+          "url": "https://staticstudios.net",
+          "logo": "https://staticstudios.net/favicon.ico",
+          "description": "Static Studios is a premium Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with unique gameplay, custom enchants, and an active community of 2,000+ players.",
+          "email": "support@staticstudios.net",
+          "sameAs": [
+            "https://discord.gg/9S6K9E5"
+          ],
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "email": "support@staticstudios.net",
+            "contactType": "customer support"
+          }
+        })}} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "WebSite",
+          "name": "Static Studios",
+          "url": "https://staticstudios.net",
+          "description": "Premium Minecraft Java Edition server featuring custom Skyblock and Prison gamemodes.",
+          "potentialAction": {
+            "@type": "SearchAction",
+            "target": "https://staticstudios.net/store?q={search_term_string}",
+            "query-input": "required name=search_term_string"
+          }
+        })}} />
       </head>
       <body>
         {children}

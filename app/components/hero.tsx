@@ -10,20 +10,20 @@ export const HeroV2 = ({title, subtitle}: {
     return (
         <div className="relative h-[500px] overflow-hidden">
             <div className="absolute top-0 right-0 bottom-0 left-0">
-                <img alt="" src={hero} className="object-cover size-full"/>
+                <img alt="Static Studios Minecraft Server" src={hero} className="object-cover size-full"/>
             </div>
             <div
                 className="absolute top-0 right-0 bottom-0 left-0 bg-slate-900/80 backdrop-blur-xs border-indigo-800/30 border">
                 <div className="mx-2 h-full">
                     <div
                         className="container mx-auto flex flex-col justify-center items-center gap-6 h-full">
-                        <p className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg text-center">
+                        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white drop-shadow-lg text-center">
                             {title.map((part, index) => (
                                 <span key={index} className={part.highlighted ? "text-purple-400" : ""}>
                                         {part.content}{index < title.length - 1 ? " " : ""}
                                     </span>
                             ))}
-                        </p>
+                        </h1>
                         <p className="text-xl text-white/80 max-w-2xl mb-8 drop-shadow-md text-center">
                             {subtitle}
                         </p>

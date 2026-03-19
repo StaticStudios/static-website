@@ -4,7 +4,7 @@ import {MailIcon, MapPinIcon} from "lucide-react";
 
 export const Footer = () => {
     return (
-        <div className="w-full bg-slate-900 px-3 py-6 text-white/70 font-normal mt-auto">
+        <footer className="w-full bg-slate-900 px-3 py-6 text-white/70 font-normal mt-auto">
             <div className="container mx-auto">
                 <div className="flex flex-col md:flex-row justify-between gap-4 flex-1">
                     <div className="flex flex-col flex-1 text-left gap-2">
@@ -16,14 +16,14 @@ export const Footer = () => {
                         <h4 className="text-white">Notice</h4>
                         <p>We are not affiliated with Minecraft, Microsoft or Mojang AB.</p>
                     </div>
-                    <div className="flex flex-col flex-1 [&>a]:hover:text-purple-400 transition-colors gap-2">
+                    <nav className="flex flex-col flex-1 [&>a]:hover:text-purple-400 transition-colors gap-2">
                         <h4 className="text-white">Other links</h4>
                         <a href="https://discord.gg/9S6K9E5" target="_blank" rel="noreferrer">Discord</a>
                         <a href="https://discord.gg/9S6K9E5" target="_blank" rel="noreferrer">Contact us</a>
                         <Link to={"tos"}>Terms of Service</Link>
                         <Link to={"privacy"}>Privacy Policy</Link>
-                    </div>
-                    <div className="flex flex-col flex-1 [&>a]:hover:text-purple-400 transition-colors gap-2">
+                    </nav>
+                    <address className="flex flex-col flex-1 not-italic [&>a]:hover:text-purple-400 transition-colors gap-2">
                         <h4 className="text-white">Contact Us</h4>
                         <div className="flex flex-row gap-2 items-center">
                             <MailIcon className="text-purple-400 size-5"/>
@@ -33,9 +33,9 @@ export const Footer = () => {
                             <MapPinIcon className="text-purple-400 size-5"/>
                             <p>play.staticstudios.net</p>
                         </div>
-                    </div>
+                    </address>
                 </div>
             </div>
-        </div>
+        </footer>
     )
 }

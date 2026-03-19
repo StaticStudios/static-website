@@ -23,8 +23,16 @@ import {FullScreenLoading} from "~/components/FullScreenLoading";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Store"},
-        {name: "description", content: "Static Studios is a Minecraft server network."},
+        {title: "Static Studios | Store - Ranks, Bundles & Items"},
+        {name: "description", content: "Browse the Static Studios store for Minecraft server ranks, bundles, and cosmetic items. Enhance your Skyblock and Prison experience with no pay-to-win mechanics."},
+        {name: "robots", content: "index, follow"},
+        {property: "og:title", content: "Static Studios Store - Ranks, Bundles & Items"},
+        {property: "og:description", content: "Browse ranks, bundles, and cosmetic items for Static Studios Minecraft server. No pay-to-win mechanics."},
+        {property: "og:type", content: "website"},
+        {property: "og:url", content: "https://staticstudios.net/store"},
+        {property: "og:image", content: "https://staticstudios.net/image/skyblock.png"},
+        {property: "og:site_name", content: "Static Studios"},
+        {name: "twitter:card", content: "summary_large_image"},
     ];
 }
 
