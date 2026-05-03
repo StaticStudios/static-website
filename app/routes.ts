@@ -5,6 +5,7 @@ export default [
         index("routes/home.tsx"),
         route("tos", "routes/tos.tsx"),
         route("rules", "routes/rules.tsx"),
+        route("partnerships", "routes/partnerships.tsx"),
         route("rules/skyblock", "routes/rules-skyblock.tsx"),
         route("rules/prison", "routes/rules-prison.tsx"),
         route("privacy", "routes/privacy.tsx"),

@@ -18,12 +18,12 @@ export const Footer = () => {
                     </div>
                     <nav className="flex flex-col flex-1 [&>a]:hover:text-purple-400 transition-colors gap-2">
                         <h4 className="text-white">Other links</h4>
-                        <a href="https://discord.gg/9S6K9E5" target="_blank" rel="noreferrer">Discord</a>
-                        <a href="https://discord.gg/9S6K9E5" target="_blank" rel="noreferrer">Contact us</a>
+                        <Link to={"partnerships"}>Partner With Us</Link>
                         <Link to={"tos"}>Terms of Service</Link>
                         <Link to={"privacy"}>Privacy Policy</Link>
                     </nav>
-                    <address className="flex flex-col flex-1 not-italic [&>a]:hover:text-purple-400 transition-colors gap-2">
+                    <address
+                        className="flex flex-col flex-1 not-italic [&>a]:hover:text-purple-400 transition-colors gap-2">
                         <h4 className="text-white">Contact Us</h4>
                         <div className="flex flex-row gap-2 items-center">
                             <MailIcon className="text-purple-400 size-5"/>
