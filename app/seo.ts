@@ -60,6 +60,7 @@ export const staticRoutes: SiteRoute[] = [
     {path: "/store", changefreq: "weekly", priority: 0.9},
     {path: "/vote", changefreq: "monthly", priority: 0.7},
     {path: "/rules", changefreq: "monthly", priority: 0.6},
+    {path: "/partnerships", changefreq: "monthly", priority: 0.6},
     {path: "/rules/skyblock", changefreq: "monthly", priority: 0.5},
     {path: "/rules/prison", changefreq: "monthly", priority: 0.5},
     {path: "/tos", changefreq: "yearly", priority: 0.3},
