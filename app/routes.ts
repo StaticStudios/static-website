@@ -14,6 +14,7 @@ export default [
         route("vote", "routes/vote.tsx"),
         route("discord", "routes/discord.tsx"),
         route("article/:slug", "routes/article.tsx"),
+        route("wiki/:category?/:slug?", "routes/wiki.tsx"),
         route("*", "routes/not-found.tsx"),
     ])
 ] satisfies RouteConfig;

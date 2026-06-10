@@ -8,6 +8,23 @@ export interface Article {
     breadcrumbName: string;
 }
 
+export interface WikiPage {
+    slug: string;
+    metaTitle: string;
+    description: string;
+    ogDescription: string;
+    date: string;
+    ogImage: string;
+    breadcrumbName: string;
+}
+
+export interface WikiCategory {
+    slug: string;
+    breadcrumbName: string;
+    index: WikiPage;
+    pages: WikiPage[];
+}
+
 export const SITE_URL = "https://staticstudios.net";
 
 export const articles: Article[] = [
@@ -49,6 +66,33 @@ export const articles: Article[] = [
     },
 ];
 
+export const wikiPages: WikiCategory[] = [
+    {
+        slug: "skyblock",
+        breadcrumbName: "Skyblock",
+        index: {
+            slug: "index",
+            metaTitle: "Static Skyblock Wiki",
+            description: "Learn about Static Skyblock features, progression, systems, and gameplay mechanics.",
+            ogDescription: "Learn about Static Skyblock features, progression, systems, and gameplay mechanics.",
+            date: "",
+            ogImage: "https://staticstudios.net/image/skyblock.png",
+            breadcrumbName: "Skyblock",
+        },
+        pages: [
+            {
+                slug: "power-generators",
+                metaTitle: "Skyblock Power Generators",
+                description: "",
+                ogDescription: "",
+                date: "",
+                ogImage: "https://staticstudios.net/image/skyblock.png",
+                breadcrumbName: "Power Generators",
+            },
+        ],
+    },
+];
+
 export interface SiteRoute {
     path: string;
     changefreq: string;
@@ -67,10 +111,49 @@ export const staticRoutes: SiteRoute[] = [
     {path: "/privacy", changefreq: "yearly", priority: 0.3},
 ];
 
+export const wikiIndexPage: WikiPage = {
+    slug: "index",
+    metaTitle: "Static Studios Wiki",
+    description: "Browse the Static Studios wiki for server guides, gameplay systems, and helpful information.",
+    ogDescription: "Browse the Static Studios wiki for server guides, gameplay systems, and helpful information.",
+    date: "",
+    ogImage: "https://staticstudios.net/image/skyblock.png",
+    breadcrumbName: "Wiki",
+};
+
+export function getAllWikiPages() {
+    return [
+        {
+            category: undefined,
+            page: wikiIndexPage,
+            path: "/wiki",
+            isRootIndex: true,
+            isCategoryIndex: false,
+        },
+        ...wikiPages.flatMap(category => [
+            {
+                category,
+                page: category.index,
+                path: `/wiki/${category.slug}`,
+                isRootIndex: false,
+                isCategoryIndex: true,
+            },
+            ...category.pages.map(page => ({
+                category,
+                page,
+                path: `/wiki/${category.slug}/${page.slug}`,
+                isRootIndex: false,
+                isCategoryIndex: false,
+            })),
+        ]),
+    ];
+}
+
 export function getAllPrerenderPaths(): string[] {
     return [
         ...staticRoutes.map(r => r.path),
         ...articles.map(a => `/article/${a.slug}`),
+        ...getAllWikiPages().map(w => w.path),
     ];
 }
 
@@ -81,6 +164,9 @@ export function generateSitemap(): string {
         ),
         ...articles.map(a =>
             `  <url>\n    <loc>${SITE_URL}/article/${a.slug}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.7</priority>\n  </url>`
+        ),
+        ...getAllWikiPages().map(w =>
+            `  <url>\n    <loc>${SITE_URL}${w.path}</loc>\n    <changefreq>monthly</changefreq>\n    <priority>0.6</priority>\n  </url>`
         ),
     ];
 
@@ -94,6 +180,20 @@ ${urls.join("\n")}
 export function generateLlmsTxt(): string {
     const articleLinks = articles
         .map(a => `- ${a.breadcrumbName}: ${SITE_URL}/article/${a.slug}`)
+        .join("\n");
+
+    const wikiLinks = getAllWikiPages()
+        .map(w => {
+            if (!w.category) {
+                return `- ${w.page.breadcrumbName}: ${SITE_URL}${w.path}`;
+            }
+
+            if (w.isCategoryIndex) {
+                return `- ${w.category.breadcrumbName}: ${SITE_URL}${w.path}`;
+            }
+
+            return `- ${w.category.breadcrumbName} / ${w.page.breadcrumbName}: ${SITE_URL}${w.path}`;
+        })
         .join("\n");
 
     return `# Static Studios - Minecraft Server
@@ -141,6 +241,9 @@ Static Studios stands out among Minecraft servers for its commitment to custom g
 ## Articles
 
 ${articleLinks}
+
+## Wiki
+
+${wikiLinks}
 `;
 }
-

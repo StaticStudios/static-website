@@ -37,13 +37,14 @@ export const PageLocation = ({location}: PageLocationProps) => {
     return (
         <div className="flex flex-row gap-1 items-center">
             {location.map((loc, i) => (
-                <>
+                <div key={i} className="flex flex-row gap-1 items-center">
                     <Link to={loc.href} data-active={i == location.length - 1}
-                          className="text-sm text-white/70 data-[active=true]:text-white hover:text-white transition-colors">{loc.name}</Link>
+                          className="text-sm text-white/70 data-[active=true]:text-white hover:text-white transition-colors">{loc.name}
+                    </Link>
                     {i < location.length - 1 && (
                         <ChevronRightIcon className="text-white/70 size-4"/>
                     )}
-                </>
+                </div>
             ))}
         </div>
     )
