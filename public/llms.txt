@@ -51,4 +51,8 @@ Static Studios stands out among Minecraft servers for its commitment to custom g
 
 - Wiki: https://staticstudios.net/wiki
 - Skyblock: https://staticstudios.net/wiki/skyblock
-- Skyblock / Power Generators: https://staticstudios.net/wiki/skyblock/power-generators
+- Skyblock / Power: https://staticstudios.net/wiki/skyblock/power
+- Skyblock / Workbench: https://staticstudios.net/wiki/skyblock/workbench
+- Skyblock / Water Items: https://staticstudios.net/wiki/skyblock/water
+- Skyblock / TNT Spawners: https://staticstudios.net/wiki/skyblock/tnt-spawners
+- Skyblock / Item Management: https://staticstudios.net/wiki/skyblock/item-management
