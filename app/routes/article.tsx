@@ -1,3 +1,4 @@
+// @ts-ignore
 import type {Route} from "../../+types/root";
 import React from "react";
 import {MarkdownPage} from "~/components/markdown-page";
