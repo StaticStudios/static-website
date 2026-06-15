@@ -98,6 +98,10 @@ body {
         @apply text-base;
     }
 
+    :where(.markdown) a {
+        @apply text-purple-400 hover:underline;
+    }
+
     button {
         cursor: pointer;
     }
