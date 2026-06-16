@@ -16,11 +16,9 @@ chest to collect the sorted output.
 
 #### How it works:
 
-● Place items to be sorted in a chest or hopper above the Item Filter
-
-● The filter will pull items down and sort them based on your configuration
-
-● Sorted items are sent to your connected output (hopper/chest)
+- Place items to be sorted in a chest or hopper above the Item Filter
+- The filter will pull items down and sort them based on your configuration
+- Sorted items are sent to your connected output (hopper/chest)
 
 ![img.png](/image/md/wiki/skyblock/item-management/configurefilter.png)
 
@@ -29,8 +27,7 @@ chest to collect the sorted output.
 Any items that are not configured in the filter will be treated as overflow.
 To collect these:
 
-● Place a hopper or chest below the Item Filter
-This will catch all unsorted items
+- Place a hopper or chest below the Item Filter, This will catch all unsorted items
 
 Tip: Set up multiple filters in a chain to create a fully automated storage system.
 
@@ -61,7 +58,6 @@ Each upgrade builds on the last, allowing you to scale your system as your islan
 
 ![img.png](/image/md/wiki/skyblock/item-management/hoppercrafting.png)
 
-
 ---
 
 # Chunk Hoppers
@@ -76,9 +72,8 @@ the item that each chunk hopper can and will pick up.
 Chunk Hoppers automatically collect any items dropped within a specific chunk.
 A chunk is a section of your island. You can view chunk borders using:
 
-● Java Edition: Press F3 + G
-
-● Bedrock/Java: Use /chunks (if available)
+- Java Edition: Press F3 + G
+- Bedrock/Java: Use `/chunks`
 
 ![img.png](/image/md/wiki/skyblock/item-management/chunks.png)
 
@@ -87,9 +82,8 @@ inside that chunk.
 You can customize what items a Chunk Hopper collects through /island settings, allowing you to filter specific items.
 
 Tips:
-● Place Chunk Hoppers in high-activity areas for maximum efficiency
 
-● Use multiple hoppers to cover different chunks
-
-● Combine with Item Filters for advanced sorting systems
+- Place Chunk Hoppers in high-activity areas for maximum efficiency
+- Use multiple hoppers to cover different chunks
+- Combine with Item Filters for advanced sorting systems
 

@@ -102,6 +102,11 @@ body {
         @apply text-purple-400 hover:underline;
     }
 
+
+    :where(.markdown) img {
+        @apply w-[800px];
+    }
+
     button {
         cursor: pointer;
     }

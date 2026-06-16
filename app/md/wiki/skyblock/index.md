@@ -3,7 +3,7 @@
 This Wiki is in its early stages and is not 100% complete. Please let us know on discord what information you would like
 to see included/updated on this wiki.
 
-## See the pages below for information on the following topics:
+## Wiki contents:
 
 - [Power Information](/wiki/skyblock/power)
 - [Item Management Information](/wiki/skyblock/item-management)

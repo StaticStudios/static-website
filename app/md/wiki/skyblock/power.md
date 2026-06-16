@@ -1,53 +1,60 @@
-# Power
+# Power Cables
 
-Power items are used to power other machines around your island.
-These machines include: Cable, Power Switches, Power Generators and Wireless Transmitters.
-Below are descriptions for each individual item in the power tab. Learn what each item does and how to use them
-effectively.
+Cables are used to connect machinery around your island. While not exhaustive, some of the core components that
+may be connected to cables are: power generators, wireless transmitters, tnt spawners, etc...
+
+When looking at a cable, its respective network's load and capacity will be displayed in the following format on your
+actionbar: `load/capacity`.
+
+When a network's load exceeds its capacity, none of the machines on the network will be powered. Either everything
+works, or nothing works. In the case of a network with a load smaller than its capacity, its cables will be illuminated
+with
+a red
+color to signal that the network is properly configured.
+
+![img.png](/image/md/wiki/skyblock/power/powercable.png)
 
 ---
 
-# Power Cables
-
-Power Cables are used to connect generators and wireless transmitters to machines around your island.
-
-When looking at a cable, it displays how much power is being used compared to how much is being generated.
-Once properly connected, the cables will turn into a version with red lines to indicate they are active.
-![img.png](/image/md/wiki/skyblock/power/powercable.png)
-
 # Power Switches
 
-Power switches are used to direct power to specific outputs. Choose the input for the power and send it the direction
-that you desire. All it takes is a lever and a working generator.
-Switches are crafted by using the workbench in the power section.
+Power switches are used to dynamically connect and disconnect different parts of a network. Power switches have two
+sides. Both sides can be connected to via a cable. When powered by redstone, the switch will connect the cables at each
+end. When not powered by redstone, the cables at either end of the switch will not be connected to each other. Assuming
+that nothing else connects the networks at either end of the switch, the two networks will be completely independent of
+each
+other when the switch is turned off. Power switches do not add any additional load to a network.
+Power switches can be crafted in a workbench's power section.
 
 ![img.png](/image/md/wiki/skyblock/power/powerswitches.png)
+
 ---
 
 # Power Generators
 
-Power Generators require a special resource called Essence. Essence has a chance to drop when killing mobs in the
-`/warzone`.
-Generators come in Tier 1–5, with each tier requiring more Essence to operate. In return, higher tiers produce more
-power. Tier 1 generates the least, while Tier 5 generates the most.
+The use of Power Generators is the only way to increase a power network's capacity. Power Generators require a special
+resource called **Essence** in order to function. Essence can be obtained by killing enemies in the `/warzone`. To add
+Essence to a Power Generator, right-click the generator block and put the Essence in its inventory. There are five tiers
+of Power Generators. Each tier has a higher power output than the last. Each tier consumes Essence at a different rate;
+higher tiers consume Essence quicker.
 
 ![img.png](/image/md/wiki/skyblock/power/powergenerators.png)
 
 #### Power Generator Recipe:
 
-To unlock higher-tier generators, you must craft them in the Workbench. Each tier (except Tier 1) requires the previous
-generator along with additional resources.
-The power produced by generators determines whether your machines and robots can run.
-No Essence = No Power → No Power = No Machines Running.
+You can obtain power generators by crafting them in the [workbench](/wiki/skyblock/workbench). Every tier above tier one
+has a crafting recipe which requires the previous tier, as well as other components.
 
 ![img.png](/image/md/wiki/skyblock/power/craftingrecipe.png)
 
 #### Power Generator Limit:
 
-You can increase the number of generators on your island through /island upgrades. Each upgrade adds an additional
-generator slot, allowing you to place more generators over time.
-Generators do not need to be connected to a single cable or placed in one area. They can be spread around your island,
-as long as they are properly connected to machines and supplied with Essence.
+The number of Power Generators you can place on your island can be increased through `/island upgrades`. Each upgrade
+adds additional generator slot(s), allowing you to place more generators as your island grows.
+
+Power Generators do not all need to be connected to the same network or placed in the same area. They can be spread out
+across your island, as long as they are properly connected to the machines they are powering and have enough Essence to
+run.
 
 ![generatorlimit.png](/image/md/wiki/skyblock/power/generatorlimit.png)
 
@@ -55,30 +62,36 @@ as long as they are properly connected to machines and supplied with Essence.
 
 # Wireless Transmitters
 
-Wireless Transmitters do not require Essence, but they must be powered by a Generator to function. They can be placed
-either upside down or right-side up, depending on your preferred setup.
+Wireless Transmitters are used to power nearby blocks without needing to connect them directly with cables. Only certain
+items require wireless power. Items requiring wireless power have something like `Power Requirement: 5W (Wireless)` in
+their description. Wireless Transmitters must be connected to a powered network in order to function.
+
+Transmitters can be placed facing either upward or downward, depending on how you want to set up your island.
+
 ![img.png](/image/md/wiki/skyblock/power/transmitter.png)
-Transmitters come in Tier 1–5, with each tier increasing the radius in which they can power nearby items. They are
-primarily used to power spawners and minions. Instead of being limited by spawner type, you are limited by total power
-capacity.
+
+Wireless Transmitters have five tiers. Higher tiers have a larger radius, allowing them to power blocks from farther
+away. Wireless Transmitters are mainly used to power spawners and robots within their range.
+
+Instead of being limited by spawner type, your setup is limited by the total amount of power your network can provide.
 
 #### Transmitter Use
 
-Each spawner requires a certain amount of power. If your total production is lower than your demand, only part of your
-setup will function. For example, if your spawners require 1,000 power but you are only generating 500 power, only 500
-worth of spawners will be powered.
-Power Transmitters are also used to power any robots that are within the radius. Robots must be powered and can only be
-powered through the transmitter.
+Each spawner requires a certain amount of power to function. If the total power required by your spawners is higher than
+your network’s capacity, only part of your setup will be powered. Unlike wired networks, in the case where the load of
+all items within a Wireless Transmitter's radius exceeds the network's capacity: part of the wireless items will be
+powered. Wireless networks are not all or nothing like their wired counterpart.
+
+For example, if your spawners require 1,000W but your network only provides 500W, only 500W worth of spawners will work.
+
+Wireless Transmitters are also used to power robots within their radius. Robots require power in order to function, and
+they can only receive power through a Wireless Transmitter.
+
 ![img.png](/image/md/wiki/skyblock/power/transmitteruse.png)
 
 #### Transmitter Recipe:
 
-Higher-tier transmitters can be unlocked through the Workbench. Each tier (except Tier 1) requires the previous
-transmitter along with additional crafting materials.
+Wireless Transmitters can be crafted in the [workbench](/wiki/skyblock/workbench). Every tier above Tier 1 requires the
+previous tier transmitter, along with additional crafting components.
+
 ![img.png](/image/md/wiki/skyblock/power/transmitterrecipe.png)
-
-
-
-
-
-
