@@ -1,32 +1,45 @@
 # TNT Spawners
 
-TNT Spawners generate TNT automatically over time and can be used to create powerful farms and redstone contraptions.
+TNT Spawners are used to automatically generate TNT over time. They can be used to create TNT farms, redstone machines,
+and other automated systems on your island.
 
-They come in Tier 1–5, with each tier:
+TNT Spawners require power in order to function. If your power network does not have enough capacity for the spawners
+connected to it, they will not run properly.
 
-- Increasing the spawn speed (interval)
-- Increasing the power required to keep the spawner running
+![img.png](/image/md/wiki/skyblock/tntspawner/tntspawner.png)
 
-Higher-tier spawners produce TNT faster, but require more power to operate efficiently.
+#### Tiers
+
+TNT Spawners have five tiers. Higher-tier TNT Spawners produce TNT at a faster rate than lower-tier spawners. This means
+less time between each TNT spawn, allowing larger setups to generate TNT more quickly.
+
+Each tier also requires more power to keep running. Higher-tier spawners are useful for increasing TNT output, but they
+will put more load on your power network. Make sure your island has enough power generation before upgrading too many
+spawners at once.
 
 #### Power Switches
 
-TNT Spawners can be enhanced using a Power Switch, allowing you to control when they are active. This opens the door for
-advanced setups such as:
+TNT Spawners can be connected to Power Switches. This allows you to control when your TNT Spawners are active using
+redstone.
 
-- Automated TNT farms
-- Redstone-powered contraptions
-- Timed systems for efficiency and control
+Power Switches are useful for creating more advanced TNT setups, such as automated farms, timed systems, or
+redstone-controlled machines.
 
-Using smart designs, you can build large-scale systems to maximize output and outperform other players.
+When the Power Switch is on, the TNT Spawner can receive power from the network. When the Power Switch is off, the TNT
+Spawner will be disconnected from that part of the network.
 
-To unlock higher-tier TNT Spawners, you must craft them in the Workbench. Each tier (except Tier 1) requires the
-previous spawner along with additional resources.
+#### Crafting
 
-Keep in mind that TNT Spawners rely on your island’s total power.
-If you do not have enough power, they will not run at full efficiency—or may not run at all.
+TNT Spawners can be crafted in the [workbench](/wiki/skyblock/workbench). Every tier above Tier 1 requires the previous
+tier spawner, as well as additional crafting components.
 
-Tip: Combine higher-tier spawners with efficient power generation and redstone systems to get the most value out of your
-setup.
+Each upgrade increases the speed of the spawner, allowing your setup to generate TNT faster as your island progresses.
 
-![img.png](/image/md/wiki/skyblock/tntspawner/tntspawner.png)
+![img.png](/image/md/wiki/skyblock/item-management/tntspawnercrafting.png)
+
+**Tips:**
+
+- Make sure your power network has enough capacity before placing multiple TNT Spawners.
+- Use Power Switches to turn TNT Spawners on and off with redstone.
+- Higher-tier TNT Spawners are best used with strong power generation and efficient redstone systems.
+- Combine TNT Spawners with item-management systems to keep large setups organized.
