@@ -1,5 +1,5 @@
 import logo from "~/assets/logo.png"
-import {BookIcon, HomeIcon, MenuIcon, ShoppingCartIcon, UsersIcon, VoteIcon} from "lucide-react";
+import {BookIcon, BookOpenIcon, HomeIcon, MenuIcon, ShoppingCartIcon, UsersIcon, VoteIcon} from "lucide-react";
 import {Link} from "react-router";
 import {Sheet, SheetContent, SheetTrigger} from "~/components/ui/sheet";
 import {Button} from "~/components/ui/button";
@@ -26,6 +26,10 @@ const routes = [
         label: "Discord",
         href: "/discord",
         icon: <UsersIcon className="size-4"/>
+    }, {
+        label: "Wiki",
+        href: "/wiki",
+        icon: <BookOpenIcon className="size-4"/>
     }
 ]
 
