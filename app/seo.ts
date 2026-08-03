@@ -142,7 +142,7 @@ export const wikiPages: WikiCategory[] = [
         pages: [
             {
                 slug: "gift-cards",
-                metaTitle: "Gift Cards and /gc Command Guide",
+                metaTitle: "Gift Cards",
                 description: "Learn how to use /gc to redeem and withdraw gift cards, find withdrawn codes, pay players, and apply gift cards at Static Studios store checkout.",
                 ogDescription: "Learn how to use /gc, retrieve withdrawn gift card codes, and apply them at Static Studios store checkout.",
                 date: "",
