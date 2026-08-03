@@ -127,6 +127,30 @@ export const wikiPages: WikiCategory[] = [
             },
         ],
     },
+    {
+        slug: "misc",
+        breadcrumbName: "Miscellaneous",
+        index: {
+            slug: "index",
+            metaTitle: "Static Studios Miscellaneous Wiki",
+            description: "Browse network-wide Static Studios guides for gift cards, commands, and other shared server features.",
+            ogDescription: "Browse guides for gift cards, commands, and other features shared across Static Studios.",
+            date: "",
+            ogImage: "https://staticstudios.net/image/skyblock.png",
+            breadcrumbName: "Miscellaneous",
+        },
+        pages: [
+            {
+                slug: "gift-cards",
+                metaTitle: "Gift Cards and /gc Command Guide",
+                description: "Learn how to use /gc to redeem and withdraw gift cards, find withdrawn codes, pay players, and apply gift cards at Static Studios store checkout.",
+                ogDescription: "Learn how to use /gc, retrieve withdrawn gift card codes, and apply them at Static Studios store checkout.",
+                date: "",
+                ogImage: "https://staticstudios.net/image/skyblock.png",
+                breadcrumbName: "Gift Cards",
+            },
+        ],
+    },
 ];
 
 export interface SiteRoute {

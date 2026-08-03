@@ -102,6 +102,53 @@ body {
         @apply text-purple-400 hover:underline;
     }
 
+    :where(.markdown) ul {
+        @apply ml-6 list-disc space-y-1;
+    }
+
+    :where(.markdown) ol {
+        @apply ml-6 list-decimal space-y-1;
+    }
+
+    :where(.markdown) li {
+        @apply pl-1 text-white/70;
+    }
+
+    :where(.markdown) blockquote {
+        @apply space-y-2 rounded-r-lg border-l-4 border-purple-400/70 bg-slate-900/50 px-4 py-3;
+    }
+
+    :where(.markdown) hr {
+        @apply border-0 border-t border-indigo-500/40;
+    }
+
+    :where(.markdown) .markdown-table-wrapper {
+        @apply w-full overflow-x-auto rounded-lg border border-indigo-700/40;
+    }
+
+    :where(.markdown) table {
+        @apply w-full min-w-[32rem] border-collapse text-left;
+    }
+
+    :where(.markdown) thead {
+        @apply bg-indigo-950/70;
+    }
+
+    :where(.markdown) tbody tr {
+        @apply border-t border-indigo-700/40;
+    }
+
+    :where(.markdown) tbody tr:nth-child(even) {
+        @apply bg-slate-900/30;
+    }
+
+    :where(.markdown) th {
+        @apply px-4 py-3 font-semibold text-white;
+    }
+
+    :where(.markdown) td {
+        @apply px-4 py-3 align-top text-white/70;
+    }
 
     :where(.markdown) img {
         @apply w-[800px];
