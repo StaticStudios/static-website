@@ -5,13 +5,13 @@ import {MarkdownPage} from "~/components/markdown-page";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Privacy Policy"},
-        {name: "description", content: "Privacy Policy for Static Studios Minecraft server network. Learn how we handle your data on our Skyblock and Prison server at play.staticstudios.net."},
+        {title: "Static | Privacy Policy"},
+        {name: "description", content: "Learn how Static Studios collects, uses, shares, retains, and protects information when operating the Static Minecraft server and related services."},
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Static Studios Privacy Policy"},
+        {property: "og:title", content: "Static Privacy Policy"},
         {property: "og:type", content: "website"},
         {property: "og:url", content: "https://staticstudios.net/privacy"},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
     ];
 }
 
@@ -20,7 +20,7 @@ export default function TOS() {
         <MarkdownPage markdown={markdown} location={
             [
                 {href: "/", name: "Home"},
-                {href: "/tos", name: "Privacy Policy"},
+                {href: "/privacy", name: "Privacy Policy"},
             ]
         }/>
     );

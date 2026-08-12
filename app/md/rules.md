@@ -1,6 +1,6 @@
 # Global Rules
 
-These are the network-wide rules for Static Studios. They apply across all servers, game modes, and community spaces,
+These are the network-wide rules for Static. They apply across all servers, game modes, and community spaces,
 including in-game chat and Discord.
 
 Rules may be updated at any time. It is your responsibility to stay up to date.

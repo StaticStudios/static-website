@@ -53,11 +53,11 @@ export const TopNavV2 = () => {
                                     <div className="relative h-8 w-8">
                                         <img
                                             src={logo}
-                                            alt="Static Studios Logo"
+                                            alt="Static logo"
                                             className="size-8 rounded"
                                         />
                                     </div>
-                                    <span className="text-xl font-bold">Static Studios</span>
+                                    <span className="text-xl font-bold">Static</span>
                                 </Link>
                                 <nav className="flex flex-col gap-4">
                                     {routes.map((route) => (
@@ -76,8 +76,8 @@ export const TopNavV2 = () => {
                         </SheetContent>
                     </Sheet>
                     <Link to="/" className="flex flex-row items-center gap-2">
-                        <img src={logo} alt="logo" className="size-8 object-cover rounded"/>
-                        <p className="hidden md:inline-block font-bold text-white text-xl">Static Studios</p>
+                        <img src={logo} alt="Static logo" className="size-8 object-cover rounded"/>
+                        <p className="hidden md:inline-block font-bold text-white text-xl">Static</p>
                     </Link>
                     <nav className="hidden md:flex mx-6 items-center space-x-6">
                         {routes.map((route, i) => route.href !== "/store" && (

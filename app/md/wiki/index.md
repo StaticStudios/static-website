@@ -1,6 +1,6 @@
-# Static Studios Wiki
+# Static Wiki
 
-Choose a category to find guides for Static Studios gameplay and network-wide features.
+Choose a category to find guides for Static gameplay and network-wide features.
 
 ## Wiki categories
 

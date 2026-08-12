@@ -14,12 +14,12 @@ import {FullScreenLoading} from "~/components/FullScreenLoading";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Store Item"},
-        {name: "description", content: "View item details on the Static Studios Minecraft server store. Browse ranks, bundles, and cosmetic items for Skyblock and Prison gamemodes."},
+        {title: "Static | Store Item"},
+        {name: "description", content: "View item details on the Static Minecraft server store. Browse ranks, bundles, and cosmetic items for Skyblock and Prison."},
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Static Studios Store"},
+        {property: "og:title", content: "Static Store"},
         {property: "og:type", content: "website"},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
     ];
 }
 

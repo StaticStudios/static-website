@@ -19,9 +19,9 @@ function getWikiPage(categorySlug?: string, pageSlug?: string) {
             category: undefined,
             page: {
                 slug: "index",
-                metaTitle: "Static Studios Wiki",
-                description: "Browse the Static Studios wiki for server guides, gameplay systems, and helpful information.",
-                ogDescription: "Browse the Static Studios wiki for server guides, gameplay systems, and helpful information.",
+                metaTitle: "Static Wiki",
+                description: "Browse the Static wiki for server guides, gameplay systems, and helpful information.",
+                ogDescription: "Browse the Static wiki for server guides, gameplay systems, and helpful information.",
                 date: "",
                 ogImage: "https://staticstudios.net/image/skyblock.png",
                 breadcrumbName: "Wiki",
@@ -89,7 +89,7 @@ export function meta({params}: Route.MetaArgs) {
     const result = getWikiPage(categorySlug, pageSlug);
 
     if (!result) {
-        return [{title: "Static Studios | Wiki Page Not Found"}];
+        return [{title: "Static | Wiki Page Not Found"}];
     }
 
     const {category, page} = result;
@@ -99,7 +99,7 @@ export function meta({params}: Route.MetaArgs) {
     );
 
     return [
-        {title: `Static Studios | ${page.metaTitle}`},
+        {title: `Static | ${page.metaTitle}`},
         {name: "description", content: page.description},
         {name: "robots", content: "index, follow"},
         {property: "og:title", content: page.metaTitle},
@@ -107,7 +107,7 @@ export function meta({params}: Route.MetaArgs) {
         {property: "og:type", content: "article"},
         {property: "og:url", content: `${SITE_URL}${path}`},
         {property: "og:image", content: page.ogImage},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
         {name: "twitter:card", content: "summary_large_image"},
     ];
 }

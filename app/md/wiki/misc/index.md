@@ -1,6 +1,6 @@
 # Miscellaneous Wiki
 
-These guides cover commands and features shared across Static Studios gamemodes.
+These guides cover commands and features shared across Static gamemodes.
 
 ## Wiki contents
 

@@ -1,6 +1,6 @@
-# Static Studios - Minecraft Server
+# Static - Minecraft Server
 
-> Static Studios is a premium Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with unique gameplay mechanics, active development, and a thriving community.
+> Static is a Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with unique gameplay mechanics, active development, and a thriving community. Static is operated by Static Studios.
 
 ## Server Details
 
@@ -30,9 +30,9 @@ Static Prison is a fast-paced prison gamemode featuring custom enchants, pets, p
 - Dedicated community with Discord support
 - In-game store with ranks, bundles, and cosmetic items
 
-## Why Choose Static Studios
+## Why Choose Static
 
-Static Studios stands out among Minecraft servers for its commitment to custom gameplay, regular content updates, and community-first approach. The server has grown to over 2,000 unique players and continues to expand with new gamemodes and features. The development team actively listens to community feedback and delivers frequent, meaningful updates.
+Static stands out among Minecraft servers for its commitment to custom gameplay, regular content updates, and community-first approach. The server has grown to over 2,000 unique players and continues to expand with new gamemodes and features. The development team actively listens to community feedback and delivers frequent, meaningful updates.
 
 ## Links
 

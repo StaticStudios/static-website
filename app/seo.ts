@@ -31,7 +31,7 @@ export const articles: Article[] = [
     {
         slug: "prison-season-1",
         metaTitle: "Prison Season 1.0 Launch - Custom Enchants, Pets & More",
-        description: "Static Prison Season 1.0 launches with custom enchants, pets, fast-paced progression, and unique mines. Join the newest gamemode on Static Studios at play.staticstudios.net.",
+        description: "Static Prison Season 1.0 launches with custom enchants, pets, fast-paced progression, and unique mines. Join at play.staticstudios.net.",
         ogDescription: "Static Prison Season 1.0 launches with custom enchants, pets, fast-paced progression, and unique mines.",
         date: "2026-03-13",
         ogImage: "https://staticstudios.net/image/md/prison-season-1/static.png",
@@ -40,7 +40,7 @@ export const articles: Article[] = [
     {
         slug: "skyblock-season-2-2k-players",
         metaTitle: "Skyblock Reaches 2,000+ Unique Players",
-        description: "Static Skyblock Season 2.0 has reached over 2,000 unique players! Learn about this milestone for the Static Studios Minecraft server community.",
+        description: "Static Skyblock Season 2.0 has reached over 2,000 unique players! Learn about this milestone for the Static Minecraft server community.",
         ogDescription: "A major milestone — Static Skyblock Season 2.0 has reached over 2,000 unique players.",
         date: "2026-02-08",
         ogImage: "https://staticstudios.net/image/skyblock.png",
@@ -49,7 +49,7 @@ export const articles: Article[] = [
     {
         slug: "skyblock-season-2",
         metaTitle: "Skyblock Season 2.0 - PvP Warzones, New Features & More",
-        description: "Static Skyblock Season 2.0 brings PvP warzones, hundreds of gameplay changes, increased progression, and more to Static Studios. Join at play.staticstudios.net.",
+        description: "Static Skyblock Season 2.0 brings PvP warzones, hundreds of gameplay changes, increased progression, and more to Static. Join at play.staticstudios.net.",
         ogDescription: "Season 2.0 brings PvP warzones, hundreds of changes, and increased progression to Static Skyblock.",
         date: "2025-08-08",
         ogImage: "https://staticstudios.net/image/skyblock.png",
@@ -132,9 +132,9 @@ export const wikiPages: WikiCategory[] = [
         breadcrumbName: "Miscellaneous",
         index: {
             slug: "index",
-            metaTitle: "Static Studios Miscellaneous Wiki",
-            description: "Browse network-wide Static Studios guides for gift cards, commands, and other shared server features.",
-            ogDescription: "Browse guides for gift cards, commands, and other features shared across Static Studios.",
+            metaTitle: "Static Miscellaneous Wiki",
+            description: "Browse network-wide Static guides for gift cards, commands, and other shared server features.",
+            ogDescription: "Browse guides for gift cards, commands, and other features shared across Static.",
             date: "",
             ogImage: "https://staticstudios.net/image/skyblock.png",
             breadcrumbName: "Miscellaneous",
@@ -143,8 +143,8 @@ export const wikiPages: WikiCategory[] = [
             {
                 slug: "gift-cards",
                 metaTitle: "Gift Cards",
-                description: "Learn how to use /gc to redeem and withdraw gift cards, find withdrawn codes, pay players, and apply gift cards at Static Studios store checkout.",
-                ogDescription: "Learn how to use /gc, retrieve withdrawn gift card codes, and apply them at Static Studios store checkout.",
+                description: "Learn how to use /gc to redeem and withdraw gift cards, find withdrawn codes, pay players, and apply gift cards at Static store checkout.",
+                ogDescription: "Learn how to use /gc, retrieve withdrawn gift card codes, and apply them at Static store checkout.",
                 date: "",
                 ogImage: "https://staticstudios.net/image/skyblock.png",
                 breadcrumbName: "Gift Cards",
@@ -164,7 +164,6 @@ export const staticRoutes: SiteRoute[] = [
     {path: "/store", changefreq: "weekly", priority: 0.9},
     {path: "/vote", changefreq: "monthly", priority: 0.7},
     {path: "/rules", changefreq: "monthly", priority: 0.6},
-    {path: "/partnerships", changefreq: "monthly", priority: 0.6},
     {path: "/rules/skyblock", changefreq: "monthly", priority: 0.5},
     {path: "/rules/prison", changefreq: "monthly", priority: 0.5},
     {path: "/tos", changefreq: "yearly", priority: 0.3},
@@ -173,9 +172,9 @@ export const staticRoutes: SiteRoute[] = [
 
 export const wikiIndexPage: WikiPage = {
     slug: "index",
-    metaTitle: "Static Studios Wiki",
-    description: "Browse the Static Studios wiki for server guides, gameplay systems, and helpful information.",
-    ogDescription: "Browse the Static Studios wiki for server guides, gameplay systems, and helpful information.",
+    metaTitle: "Static Wiki",
+    description: "Browse the Static wiki for server guides, gameplay systems, and helpful information.",
+    ogDescription: "Browse the Static wiki for server guides, gameplay systems, and helpful information.",
     date: "",
     ogImage: "https://staticstudios.net/image/skyblock.png",
     breadcrumbName: "Wiki",
@@ -256,9 +255,9 @@ export function generateLlmsTxt(): string {
         })
         .join("\n");
 
-    return `# Static Studios - Minecraft Server
+    return `# Static - Minecraft Server
 
-> Static Studios is a premium Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with unique gameplay mechanics, active development, and a thriving community.
+> Static is a Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with unique gameplay mechanics, active development, and a thriving community. Static is operated by Static Studios.
 
 ## Server Details
 
@@ -288,9 +287,9 @@ Static Prison is a fast-paced prison gamemode featuring custom enchants, pets, p
 - Dedicated community with Discord support
 - In-game store with ranks, bundles, and cosmetic items
 
-## Why Choose Static Studios
+## Why Choose Static
 
-Static Studios stands out among Minecraft servers for its commitment to custom gameplay, regular content updates, and community-first approach. The server has grown to over 2,000 unique players and continues to expand with new gamemodes and features. The development team actively listens to community feedback and delivers frequent, meaningful updates.
+Static stands out among Minecraft servers for its commitment to custom gameplay, regular content updates, and community-first approach. The server has grown to over 2,000 unique players and continues to expand with new gamemodes and features. The development team actively listens to community feedback and delivers frequent, meaningful updates.
 
 ## Links
 

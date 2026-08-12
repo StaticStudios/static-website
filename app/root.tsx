@@ -39,9 +39,13 @@ export function Layout({ children }: { children: React.ReactNode }) {
           "@context": "https://schema.org",
           "@type": "Organization",
           "name": "Static Studios",
+          "brand": {
+            "@type": "Brand",
+            "name": "Static"
+          },
           "url": "https://staticstudios.net",
           "logo": "https://staticstudios.net/favicon.ico",
-          "description": "Static Studios is a premium Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes with unique gameplay, custom enchants, and an active community of 2,000+ players.",
+          "description": "Static Studios operates Static, a Minecraft Java Edition server network featuring custom Skyblock and Prison gamemodes.",
           "email": "support@staticstudios.net",
           "sameAs": [
             "https://discord.gg/9S6K9E5"
@@ -55,9 +59,9 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "WebSite",
-          "name": "Static Studios",
+          "name": "Static",
           "url": "https://staticstudios.net",
-          "description": "Premium Minecraft Java Edition server featuring custom Skyblock and Prison gamemodes.",
+          "description": "Minecraft Java Edition server featuring custom Skyblock and Prison gamemodes.",
           "potentialAction": {
             "@type": "SearchAction",
             "target": "https://staticstudios.net/store?q={search_term_string}",
