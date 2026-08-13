@@ -5,13 +5,13 @@ import {MarkdownPage} from "~/components/markdown-page";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Terms of Service"},
-        {name: "description", content: "Terms of Service for Static Studios Minecraft server network. Review the terms governing use of our Skyblock and Prison server at play.staticstudios.net."},
+        {title: "Static | Terms of Service"},
+        {name: "description", content: "Terms governing use of the Static Minecraft server, website, store, Discord community, and related services operated by Static Studios."},
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Static Studios Terms of Service"},
+        {property: "og:title", content: "Static Terms of Service"},
         {property: "og:type", content: "website"},
         {property: "og:url", content: "https://staticstudios.net/tos"},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
     ];
 }
 

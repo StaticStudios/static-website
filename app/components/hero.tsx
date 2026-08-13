@@ -10,7 +10,7 @@ export const HeroV2 = ({title, subtitle}: {
     return (
         <div className="relative h-[500px] overflow-hidden">
             <div className="absolute top-0 right-0 bottom-0 left-0">
-                <img alt="Static Studios Minecraft Server" src={hero} className="object-cover size-full"/>
+                <img alt="Static Minecraft server" src={hero} className="object-cover size-full"/>
             </div>
             <div
                 className="absolute top-0 right-0 bottom-0 left-0 bg-slate-900/80 backdrop-blur-xs border-indigo-800/30 border">

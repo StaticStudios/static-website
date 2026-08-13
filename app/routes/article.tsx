@@ -25,11 +25,11 @@ export function meta({params}: Route.MetaArgs) {
     const slug = (params as Record<string, string>).slug;
     const article = slug ? getArticle(slug) : undefined;
     if (!article) {
-        return [{title: "Static Studios | Article Not Found"}];
+        return [{title: "Static | Article Not Found"}];
     }
 
     return [
-        {title: `Static Studios | ${article.metaTitle}`},
+        {title: `Static | ${article.metaTitle}`},
         {name: "description", content: article.description},
         {name: "robots", content: "index, follow"},
         {property: "og:title", content: article.metaTitle},
@@ -37,7 +37,7 @@ export function meta({params}: Route.MetaArgs) {
         {property: "og:type", content: "article"},
         {property: "og:url", content: `${SITE_URL}/article/${article.slug}`},
         {property: "og:image", content: article.ogImage},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
         {name: "twitter:card", content: "summary_large_image"},
     ];
 }

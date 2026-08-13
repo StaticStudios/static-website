@@ -8,14 +8,14 @@ import {CloudIcon, Grid3x3Icon} from "lucide-react";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Server Rules"},
-        {name: "description", content: "Read the official Static Studios Minecraft server rules. These global rules apply to all gamemodes including Skyblock and Prison. Fair play, no cheating, and respectful behavior required."},
+        {title: "Static | Server Rules"},
+        {name: "description", content: "Read the official Static Minecraft server rules. These global rules apply to all gamemodes including Skyblock and Prison. Fair play, no cheating, and respectful behavior required."},
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Static Studios Server Rules"},
-        {property: "og:description", content: "Official rules for Static Studios Minecraft server. Fair play, no cheating, and respectful behavior required."},
+        {property: "og:title", content: "Static Server Rules"},
+        {property: "og:description", content: "Official rules for the Static Minecraft server. Fair play, no cheating, and respectful behavior required."},
         {property: "og:type", content: "website"},
         {property: "og:url", content: "https://staticstudios.net/rules"},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
     ];
 }
 

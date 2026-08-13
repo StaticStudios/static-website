@@ -4,14 +4,14 @@ import {useNavigate} from "react-router";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Join Our Discord"},
-        {name: "description", content: "Join the Static Studios Discord community. Connect with 2,000+ Minecraft players, get server support, participate in events, and stay updated on Skyblock and Prison news."},
+        {title: "Static | Join Our Discord"},
+        {name: "description", content: "Join the Static Discord community. Connect with 2,000+ Minecraft players, get server support, participate in events, and stay updated on Skyblock and Prison news."},
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Join Static Studios Discord"},
-        {property: "og:description", content: "Join the Static Studios Discord community with 2,000+ Minecraft players."},
+        {property: "og:title", content: "Join the Static Discord"},
+        {property: "og:description", content: "Join the Static Discord community with 2,000+ Minecraft players."},
         {property: "og:type", content: "website"},
         {property: "og:url", content: "https://staticstudios.net/discord"},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
     ];
 }
 

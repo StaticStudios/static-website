@@ -7,15 +7,15 @@ import axios from "axios";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static Studios | Vote for Rewards"},
-        {name: "description", content: "Vote daily for Static Studios Minecraft server to earn in-game rewards, trigger vote parties, and support the community. IP: play.staticstudios.net"},
+        {title: "Static | Vote for Rewards"},
+        {name: "description", content: "Vote daily for the Static Minecraft server to earn in-game rewards, trigger vote parties, and support the community. IP: play.staticstudios.net"},
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Vote for Static Studios - Earn Minecraft Rewards"},
-        {property: "og:description", content: "Vote daily for in-game rewards and help trigger vote parties on Static Studios Minecraft server."},
+        {property: "og:title", content: "Vote for Static - Earn Minecraft Rewards"},
+        {property: "og:description", content: "Vote daily for in-game rewards and help trigger vote parties on the Static Minecraft server."},
         {property: "og:type", content: "website"},
         {property: "og:url", content: "https://staticstudios.net/vote"},
         {property: "og:image", content: "https://staticstudios.net/image/skyblock.png"},
-        {property: "og:site_name", content: "Static Studios"},
+        {property: "og:site_name", content: "Static"},
         {name: "twitter:card", content: "summary_large_image"},
     ];
 }
@@ -95,7 +95,7 @@ export default function Vote() {
                     <div className="flex flex-col gap-8  md:w-3/4">
                         <div
                             className="bg-slate-800/70 border border-indigo-800/30 rounded-lg p-8 flex flex-col gap-8">
-                            <h1>Vote for Static Studios</h1>
+                            <h1>Vote for Static</h1>
                             <div className="flex flex-col gap-4">
                                 <p className="text-white/70">Support out server by voting on the sites below. Each vote
                                     helps us
