@@ -24,8 +24,8 @@ of your connected accounts may be punished.
 
 ## Island Rotation
 
-Do not repeatedly remove and replace island members to work around the island member limit or gain an advantage over
-other islands.
+Do not repeatedly remove and re-add island members to bypass the island member limit for the purpose of gaining an unfair
+advantage on island leaderboards.
 
 For example, kicking a member when they log off and inviting another player to use that otherwise occupied member slot
 is considered island rotation.
