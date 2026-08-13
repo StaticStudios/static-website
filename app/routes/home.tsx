@@ -30,7 +30,7 @@ export function meta({}: Route.MetaArgs) {
             content: "Join 2,000+ players on Static, a custom Minecraft Java server with Skyblock, Prison, custom enchants, PvP, quests, and more. IP: play.staticstudios.net"
         },
         {property: "og:type", content: "website"},
-        {property: "og:image", content: "https://staticstudios.net/og.png"},
+        {property: "og:image", content: "https://staticstudios.net/image/skyblock.png"},
         {property: "og:image:width", content: "1200"},
         {property: "og:image:height", content: "630"},
         {property: "og:image:alt", content: "Static Minecraft server - custom Skyblock and Prison"},
@@ -43,7 +43,7 @@ export function meta({}: Route.MetaArgs) {
             name: "twitter:description",
             content: "Join 2,000+ players on a premium Minecraft Java server with custom Skyblock and Prison. Custom enchants, PvP, quests & more. IP: play.staticstudios.net"
         },
-        {name: "twitter:image", content: "https://staticstudios.net/og.png"},
+        {name: "twitter:image", content: "https://staticstudios.net/image/skyblock.png"},
     ];
 }
 
@@ -263,10 +263,10 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
     const navigate = useNavigate();
     return (
         <article data-layout={layout}
-             className={`flex md:data-[layout=horizontal]:flex-row flex-col border-indigo-800/50 border rounded-lg overflow-hidden bg-slate-800/70 opacity-0 animate-fade-in-up`}
-             style={{
-                 animationDelay: (index + 1) * 0.3 + "s"
-             }}>
+                 className={`flex md:data-[layout=horizontal]:flex-row flex-col border-indigo-800/50 border rounded-lg overflow-hidden bg-slate-800/70 opacity-0 animate-fade-in-up`}
+                 style={{
+                     animationDelay: (index + 1) * 0.3 + "s"
+                 }}>
             <img data-layout={layout} src={imageSrc} alt={title}
                  className="md:data-[layout=horizontal]:w-[50%] object-cover h-[250px]"/>
             <div className="flex flex-col gap-4 p-4 flex-1">
