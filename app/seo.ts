@@ -166,6 +166,9 @@ export const staticRoutes: SiteRoute[] = [
     {path: "/rules", changefreq: "monthly", priority: 0.6},
     {path: "/rules/skyblock", changefreq: "monthly", priority: 0.5},
     {path: "/rules/prison", changefreq: "monthly", priority: 0.5},
+    {path: "/seasonal-rewards", changefreq: "monthly", priority: 0.7},
+    {path: "/seasonal-rewards/skyblock", changefreq: "monthly", priority: 0.6},
+    {path: "/seasonal-rewards/prison", changefreq: "monthly", priority: 0.6},
     {path: "/tos", changefreq: "yearly", priority: 0.3},
     {path: "/privacy", changefreq: "yearly", priority: 0.3},
 ];
@@ -296,6 +299,7 @@ Static stands out among Minecraft servers for its commitment to custom gameplay,
 - Store: ${SITE_URL}/store
 - Vote: ${SITE_URL}/vote
 - Rules: ${SITE_URL}/rules
+- Seasonal Rewards: ${SITE_URL}/seasonal-rewards
 
 ## Articles
 

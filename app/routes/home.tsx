@@ -8,7 +8,7 @@ import wz2 from "~/assets/skyblock/wz2.png";
 import prisonCherryMine from "~/assets/prison/cherry_mine.png";
 import React, {type ReactNode, useEffect} from "react";
 import {HeroV2} from "~/components/hero";
-import {CalendarIcon, ClockIcon, ShoppingCartIcon, StarIcon, UsersIcon} from "lucide-react";
+import {CalendarIcon, ShoppingCartIcon, StarIcon, TrophyIcon, UsersIcon} from "lucide-react";
 import {Button} from "~/components/ui/button";
 import {Link, useNavigate} from "react-router";
 
@@ -219,9 +219,9 @@ export default function Home() {
                         <QuickLink title="Join Discord"
                                    description="Connect with our community, get support, and stay updated on server news."
                                    icon={<UsersIcon className=""/>} href="/discord"/>
-                        <QuickLink title="Server Rules"
-                                   description="Review our server rules to ensure a positive experience for everyone"
-                                   icon={<ClockIcon className=""/>} href="/rules"/>
+                        <QuickLink title="Seasonal Rewards"
+                                   description="Compete for store gift cards and exclusive tags at the end of each season."
+                                   icon={<TrophyIcon className=""/>} href="/seasonal-rewards"/>
                         <QuickLink title="Store"
                                    description="Browse our selection of ranks, bundles, and items to enhance your gameplay."
                                    icon={<ShoppingCartIcon className=""/>} href="/store"/>
