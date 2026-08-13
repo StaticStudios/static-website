@@ -21,6 +21,8 @@ At the end of each Prison Season, the five highest-ranked gangs on Gang Top will
 
 ## How rewards are delivered
 
-Each winning player will receive the store gift card and tag listed for their final placement. See
-the [Gift Cards wiki guide](/wiki/misc/gift-cards) for information about checking a GC balance, paying another player,
-withdrawing a gift card, and using it in the store.
+The store gift card for a winning gang will always be given to the gang owner. The owner may choose how to
+distribute it among the gang's members. See the [Gift Cards wiki guide](/wiki/misc/gift-cards) for information about
+checking a GC balance, paying another player, withdrawing a gift card, and using it in the store.
+
+Every member of a winning gang will receive the tag for that gang's final placement.
