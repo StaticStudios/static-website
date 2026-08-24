@@ -52,6 +52,7 @@ Static stands out among Minecraft servers for its commitment to custom gameplay,
 
 - Wiki: https://staticstudios.net/wiki
 - Skyblock: https://staticstudios.net/wiki/skyblock
+- Skyblock / Island Leaderboards: https://staticstudios.net/wiki/skyblock/leaderboards
 - Skyblock / Power: https://staticstudios.net/wiki/skyblock/power
 - Skyblock / Workbench: https://staticstudios.net/wiki/skyblock/workbench
 - Skyblock / Water Items: https://staticstudios.net/wiki/skyblock/water

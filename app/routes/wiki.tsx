@@ -1,6 +1,7 @@
 import type {Route} from "./+types/wiki";
 import React from "react";
 import {MarkdownPage} from "~/components/markdown-page";
+import {LeaderboardResetCountdown} from "~/components/leaderboard-reset-countdown";
 import {SITE_URL, wikiPages} from "~/seo";
 
 const markdownModules = import.meta.glob<string>("../md/wiki/**/*.md", {
@@ -124,10 +125,12 @@ export default function WikiPage({params}: Route.ComponentProps) {
     }
 
     const {category, page, isRootIndex, isCategoryIndex} = result;
+    const isLeaderboardPage = category?.slug === "skyblock" && page.slug === "leaderboards";
 
     return (
         <MarkdownPage
             markdown={markdown}
+            afterTitle={isLeaderboardPage ? <LeaderboardResetCountdown/> : undefined}
             location={[
                 {href: "/", name: "Home"},
                 {href: "/wiki", name: "Wiki"},

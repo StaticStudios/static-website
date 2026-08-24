@@ -5,6 +5,7 @@ to see included/updated on this wiki.
 
 ## Wiki contents:
 
+- [Island Leaderboards](/wiki/skyblock/leaderboards)
 - [Power Information](/wiki/skyblock/power)
 - [Item Management Information](/wiki/skyblock/item-management)
 - [TNT Spawners](/wiki/skyblock/tnt-spawners)

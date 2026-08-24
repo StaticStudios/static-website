@@ -6,5 +6,5 @@ Final standings are recorded when a season ends. Players must follow the applica
 
 Reward amounts, qualification details, and delivery methods vary by gamemode. Choose a gamemode below to view its current rewards:
 
-- [Skyblock Seasonal Rewards](/seasonal-rewards/skyblock)
+- [Skyblock Monthly & Seasonal Rewards](/seasonal-rewards/skyblock)
 - [Prison Seasonal Rewards](/seasonal-rewards/prison)

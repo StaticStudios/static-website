@@ -5,16 +5,16 @@ import {MarkdownPage} from "~/components/markdown-page";
 
 export function meta({}: Route.MetaArgs) {
     return [
-        {title: "Static | Skyblock Seasonal Rewards"},
+        {title: "Static | Skyblock Monthly & Seasonal Rewards"},
         {
             name: "description",
-            content: "View the Static Skyblock Island Top rewards and learn how islands qualify for gift cards and placement tags.",
+            content: "View Static Skyblock monthly and seasonal leaderboard rewards, including gift cards, placement tags, qualification, and claiming instructions.",
         },
         {name: "robots", content: "index, follow"},
-        {property: "og:title", content: "Static Skyblock Seasonal Rewards"},
+        {property: "og:title", content: "Static Skyblock Monthly & Seasonal Rewards"},
         {
             property: "og:description",
-            content: "View the Island Top prizes and qualification details for Static Skyblock.",
+            content: "View monthly and seasonal Island Leaderboard prizes and qualification details for Static Skyblock.",
         },
         {property: "og:type", content: "website"},
         {property: "og:url", content: "https://staticstudios.net/seasonal-rewards/skyblock"},
