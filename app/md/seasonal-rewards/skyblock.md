@@ -26,8 +26,8 @@ the monthly reset.
 
 ## Seasonal rewards
 
-| Place | Store gift card | Tag       |
-|-------|-----------------|-----------|
+| Place | Store gift card | Tag            |
+|-------|-----------------|----------------|
 | #1    | $250            | S3 #1 Chat Tag |
 | #2    | $150            | S3 #2 Chat Tag |
 | #3    | $100            | S3 #3 Chat Tag |
@@ -36,7 +36,7 @@ the monthly reset.
 
 ## How rewards are delivered
 
-After results are finalized, a member of the winning island must open a ticket in the [Static Discord](/discord) to
+After results are finalized, the owner of the winning island must open a ticket in the [Static Discord](/discord) to
 claim the reward. The island owner's Minecraft account must be linked to the owner's Discord account.
 
 The store gift card for a winning island is given to the island owner. The owner may choose how to distribute it among
