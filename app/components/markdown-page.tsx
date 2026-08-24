@@ -8,9 +8,10 @@ type MarkdownPageProps = {
     markdown: string;
     location: PageLocationProps["location"];
     children?: React.ReactNode;
+    afterTitle?: React.ReactNode;
 }
 
-export function MarkdownPage({markdown, location, children}: MarkdownPageProps) {
+export function MarkdownPage({markdown, location, children, afterTitle}: MarkdownPageProps) {
     return (
         <div className="mx-2">
             <div className="container mx-auto mb-8">
@@ -23,6 +24,12 @@ export function MarkdownPage({markdown, location, children}: MarkdownPageProps) 
                     <Markdown
                         remarkPlugins={[remarkGfm]}
                         components={{
+                            h1: ({node: _node, ...props}) => (
+                                <>
+                                    <h1 {...props}/>
+                                    {afterTitle}
+                                </>
+                            ),
                             table: ({node: _node, ...props}) => (
                                 <div className="markdown-table-wrapper">
                                     <table {...props}/>

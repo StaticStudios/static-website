@@ -81,6 +81,15 @@ export const wikiPages: WikiCategory[] = [
         },
         pages: [
             {
+                slug: "leaderboards",
+                metaTitle: "Skyblock Island Leaderboards",
+                description: "Learn how Static Skyblock's weekly, monthly, and seasonal island-value leaderboards work, including points, resets, rewards, and eligibility.",
+                ogDescription: "Understand the Static Skyblock Island Leaderboard, weekly scoring, monthly resets, seasonal standings, and rewards.",
+                date: "",
+                ogImage: "https://staticstudios.net/image/skyblock.png",
+                breadcrumbName: "Island Leaderboards",
+            },
+            {
                 slug: "power",
                 metaTitle: "Skyblock Power",
                 description: "",
