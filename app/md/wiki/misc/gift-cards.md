@@ -67,7 +67,8 @@ Creating the gift card does **not** print its code in chat. Use these steps to r
 4. Click the **Withdraw Gift Card** entry. The menu closes and a green **Click to copy gift card code!** message appears
    in chat.
 5. Click that chat message to copy the complete 16-digit code to your clipboard.
-6. Paste the code directly into the store checkout, or save it somewhere private until you are ready to use it.
+6. Paste the code into the gift card field in your store cart, or save it somewhere private until you are ready to use
+   it.
 
 Make sure you select **Withdraw Gift Card**, not **Redeemed Gift Card**. A redeemed card is kept in your history for
 reference, but its code has already been voided and cannot be spent again.
@@ -80,7 +81,7 @@ reference, but its code has already been voided and cannot be spent again.
 
 ---
 
-## Use a gift card at store checkout
+## Use a gift card in the store cart
 
 Your virtual `/gc` balance cannot be entered directly at checkout. First use `/gc withdraw <amount>`, then follow the
 steps above to copy the new 16-digit gift card code.
@@ -88,15 +89,15 @@ steps above to copy the new 16-digit gift card code.
 To use the code:
 
 1. Add the items you want to purchase from the [store](/store) to your cart.
-2. Open your cart and click **Checkout**.
-3. Review the checkout notice and click **Continue to Checkout**.
-4. On the checkout page, enter or paste the 16-digit code into the gift card field.
-5. Confirm that the gift card credit has been applied before completing the purchase. If the card does not cover the
-   full order, complete payment for the remaining amount using one of the available payment methods.
-
-![img.png](/image/md/wiki/misc/gift-cards/cart-checkout.png)
-
-![img.png](/image/md/wiki/misc/gift-cards/checkout-gift-card.png)
+2. Open your cart and find **Apply gift card** above the creator-code field.
+3. Enter or paste the complete 16-digit code, then select **Apply**.
+4. Confirm that the masked card appears in the applied gift-card list and that the **Gift Cards** line above the cart
+   total shows the credit being used.
+5. To use more than one gift card, enter each additional code and select **Apply** again. The cart applies the available
+   cards toward the order total.
+6. To stop using a card, select **Remove** beside its masked number before checking out.
+7. Select **Checkout**, review the purchase notice, and continue to payment. If the applied cards do not cover the full
+   order, pay the remaining amount using one of the available payment methods.
 
 ---
 

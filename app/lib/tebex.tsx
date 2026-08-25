@@ -55,9 +55,10 @@ export type TebexBasket = {
         coupon_code: string
     }[]
     giftcards: {
-        card_number: string
+        card_number: string | number
     }[],
-    creator_code: string
+    creator_code: string | null
+    creator_code_discount_rate?: number
     cancel_url: string
     complete_url: string | null
     complete_auto_redirect: boolean
@@ -66,7 +67,8 @@ export type TebexBasket = {
     username_id: number
     base_price: number
     sales_tax: number
-    discount: number
+    discount?: number
+    total_price?: number
     currency: string
     packages: {
         id: number,
@@ -141,10 +143,28 @@ type Tebex = {
     addToBasket: (basket: TebexBasket, packageId: number, quantity: number, variableData?: Record<string, any>, giftTo?: string) => Promise<TebexBasket>;
     removeFromBasket: (basket: TebexBasket, packageId: number) => Promise<TebexBasket>; //todo: creator codes, coupons
     getBasket: (basket: TebexBasket) => Promise<TebexBasket>;
+    applyCreatorCode: (basket: TebexBasket, creatorCode: string) => Promise<TebexBasket>;
+    removeCreatorCode: (basket: TebexBasket) => Promise<TebexBasket>;
+    applyGiftCard: (basket: TebexBasket, cardNumber: string) => Promise<TebexBasket>;
+    removeGiftCard: (basket: TebexBasket, cardNumber: string) => Promise<TebexBasket>;
     getGiftCardBalance: (cardNumber: string, user?: Account) => Promise<number>;
 }
 
+const normalizeGiftCardNumber = (cardNumber: string | number) => String(cardNumber).replace(/\s/g, "");
+
 const token = import.meta.env.VITE_PUBLIC_TEBEX_TOKEN;
+
+const preserveCreatorCodePricing = (previousBasket: TebexBasket, nextBasket: TebexBasket) => {
+    const previousCode = previousBasket.creator_code?.trim().toLowerCase();
+    const nextCode = nextBasket.creator_code?.trim().toLowerCase();
+
+    return {
+        ...nextBasket,
+        creator_code_discount_rate: previousCode && previousCode === nextCode
+            ? previousBasket.creator_code_discount_rate
+            : undefined,
+    };
+}
 
 export const useIsTebexEnabled = () => {
     return !!token;
@@ -207,7 +227,7 @@ export const useTebex = () => {
         })
             .then(response => {
                 console.log(response.data.data)
-                resolve(response.data.data as TebexBasket);
+                resolve(preserveCreatorCodePricing(basket, response.data.data as TebexBasket));
             })
             .catch(error => {
                 console.error(error);
@@ -221,7 +241,7 @@ export const useTebex = () => {
         })
             .then(response => {
                 console.log(response.data.data)
-                resolve(response.data.data as TebexBasket);
+                resolve(preserveCreatorCodePricing(basket, response.data.data as TebexBasket));
             })
             .catch(error => {
                 console.error(error);
@@ -233,13 +253,108 @@ export const useTebex = () => {
         axios.get(`https://headless.tebex.io/api/accounts/${token}/baskets/${basket.ident}`)
             .then(response => {
                 console.log(response.data.data)
-                resolve(response.data.data as TebexBasket);
+                resolve(preserveCreatorCodePricing(basket, response.data.data as TebexBasket));
             })
             .catch(error => {
                 console.error(error);
                 reject(error);
             })
     }), []);
+
+    const applyCreatorCode = useCallback(async (basket: TebexBasket, creatorCode: string) => {
+        const response = await axios.post(`https://headless.tebex.io/api/accounts/${token}/baskets/${basket.ident}/creator-codes`, {
+            creator_code: creatorCode,
+        });
+        const responseBasket = response.data?.data as TebexBasket | undefined;
+
+        // Tebex applies the code on a successful response, but this endpoint does not
+        // consistently return the updated basket. Fetch it separately so discounts and
+        // totals update immediately instead of requiring a page refresh.
+        try {
+            const refreshedBasket = await getBasket(basket);
+            return {
+                ...refreshedBasket,
+                creator_code: refreshedBasket.creator_code?.trim() || creatorCode,
+            };
+        } catch (error) {
+            console.error(error);
+            return {
+                ...(responseBasket?.ident ? responseBasket : basket),
+                creator_code: responseBasket?.creator_code?.trim() || creatorCode,
+            };
+        }
+    }, [getBasket]);
+
+    const removeCreatorCode = useCallback((basket: TebexBasket) => new Promise<TebexBasket>((resolve, reject) => {
+        axios.post(`https://headless.tebex.io/api/accounts/${token}/baskets/${basket.ident}/creator-codes/remove`)
+            .then(() => getBasket(basket))
+            .then(resolve)
+            .catch(error => {
+                console.error(error);
+                reject(error);
+            })
+    }), [getBasket]);
+
+    const applyGiftCard = useCallback(async (basket: TebexBasket, cardNumber: string) => {
+        const response = await axios.post(`https://headless.tebex.io/api/accounts/${token}/baskets/${basket.ident}/giftcards`, {
+            card_number: cardNumber,
+        });
+        const responseBasket = response.data?.data as TebexBasket | undefined;
+        const normalizedCardNumber = normalizeGiftCardNumber(cardNumber);
+
+        try {
+            const refreshedBasket = await getBasket(basket);
+            const alreadyIncluded = refreshedBasket.giftcards.some(giftCard =>
+                normalizeGiftCardNumber(giftCard.card_number) === normalizedCardNumber
+            );
+            return {
+                ...refreshedBasket,
+                giftcards: alreadyIncluded
+                    ? refreshedBasket.giftcards
+                    : [...refreshedBasket.giftcards, {card_number: cardNumber}],
+            };
+        } catch (error) {
+            console.error(error);
+            const nextBasket = responseBasket?.ident ? responseBasket : basket;
+            const alreadyIncluded = nextBasket.giftcards.some(giftCard =>
+                normalizeGiftCardNumber(giftCard.card_number) === normalizedCardNumber
+            );
+
+            return {
+                ...preserveCreatorCodePricing(basket, nextBasket),
+                giftcards: alreadyIncluded
+                    ? nextBasket.giftcards
+                    : [...nextBasket.giftcards, {card_number: cardNumber}],
+            };
+        }
+    }, [getBasket]);
+
+    const removeGiftCard = useCallback(async (basket: TebexBasket, cardNumber: string) => {
+        await axios.post(`https://headless.tebex.io/api/accounts/${token}/baskets/${basket.ident}/giftcards/remove`, {
+            card_number: cardNumber,
+        });
+        const normalizedCardNumber = normalizeGiftCardNumber(cardNumber);
+
+        try {
+            const refreshedBasket = await getBasket(basket);
+            const remainingGiftCards = refreshedBasket.giftcards.filter(giftCard =>
+                normalizeGiftCardNumber(giftCard.card_number) !== normalizedCardNumber
+            );
+            return {
+                ...refreshedBasket,
+                giftcards: remainingGiftCards,
+            };
+        } catch (error) {
+            console.error(error);
+            const remainingGiftCards = basket.giftcards.filter(giftCard =>
+                normalizeGiftCardNumber(giftCard.card_number) !== normalizedCardNumber
+            );
+            return {
+                ...basket,
+                giftcards: remainingGiftCards,
+            };
+        }
+    }, [getBasket]);
 
     const getGiftCardBalance = useCallback((cardNumber: string, user?: Account) => new Promise<number>((resolve, reject) => {
         axios.get(`https://api.staticstudios.net/api/v1/public/tebex/gift_card_balance?code=${cardNumber}${user ? `&user=${user.name}` : ''}`)
@@ -258,6 +373,10 @@ export const useTebex = () => {
         createBasket,
         removeFromBasket,
         getBasket,
+        applyCreatorCode,
+        removeCreatorCode,
+        applyGiftCard,
+        removeGiftCard,
         getGiftCardBalance
     } satisfies Tebex;
 }
