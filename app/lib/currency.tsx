@@ -265,7 +265,7 @@ export const useExchangeRates = () => {
     return context;
 }
 
-export const useCurrencyFormatter = (usd?: number) => {
+export const useCurrencyFormatter = (usd?: number, fractionDigits?: number) => {
     const {currency} = useStore()
     const [formattedCurrency, setFormattedCurrency] = useState("");
     const exchangeRates = useExchangeRates();
@@ -276,10 +276,10 @@ export const useCurrencyFormatter = (usd?: number) => {
         setFormattedCurrency(usd != undefined || usd != null ? (usd * converted).toLocaleString(undefined, {
             style: "currency",
             currency: currencyToUse,
-            minimumFractionDigits: 0,
-            maximumFractionDigits: 2
+            minimumFractionDigits: fractionDigits ?? 0,
+            maximumFractionDigits: fractionDigits ?? 2
         }) : "?.??");
-    }, [usd, exchangeRates, currency]);
+    }, [usd, exchangeRates, currency, fractionDigits]);
 
     return formattedCurrency;
 }

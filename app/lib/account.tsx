@@ -24,6 +24,34 @@ type KnownAccount = {
     name: string
 }
 
+const getRecipientConflictMessage = (
+    basket: TebexBasket,
+    packageId: number,
+    requestedGiftRecipient?: string,
+) => {
+    const existingItem = basket.packages.find(item => item.id === packageId);
+    if (!existingItem) {
+        return;
+    }
+
+    const existingRecipient = existingItem.in_basket.gift_username?.trim() || undefined;
+    const requestedRecipient = requestedGiftRecipient?.trim() || undefined;
+    const isSameRecipient = existingRecipient?.toLowerCase() === requestedRecipient?.toLowerCase();
+
+    if (isSameRecipient || (!existingRecipient && !requestedRecipient)) {
+        return;
+    }
+
+    const existingDestination = existingRecipient
+        ? `as a gift for ${existingRecipient}`
+        : "for you";
+    const requestedDestination = requestedRecipient
+        ? `as a gift for ${requestedRecipient}`
+        : "for yourself";
+
+    return `It is already in your cart ${existingDestination}. Remove it or complete checkout before adding it ${requestedDestination}.`;
+}
+
 const AccountContext = createContext<{
     account?: Account,
     updateBasket: (basket: TebexBasket) => void,
@@ -133,6 +161,16 @@ export const AccountProvider = ({children}: { children: ReactNode }) => {
                     });
                     return
                 }
+
+                const recipientConflictMessage = getRecipientConflictMessage(account.basket, pkg.id, giftTo);
+                if (recipientConflictMessage) {
+                    toast.error("This package can only have one recipient per cart.", {
+                        description: recipientConflictMessage,
+                        duration: 8000,
+                    });
+                    return;
+                }
+
                 console.log("variables:" + getPackageVariables(pkg.id))
                 if (getPackageVariables(pkg.id).length > 0) {
                     promptVariables(pkg.name, getPackageVariables(pkg.id), (variables) => {

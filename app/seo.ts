@@ -152,8 +152,8 @@ export const wikiPages: WikiCategory[] = [
             {
                 slug: "gift-cards",
                 metaTitle: "Gift Cards",
-                description: "Learn how to use /gc to redeem and withdraw gift cards, find withdrawn codes, pay players, and apply gift cards at Static store checkout.",
-                ogDescription: "Learn how to use /gc, retrieve withdrawn gift card codes, and apply them at Static store checkout.",
+                description: "Learn how to use /gc to redeem and withdraw gift cards, find withdrawn codes, pay players, and apply gift cards in the Static store cart.",
+                ogDescription: "Learn how to use /gc, retrieve withdrawn gift card codes, and apply them in the Static store cart.",
                 date: "",
                 ogImage: "https://staticstudios.net/image/skyblock.png",
                 breadcrumbName: "Gift Cards",
