@@ -6,11 +6,18 @@ import skyblockOasis from "~/assets/skyblock/oasis_1.png";
 import mine from "~/assets/skyblock/mine.png";
 import wz2 from "~/assets/skyblock/wz2.png";
 import prisonCherryMine from "~/assets/prison/cherry_mine.png";
-import React, {type ReactNode, useEffect} from "react";
+import {type ReactNode, useEffect} from "react";
 import {HeroV2} from "~/components/hero";
-import {CalendarIcon, ShoppingCartIcon, StarIcon, TrophyIcon, UsersIcon} from "lucide-react";
-import {Button} from "~/components/ui/button";
-import {Link, useNavigate} from "react-router";
+import {
+    ArrowRightIcon,
+    CalendarIcon,
+    ShoppingCartIcon,
+    SparklesIcon,
+    StarIcon,
+    TrophyIcon,
+    UsersIcon
+} from "lucide-react";
+import {Link} from "react-router";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -198,39 +205,98 @@ export default function Home() {
         <>
             <link rel="canonical" href="https://staticstudios.net/"/>
             <HeroV2 title={[{content: "Welcome to"}, {content: "Static", highlighted: true}]}
-                    subtitle="Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community"/>
-            <div className="mx-2">
-                <div className="container flex grow my-8 text-lg mx-auto flex-col gap-8">
-                    <h1>Latest News & Updates</h1>
-                    <Card {...cards[0]} index={0}/>
-                    <div className="grid grid-cols-1 md:grid-cols-3 flex-wrap gap-8">
-                        {cards.slice(1).map((card, index) => (
-                            <Card key={index} {...card} index={index + 1}/>
-                        ))}
+                    subtitle="Experience the ultimate Minecraft server with custom gameplay, unique features, and an amazing community."/>
+            <main className="relative overflow-hidden">
+                <div
+                    className="pointer-events-none absolute inset-x-0 top-0 -z-10 h-[760px] bg-[radial-gradient(circle_at_12%_5%,rgba(124,58,237,0.19),transparent_34%),radial-gradient(circle_at_88%_34%,rgba(79,70,229,0.16),transparent_30%)]"/>
+
+                <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+                    <SectionHeading
+                        eyebrow="From the network"
+                        title="Latest news & updates"
+                        description="The latest and greatest from Static including: new seasons, community milestones, server updates, and more."
+                    />
+                    <div className="mt-10 space-y-7">
+                        <Card {...cards[0]} index={0}/>
+                        <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
+                            {cards.slice(1).map((card, index) => (
+                                <Card key={card.title} {...card} index={index + 1}/>
+                            ))}
+                        </div>
                     </div>
-                </div>
-            </div>
-            <div className="py-8 px-2">
-                <div className="container mx-auto flex flex-col gap-8">
-                    <h1>Quick Links</h1>
-                    <div className="flex flex-col md:flex-row gap-6">
-                        <QuickLink title="Vote Rewards" description="Vote daily for awesome in-game rewards and help trigger vote
-                                parties!" icon={<StarIcon className=""/>} href="/vote"/>
-                        <QuickLink title="Join Discord"
-                                   description="Connect with our community, get support, and stay updated on server news."
-                                   icon={<UsersIcon className=""/>} href="/discord"/>
-                        <QuickLink title="Seasonal Rewards"
-                                   description="Compete for store gift cards and exclusive tags at the end of each season."
-                                   icon={<TrophyIcon className=""/>} href="/seasonal-rewards"/>
-                        <QuickLink title="Store"
-                                   description="Browse our selection of ranks, bundles, and items to enhance your gameplay."
-                                   icon={<ShoppingCartIcon className=""/>} href="/store"/>
+                </section>
+
+                <section className="relative border-y border-white/8 bg-slate-950/25 py-20 sm:py-24">
+                    <div
+                        className="pointer-events-none absolute left-1/2 top-0 -z-10 h-80 w-[50rem] -translate-x-1/2 rounded-full bg-purple-600/10 blur-3xl"/>
+                    <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+                        <SectionHeading
+                            eyebrow="Your adventure"
+                            title="Everything you need"
+                            description="Jump back into the action, earn rewards, and connect with the community."
+                        />
+                        <div className="mt-10 grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
+                            <QuickLink title="Vote Rewards"
+                                       description="Vote daily for awesome in-game rewards and help trigger vote parties!"
+                                       icon={<StarIcon/>} href="/vote"/>
+                            <QuickLink title="Join Discord"
+                                       description="Connect with our community, get support, and stay updated on server news."
+                                       icon={<UsersIcon/>} href="/discord"/>
+                            <QuickLink title="Seasonal Rewards"
+                                       description="Compete for store gift cards and exclusive tags at the end of each season."
+                                       icon={<TrophyIcon/>} href="/seasonal-rewards"/>
+                            <QuickLink title="Store"
+                                       description="Browse ranks, bundles, and items designed to enhance your gameplay."
+                                       icon={<ShoppingCartIcon/>} href="/store"/>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </section>
+
+                <section className="mx-auto w-full max-w-7xl px-4 py-20 sm:px-6 sm:py-24 lg:px-8">
+                    <div
+                        className="relative isolate overflow-hidden rounded-3xl border border-purple-300/15 bg-[linear-gradient(120deg,rgba(76,29,149,0.72),rgba(30,41,95,0.75))] px-6 py-12 shadow-[0_30px_90px_rgba(15,10,45,0.45)] sm:px-10 lg:flex lg:items-center lg:justify-between lg:px-14">
+                        <div className="hero-grid absolute inset-0 -z-10 opacity-25"/>
+                        <div
+                            className="absolute -right-24 -top-24 -z-10 size-72 rounded-full bg-fuchsia-400/20 blur-3xl"/>
+                        <div className="max-w-2xl">
+                            <div
+                                className="mb-4 inline-flex items-center gap-2 text-sm font-semibold uppercase tracking-[0.18em] text-purple-200">
+                                <SparklesIcon className="size-4"/>
+                                Ready when you are
+                            </div>
+                            <h2 className="text-balance text-3xl font-black tracking-tight text-white sm:text-4xl">Your
+                                island is waiting.</h2>
+                            <p className="mt-4 text-lg leading-8 text-purple-100/75">Join thousands of players building,
+                                competing, and creating their story on Static.</p>
+                        </div>
+                        <div className="mt-8 flex flex-col gap-3 sm:flex-row lg:mt-0 lg:pl-10">
+                            <Link to="/discord"
+                                  className="inline-flex h-12 items-center justify-center whitespace-nowrap rounded-xl bg-white px-5 font-bold text-indigo-950 transition hover:-translate-y-0.5 hover:bg-purple-50">
+                                Join the community
+                            </Link>
+                            <Link to="/store"
+                                  className="inline-flex h-12 items-center justify-center gap-2 whitespace-nowrap rounded-xl border border-white/15 bg-white/8 px-5 font-semibold text-white transition hover:-translate-y-0.5 hover:bg-white/14">
+                                Visit the store <ArrowRightIcon className="size-4"/>
+                            </Link>
+                        </div>
+                    </div>
+                </section>
+            </main>
         </>
     );
 }
+
+const SectionHeading = ({eyebrow, title, description}: {
+    eyebrow: string,
+    title: string,
+    description: string
+}) => (
+    <div className="max-w-2xl">
+        <p className="mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-300">{eyebrow}</p>
+        <h2 className="text-balance text-4xl font-black tracking-[-0.035em] text-white sm:text-5xl">{title}</h2>
+        <p className="mt-4 text-lg leading-8 text-slate-300">{description}</p>
+    </div>
+);
 
 const QuickLink = ({title, description, icon, href}: {
     title: string,
@@ -240,12 +306,19 @@ const QuickLink = ({title, description, icon, href}: {
 }) => {
     return (
         <Link to={href}
-              className="bg-slate-800/70 hover:bg-slate-800/90 transition-colors border border-indigo-800/50 rounded-lg p-4 flex flex-col gap-2 flex-1">
-            <div className="text-purple-400 [&_svg]:size-8 mb-2">
-                {icon}
+              className="group relative flex min-h-64 flex-col overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(145deg,rgba(30,41,75,0.82),rgba(15,23,54,0.72))] p-6 shadow-xl shadow-slate-950/15 transition duration-300 hover:-translate-y-1 hover:border-purple-400/35 hover:shadow-[0_24px_65px_rgba(30,20,75,0.35)]">
+            <div
+                className="absolute -right-12 -top-12 size-32 rounded-full bg-purple-500/8 blur-2xl transition-colors group-hover:bg-purple-500/18"/>
+            <div className="mb-auto flex items-start justify-between">
+                <div
+                    className="grid size-12 place-items-center rounded-xl border border-purple-300/15 bg-purple-500/12 text-purple-300 shadow-inner [&_svg]:size-6">
+                    {icon}
+                </div>
+                <ArrowRightIcon
+                    className="size-5 text-slate-500 transition duration-300 group-hover:translate-x-1 group-hover:text-purple-300"/>
             </div>
-            <h4>{title}</h4>
-            <p className="text-white/70">{description}</p>
+            <h3 className="mt-7 text-xl font-bold text-white">{title}</h3>
+            <p className="mt-2 leading-7 text-slate-400 transition-colors group-hover:text-slate-300">{description}</p>
         </Link>
     );
 }
@@ -260,27 +333,46 @@ type CardProps = {
 }
 
 const Card = ({title, description, imageSrc, date, layout, href, index}: CardProps & { index: number }) => {
-    const navigate = useNavigate();
     return (
         <article data-layout={layout}
-                 className={`flex md:data-[layout=horizontal]:flex-row flex-col border-indigo-800/50 border rounded-lg overflow-hidden bg-slate-800/70 opacity-0 animate-fade-in-up`}
+                 className="group grid overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(145deg,rgba(30,41,73,0.78),rgba(15,23,50,0.82))] opacity-0 shadow-xl shadow-slate-950/20 transition duration-300 hover:-translate-y-1 hover:border-purple-400/30 hover:shadow-[0_28px_80px_rgba(15,10,45,0.45)] motion-safe:animate-fade-in-up motion-reduce:opacity-100 md:data-[layout=horizontal]:grid-cols-[1.25fr_1fr]"
                  style={{
-                     animationDelay: (index + 1) * 0.3 + "s"
+                     animationDelay: (index + 1) * 0.1 + "s"
                  }}>
-            <img data-layout={layout} src={imageSrc} alt={title}
-                 className="md:data-[layout=horizontal]:w-[50%] object-cover h-[250px]"/>
-            <div className="flex flex-col gap-4 p-4 flex-1">
-                <div className="flex flex-row gap-1 items-center text-white/70">
-                    <CalendarIcon className="size-5"/>
-                    <time className="text-sm">{date}</time>
+            <div data-layout={layout}
+                 className="relative h-56 overflow-hidden md:data-[layout=horizontal]:h-full md:data-[layout=horizontal]:min-h-[390px]">
+                <img src={imageSrc} alt={title} loading={index === 0 ? "eager" : "lazy"} decoding="async"
+                     className="size-full object-cover transition duration-700 ease-out group-hover:scale-[1.045]"/>
+                <div
+                    className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:data-[layout=horizontal]:bg-gradient-to-r md:data-[layout=horizontal]:from-transparent md:data-[layout=horizontal]:to-slate-950/25"/>
+                {layout === "horizontal" && (
+                    <span
+                        className="absolute left-5 top-5 rounded-full border border-white/15 bg-slate-950/60 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-purple-200 backdrop-blur-md">
+                        Featured content
+                    </span>
+                )}
+            </div>
+            <div data-layout={layout}
+                 className="flex flex-col p-6 md:data-[layout=horizontal]:justify-center md:data-[layout=horizontal]:p-10">
+                <div className="flex items-center gap-2 text-sm font-medium text-purple-200/70">
+                    <CalendarIcon className="size-4"/>
+                    <time>{date}</time>
                 </div>
-                <h2 className="text-xl font-bold">{title}</h2>
-                <p className="text-white/70">{description}</p>
-                <Button disabled={href == undefined} variant="secondary" className="w-min mt-auto" onClick={() => {
-                    if (href) {
-                        navigate(href);
-                    }
-                }}>Read More</Button>
+                <h3 data-layout={layout}
+                    className="mt-4 text-xl font-bold leading-tight text-white md:data-[layout=horizontal]:text-3xl">{title}</h3>
+                <p data-layout={layout}
+                   className="mt-3 line-clamp-3 leading-7 text-slate-400 md:data-[layout=horizontal]:line-clamp-none md:data-[layout=horizontal]:text-lg">{description}</p>
+                <div className="mt-6">
+                    {href ? (
+                        <Link to={href}
+                              className="inline-flex items-center gap-2 font-bold text-purple-300 transition-colors hover:text-purple-200">
+                            Read the update
+                            <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1"/>
+                        </Link>
+                    ) : (
+                        <span className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">From the archive</span>
+                    )}
+                </div>
             </div>
         </article>
     )

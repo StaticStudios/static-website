@@ -11,6 +11,7 @@ import {Dialog, DialogContent, DialogTitle} from "~/components/ui/dialog";
 import {DialogDescription} from "@radix-ui/react-dialog";
 import {PageLocation} from "~/components/markdown-page";
 import {FullScreenLoading} from "~/components/FullScreenLoading";
+import {PageShell} from "~/components/page-shell";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -52,9 +53,8 @@ export default function Package({params}: Route.LoaderArgs) {
         .find(category => category.packages.some(pkg => pkg.id === Number(itemId))) as TebexCategory;
 
     return (
-        <div className="mx-2 my-8">
-            <div className="container mx-auto">
-                <div className="flex flex-col md:flex-row gap-8">
+        <PageShell>
+                <div className="surface-panel flex flex-col gap-8 p-5 sm:p-8 md:flex-row lg:p-10">
                     <div className="flex-1 md:flex-[2/3]">
                         <div className="aspect-square w-full flex flex-col gap-4">
                             <div className="md:hidden inline-block">
@@ -77,14 +77,14 @@ export default function Package({params}: Route.LoaderArgs) {
                                 )}
                             </p>
 
-                            <img alt={pkg.name} className="object-cover h-full aspect-square bg-white rounded-lg"
+                            <img alt={pkg.name} className="aspect-square h-full rounded-2xl border border-white/10 bg-white object-cover shadow-2xl shadow-slate-950/30"
                                  src={pkg.image ? pkg.image : undefined}/>
                         </div>
                     </div>
                     <div className="flex-1 flex flex-col gap-4">
                         <div className="flex flex-row justify-between items-center">
                             <div className="flex flex-col gap-2">
-                                <p className="text-white text-4xl font-bold">{pkg.name}</p>
+                                <p className="text-4xl font-black tracking-[-0.035em] text-white">{pkg.name}</p>
                                 <div className="flex flex-row gap-2">
                                     <p data-sale={price != salePrice}
                                        className="text-purple-400/50 text-4xl font-bold line-through hidden data-[sale=true]:flex">{price}</p>
@@ -97,7 +97,7 @@ export default function Package({params}: Route.LoaderArgs) {
                         </div>
 
                         <div className="flex items-center space-x-4">
-                            <div className="flex items-center border border-indigo-800/30 rounded-md">
+                            <div className="flex items-center rounded-xl border border-white/10 bg-slate-950/25">
                                 <Button variant="ghost" size="icon" onClick={decrementQuantity}
                                         className="text-white h-10 w-10">
                                     -
@@ -135,9 +135,9 @@ export default function Package({params}: Route.LoaderArgs) {
                         <div className="text-white/70">
                             <Tabs defaultValue={category.slug?.includes("ranks") ? "features" : "description"}
                                   className="pt-4">
-                                <TabsList className="bg-slate-800 border border-indigo-800/30">
+                                <TabsList className="border border-white/10 bg-slate-950/30 p-1">
                                     <TabsTrigger value="description"
-                                                 className="data-[state=active]:bg-white">Description</TabsTrigger>
+                                                 className="data-[state=active]:bg-white/10 data-[state=active]:text-white">Description</TabsTrigger>
                                     <TabsTrigger value="features">Features</TabsTrigger>
                                 </TabsList>
                                 <TabsContent value="description" className="text-white/80 mt-4 space-y-4">
@@ -157,8 +157,7 @@ export default function Package({params}: Route.LoaderArgs) {
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
+        </PageShell>
     )
 }
 
@@ -186,7 +185,7 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                 }
             }} open={open}>
                 <DialogContent
-                    className="md:max-w-[95vw] w-[900px] max-h-[95vh] overflow-y-auto animate-in text-white border-indigo-800/30 p-6 bg-slate-800">
+                    className="surface-panel max-h-[95vh] w-[900px] overflow-y-auto border-white/10 p-6 text-white md:max-w-[95vw]">
                     <DialogTitle>Enter their Minecraft account</DialogTitle>
                     <DialogDescription className="text-white/70">Supports both Minecraft Java Edition and
                         Minecraft Bedrock Edition
@@ -197,7 +196,7 @@ export const GiftToAFriend = ({pkg}: { pkg: TebexPackage }) => {
                         </h4>
                         <input
                             type="text"
-                            className="w-full h-10 px-3 py-2 border border-gray-300 rounded-md focus:border-wildphire-blue focus:ring-wildphire-blue mt-auto"
+                            className="field-control mt-auto h-10 w-full"
                             placeholder="Notch"
                             value={username}
                             onChange={e => setUsername(e.target.value)}

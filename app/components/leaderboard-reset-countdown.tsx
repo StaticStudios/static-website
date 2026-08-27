@@ -72,7 +72,7 @@ type ResetCardProps = {
 
 function ResetCard({icon, label, countdown, resetAt, explanation}: ResetCardProps) {
     return (
-        <div className="rounded-lg border border-indigo-600/40 bg-slate-900/60 p-4">
+        <div className="surface-card my-5 p-5">
             <div className="flex items-center gap-2 text-purple-300">
                 {icon}
                 <h3 className="text-base font-semibold text-white">{label}</h3>

@@ -6,6 +6,7 @@
 @theme {
     --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif,
     'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-display: 'Space Grotesk', 'Inter', ui-sans-serif, system-ui, sans-serif;
 
     @keyframes fadeInUp {
         from {
@@ -19,6 +20,15 @@
     }
 
     --animate-fade-in-up: fadeInUp 0.5s ease-in-out both;
+}
+
+@keyframes heroDrift {
+    from {
+        transform: scale(1.04) translate3d(-0.35%, 0, 0);
+    }
+    to {
+        transform: scale(1.085) translate3d(0.35%, -0.5%, 0);
+    }
 }
 
 /*
@@ -41,7 +51,7 @@
 
 html,
 body {
-    background-color: #1d1f45;
+    background-color: #080b20;
 }
 
 /*
@@ -66,20 +76,27 @@ body {
     /*    @apply border-border outline-ring/50;*/
     /*}*/
     body {
-        @apply bg-gradient-to-b from-slate-900 to-indigo-900;
-        @apply text-white
+        @apply text-white antialiased;
+        min-width: 320px;
+        background-image:
+            radial-gradient(circle at 18% 8%, rgba(91, 33, 182, 0.16), transparent 30rem),
+            radial-gradient(circle at 88% 42%, rgba(49, 46, 129, 0.18), transparent 34rem),
+            linear-gradient(180deg, #0b1029 0%, #0b1027 45%, #080b20 100%);
     }
 
     h1 {
         @apply text-4xl font-bold;
+        font-family: var(--font-display);
     }
 
     h2 {
         @apply text-3xl font-bold;
+        font-family: var(--font-display);
     }
 
     h3 {
         @apply text-2xl font-bold;
+        font-family: var(--font-display);
     }
 
     h4 {
@@ -99,7 +116,35 @@ body {
     }
 
     :where(.markdown) a {
-        @apply text-purple-400 hover:underline;
+        @apply font-medium text-purple-300 decoration-purple-400/50 underline-offset-4 hover:underline;
+    }
+
+    :where(.markdown) h1 {
+        @apply mb-3 text-4xl font-black tracking-[-0.035em] text-white sm:text-5xl;
+    }
+
+    :where(.markdown) h2 {
+        @apply mb-3 mt-10 text-2xl font-bold tracking-tight text-white sm:text-3xl;
+    }
+
+    :where(.markdown) h3 {
+        @apply mb-2 mt-7 text-xl font-bold text-white sm:text-2xl;
+    }
+
+    :where(.markdown) p {
+        @apply leading-8 text-slate-300;
+    }
+
+    :where(.markdown) strong {
+        @apply font-semibold text-white;
+    }
+
+    :where(.markdown) code {
+        @apply rounded-md border border-white/8 px-1.5 py-0.5 text-sm text-purple-200;
+    }
+
+    :where(.markdown) pre {
+        @apply overflow-x-auto rounded-xl border border-white/10 bg-slate-950/65 p-4;
     }
 
     :where(.markdown) ul {
@@ -111,7 +156,7 @@ body {
     }
 
     :where(.markdown) li {
-        @apply pl-1 text-white/70;
+        @apply pl-1 leading-7 text-slate-300;
     }
 
     :where(.markdown) blockquote {
@@ -151,10 +196,79 @@ body {
     }
 
     :where(.markdown) img {
-        @apply w-[800px];
+        @apply w-[800px] rounded-xl border border-white/10 shadow-2xl shadow-slate-950/35;
     }
 
     button {
         cursor: pointer;
+    }
+
+    ::selection {
+        color: white;
+        background: rgba(139, 92, 246, 0.72);
+    }
+
+    :focus-visible {
+        outline: 2px solid rgb(196 181 253);
+        outline-offset: 3px;
+    }
+}
+
+@layer components {
+    .page-eyebrow {
+        @apply mb-3 text-sm font-bold uppercase tracking-[0.2em] text-purple-300;
+    }
+
+    .page-title {
+        @apply text-balance text-4xl font-black tracking-[-0.04em] text-white sm:text-5xl lg:text-6xl;
+        font-family: var(--font-display);
+    }
+
+    .page-lede {
+        @apply mt-4 max-w-2xl text-lg leading-8 text-slate-300;
+    }
+
+    .surface-panel {
+        @apply rounded-3xl border border-white/10 shadow-2xl shadow-slate-950/20 backdrop-blur-sm;
+        background:
+            linear-gradient(145deg, rgba(30, 41, 73, 0.78), rgba(15, 23, 50, 0.82));
+    }
+
+    .surface-card {
+        @apply rounded-2xl border border-white/10 shadow-xl shadow-slate-950/15 transition duration-300;
+        background:
+            linear-gradient(145deg, rgba(30, 41, 73, 0.7), rgba(15, 23, 50, 0.76));
+    }
+
+    .surface-card-interactive {
+        @apply rounded-2xl border border-white/10 shadow-xl shadow-slate-950/15 transition duration-300 hover:-translate-y-1 hover:border-purple-400/30 hover:shadow-[0_24px_65px_rgba(15,10,45,0.35)];
+        background:
+            linear-gradient(145deg, rgba(30, 41, 73, 0.7), rgba(15, 23, 50, 0.76));
+    }
+
+    .field-control {
+        @apply rounded-xl border border-white/10 bg-slate-950/35 px-3 py-2 text-white placeholder:text-slate-600 focus:border-purple-400/60;
+    }
+}
+
+@layer utilities {
+    .hero-grid {
+        background-image:
+            linear-gradient(rgba(255, 255, 255, 0.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.045) 1px, transparent 1px);
+        background-size: 42px 42px;
+        mask-image: linear-gradient(to bottom, transparent, black 20%, black 72%, transparent);
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
     }
 }

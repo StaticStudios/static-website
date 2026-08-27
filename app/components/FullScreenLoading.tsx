@@ -20,10 +20,12 @@ export const FullScreenLoading = ({loading}: { loading: boolean }) => {
     if (loading) {
         return (
             <div
-                className="fixed inset-0 z-[10000] flex items-center justify-center bg-black/30 pointer-events-none">
-                <div className="flex flex-col items-center space-y-4">
+                className="fixed inset-0 z-[10000] flex items-center justify-center bg-slate-950/65 backdrop-blur-sm"
+                role="status" aria-live="polite" aria-label="Loading">
+                <div className="surface-card grid size-24 shrink-0 place-items-center p-0">
                     <div
-                        className="relative h-12 w-12 animate-spin rounded-full border-4 border-white border-t-transparent"/>
+                        className="relative size-12 animate-spin rounded-full border-4 border-purple-200/25 border-t-purple-300 shadow-[0_0_24px_rgba(192,132,252,0.3)]"/>
+                    <span className="sr-only">Loading</span>
                 </div>
             </div>
         )
