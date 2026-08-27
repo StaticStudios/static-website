@@ -5,18 +5,18 @@ import {cva, type VariantProps} from "class-variance-authority"
 import {cn} from "~/lib/utils"
 
 const buttonVariants = cva(
-    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
+    "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-xl text-sm font-semibold transition-all disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg:not([class*='size-'])]:size-4 shrink-0 [&_svg]:shrink-0 outline-none focus-visible:border-ring focus-visible:ring-ring/50 focus-visible:ring-[3px] aria-invalid:ring-destructive/20 dark:aria-invalid:ring-destructive/40 aria-invalid:border-destructive",
     {
         variants: {
             variant: {
                 default:
-                    "bg-purple-600 text-white shadow-xs hover:bg-purple-600/90",
+                    "border border-purple-300/15 bg-gradient-to-r from-violet-500 to-purple-600 text-white shadow-lg shadow-purple-950/20 hover:-translate-y-0.5 hover:from-violet-400 hover:to-purple-500",
                 destructive:
                     "bg-red-400 text-white shadow-xs hover:bg-red-400/90 focus-visible:ring-red-400/20",
                 outline:
-                    "border bg-background shadow-xs hover:bg-accent hover:text-accent-foreground dark:bg-input/30 dark:border-input dark:hover:bg-input/50",
+                    "border border-white/10 bg-white/5 text-white shadow-sm hover:border-purple-300/25 hover:bg-white/10",
                 secondary:
-                    "bg-white text-purple-600 shadow-xs hover:text-purple-400 border border-purple-600",
+                    "border border-white/15 bg-white/8 text-white shadow-sm hover:bg-white/14 hover:text-white",
                 ghost:
                     "hover:bg-purple-400/20",
                 link: "text-primary underline-offset-4 hover:underline",

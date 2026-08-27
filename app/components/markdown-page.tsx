@@ -3,6 +3,7 @@ import {Link} from "react-router";
 import {ChevronRightIcon} from "lucide-react";
 import React from "react";
 import remarkGfm from "remark-gfm";
+import {PageShell} from "~/components/page-shell";
 
 type MarkdownPageProps = {
     markdown: string;
@@ -13,14 +14,14 @@ type MarkdownPageProps = {
 
 export function MarkdownPage({markdown, location, children, afterTitle}: MarkdownPageProps) {
     return (
-        <div className="mx-2">
-            <div className="container mx-auto mb-8">
-                <div className="mt-8 mb-4">
+        <PageShell>
+                <div className="mb-5">
                     <PageLocation location={location}/>
                 </div>
                 {children}
-                <div
-                    className="bg-slate-800/70 border border-indigo-800/30 rounded-lg px-8 py-4 [&_p]:text-white/70 space-y-4 [&_img]:rounded-lg [&_img]:border [&_img]:border-gray-300/30 [&_code]:bg-slate-900/70 markdown">
+                <article
+                    className="surface-panel relative overflow-hidden p-6 sm:p-9 lg:p-12 [&_code]:bg-slate-950/65 markdown">
+                    <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-purple-300/55 to-transparent"/>
                     <Markdown
                         remarkPlugins={[remarkGfm]}
                         components={{
@@ -39,9 +40,8 @@ export function MarkdownPage({markdown, location, children, afterTitle}: Markdow
                     >
                         {markdown}
                     </Markdown>
-                </div>
-            </div>
-        </div>
+                </article>
+        </PageShell>
     );
 }
 
@@ -54,17 +54,17 @@ type PageLocationProps = {
 
 export const PageLocation = ({location}: PageLocationProps) => {
     return (
-        <div className="flex flex-row gap-1 items-center">
+        <nav aria-label="Breadcrumb" className="flex flex-wrap items-center gap-1.5">
             {location.map((loc, i) => (
-                <div key={i} className="flex flex-row gap-1 items-center">
+                <div key={i} className="flex items-center gap-1.5">
                     <Link to={loc.href} data-active={i == location.length - 1}
-                          className="text-sm text-white/70 data-[active=true]:text-white hover:text-white transition-colors">{loc.name}
+                          className="rounded-md px-1.5 py-1 text-sm font-medium text-slate-400 transition-colors hover:text-white data-[active=true]:text-purple-200">{loc.name}
                     </Link>
                     {i < location.length - 1 && (
-                        <ChevronRightIcon className="text-white/70 size-4"/>
+                        <ChevronRightIcon className="size-3.5 text-slate-600"/>
                     )}
                 </div>
             ))}
-        </div>
+        </nav>
     )
 }

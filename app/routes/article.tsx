@@ -3,6 +3,7 @@ import type {Route} from "../../+types/root";
 import React from "react";
 import {MarkdownPage} from "~/components/markdown-page";
 import {articles, SITE_URL} from "~/seo";
+import {PageShell} from "~/components/page-shell";
 
 const markdownModules = import.meta.glob<string>("../md/article/*.md", {
     query: "?raw",
@@ -49,10 +50,13 @@ export default function Article({params}: Route.ComponentProps) {
 
     if (!article || !markdown) {
         return (
-            <div className="flex items-center flex-col w-full gap-1 mt-8">
-                <h1>Article not found</h1>
-                <p>The article you searched for does not exist.</p>
-            </div>
+            <PageShell className="flex flex-1 items-center justify-center py-24">
+                <div className="surface-panel w-full max-w-2xl p-10 text-center">
+                    <p className="page-eyebrow">Article archive</p>
+                    <h1 className="page-title">Article not found</h1>
+                    <p className="page-lede mx-auto">The article you searched for does not exist.</p>
+                </div>
+            </PageShell>
         );
     }
 

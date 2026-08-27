@@ -122,7 +122,7 @@ export const Cart = () => {
             <SheetTrigger asChild disabled={!account}>
                 {account ? (
                     <div
-                        className="rounded-lg border border-indigo-800/30 p-4 pr-20 bg-slate-800 flex flex-row gap-4 items-center relative overflow-hidden cursor-pointer hover:bg-slate-700 transition-colors w-full md:w-auto"
+                        className="surface-card relative flex w-full cursor-pointer items-center gap-4 overflow-hidden p-4 pr-20 transition hover:border-purple-400/30 hover:bg-white/5 md:w-auto"
                         onClick={e => {
                         }}
                     >
@@ -148,7 +148,7 @@ export const Cart = () => {
                     </div>
                 ) : (
                     <div
-                        className="rounded-lg border border-indigo-800/30 p-4 pr-20 bg-slate-800 flex flex-row gap-4 items-center relative overflow-hidden cursor-pointer hover:bg-slate-700 transition-colors w-full md:w-auto"
+                        className="surface-card relative flex w-full cursor-pointer items-center gap-4 overflow-hidden p-4 pr-20 transition hover:border-purple-400/30 hover:bg-white/5 md:w-auto"
                         onClick={e => {
                             e.preventDefault();
                             promptLogin();
@@ -170,7 +170,7 @@ export const Cart = () => {
                 )}
             </SheetTrigger>
             <SheetContent side="right"
-                          className="overflow-y-auto overscroll-contain bg-slate-900 text-white border-r border-indigo-800/50"
+                          className="overflow-y-auto overscroll-contain border-l border-white/10 bg-[linear-gradient(160deg,rgba(22,28,58,0.98),rgba(8,11,32,0.99))] text-white shadow-2xl shadow-black/40"
                           aria-describedby="">
                 {account && (
                     <div className="flex min-h-full flex-col justify-between gap-6 p-4">
@@ -311,7 +311,7 @@ const CheckoutButton = () => {
                 setOpen(open);
             }} open={open}>
                 <DialogContent
-                    className="md:max-w-[95vw] w-[900px] max-h-[95vh] overflow-y-auto animate-in text-white border-indigo-800/30 p-6 bg-slate-800">
+                    className="surface-panel max-h-[95vh] w-[900px] overflow-y-auto border-white/10 p-6 text-white md:max-w-[95vw]">
                     <DialogTitle>Continue to Checkout</DialogTitle>
                     <DialogDescription className="text-white/70">
                         By clicking <b>Continue to Checkout</b>, you are agreeing to our{" "}
@@ -486,7 +486,7 @@ const GiftCards = ({
     }
 
     return (
-        <section className="rounded-lg border border-indigo-800/40 bg-slate-800/70 p-4"
+        <section className="surface-card p-4"
                  aria-labelledby="gift-card-title">
             <div className="mb-3 flex items-start gap-3">
                 <div className="rounded-md bg-purple-400/15 p-2 text-purple-300">
@@ -545,7 +545,7 @@ const GiftCards = ({
                     aria-label="16-digit gift card number"
                     autoComplete="off"
                     inputMode="numeric"
-                    className="h-10 border-white/10 bg-black/20 font-mono placeholder:font-sans focus-visible:border-purple-400"
+                    className="h-10 rounded-xl border-white/10 bg-slate-950/35 font-mono placeholder:font-sans focus-visible:border-purple-400"
                     placeholder="0000 0000 0000 0000"
                     value={cardNumber}
                     onChange={event => {
@@ -664,7 +664,7 @@ const CreatorCode = ({catalogPricing}: { catalogPricing: Map<number, CatalogUnit
     }
 
     return (
-        <section className="rounded-lg border border-indigo-800/40 bg-slate-800/70 p-4"
+        <section className="surface-card p-4"
                  aria-labelledby="creator-code-title">
             <div className="mb-3 flex items-start gap-3">
                 <div className="rounded-md bg-purple-400/15 p-2 text-purple-300">
@@ -712,7 +712,7 @@ const CreatorCode = ({catalogPricing}: { catalogPricing: Map<number, CatalogUnit
                     <Input
                         aria-label="Creator code"
                         autoComplete="off"
-                        className="h-10 border-white/10 bg-black/20 font-mono uppercase placeholder:font-sans placeholder:normal-case focus-visible:border-purple-400"
+                        className="h-10 rounded-xl border-white/10 bg-slate-950/35 font-mono uppercase placeholder:font-sans placeholder:normal-case focus-visible:border-purple-400"
                         placeholder="Enter creator code"
                         value={creatorCode}
                         onChange={e => {
@@ -846,8 +846,8 @@ const CartItem = ({
 
     return (
         <article className={giftRecipient
-            ? "rounded-lg border border-purple-400/35 bg-purple-500/10 p-3 transition-colors hover:border-purple-400/60"
-            : "rounded-lg border border-white/10 bg-slate-800/65 p-3 transition-colors hover:border-indigo-700/60"}>
+            ? "rounded-xl border border-purple-400/35 bg-purple-500/10 p-3 transition-colors hover:border-purple-400/60"
+            : "rounded-xl border border-white/10 bg-white/4 p-3 transition-colors hover:border-purple-400/30"}>
             <div className="flex items-center gap-3">
                 {item.image && (
                     <img

@@ -19,7 +19,7 @@ export const links: Route.LinksFunction = () => [
   },
   {
     rel: "stylesheet",
-    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap",
+    href: "https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Space+Grotesk:wght@500;600;700&display=swap",
   },
   { rel: "stylesheet", href: stylesheet },
 ];
@@ -99,14 +99,17 @@ export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
   }
 
   return (
-    <main className="pt-16 p-4 container mx-auto">
-      <h1>{message}</h1>
-      <p>{details}</p>
-      {stack && (
-        <pre className="w-full p-4 overflow-x-auto">
-          <code>{stack}</code>
-        </pre>
-      )}
+    <main className="flex min-h-screen items-center justify-center bg-[radial-gradient(circle_at_25%_15%,rgba(124,58,237,0.18),transparent_28rem),linear-gradient(180deg,#0b1029,#080b20)] p-4 text-white">
+      <div className="surface-panel w-full max-w-3xl p-8 sm:p-12">
+        <p className="page-eyebrow">Static</p>
+        <h1 className="page-title">{message}</h1>
+        <p className="page-lede">{details}</p>
+        {stack && (
+          <pre className="mt-6 w-full overflow-x-auto rounded-xl border border-white/10 bg-slate-950/55 p-4 text-sm text-slate-300">
+            <code>{stack}</code>
+          </pre>
+        )}
+      </div>
     </main>
   );
 }

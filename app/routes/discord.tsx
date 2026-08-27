@@ -1,6 +1,7 @@
 import type {Route} from "../+types/root";
 import React, {useEffect} from "react";
 import {useNavigate} from "react-router";
+import {PageShell} from "~/components/page-shell";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -28,6 +29,12 @@ export default function Discord() {
     }, [navigate]);
 
     return (
-        <p className="mx-auto mt-8">Redirecting...</p>
+        <PageShell className="flex flex-1 items-center justify-center py-24">
+            <div className="surface-panel w-full max-w-lg p-10 text-center">
+                <p className="page-eyebrow">Static community</p>
+                <h1 className="text-3xl font-black text-white">Opening Discord…</h1>
+                <p className="mt-3 text-slate-300">You’ll be returned to the homepage automatically.</p>
+            </div>
+        </PageShell>
     );
 }

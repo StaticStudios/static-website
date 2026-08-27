@@ -30,11 +30,11 @@ export default function Rules() {
         }>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8">
                 <Button asChild variant="outline"
-                        className="h-auto py-4 justify-start px-6 transform transition-all hover:scale-[1.01] hover:ring-2 hover:ring-indigo-500/50 bg-slate-800/50 border-indigo-500/30 text-white hover:bg-slate-800/80 hover:text-white">
+                        className="surface-card-interactive h-auto justify-start px-6 py-5 text-white hover:bg-white/5 hover:text-white">
                     <Link to="/rules/skyblock">
                         <div className="flex flex-row items-center gap-4 text-left w-full">
-                            <div className="p-3 bg-indigo-500/10 rounded-xl shrink-0">
-                                <CloudIcon className="size-8 text-indigo-400"/>
+                            <div className="shrink-0 rounded-xl border border-purple-300/15 bg-purple-500/10 p-3">
+                                <CloudIcon className="size-8 text-purple-300"/>
                             </div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="font-bold text-lg">Skyblock Rules</span>
@@ -44,11 +44,11 @@ export default function Rules() {
                     </Link>
                 </Button>
                 <Button asChild variant="outline"
-                        className="h-auto py-4 justify-start px-6 transform transition-all hover:scale-[1.01] hover:ring-2 hover:ring-indigo-500/50 bg-slate-800/50 border-indigo-500/30 text-white hover:bg-slate-800/80 hover:text-white opacity-90">
+                        className="surface-card-interactive h-auto justify-start px-6 py-5 text-white hover:bg-white/5 hover:text-white">
                     <Link to="/rules/prison">
                         <div className="flex flex-row items-center gap-4 text-left w-full">
-                            <div className="p-3 bg-indigo-500/10 rounded-xl shrink-0">
-                                <Grid3x3Icon className="size-8 text-indigo-400"/>
+                            <div className="shrink-0 rounded-xl border border-purple-300/15 bg-purple-500/10 p-3">
+                                <Grid3x3Icon className="size-8 text-purple-300"/>
                             </div>
                             <div className="flex flex-col gap-0.5">
                                 <span className="font-bold text-lg">Prison Rules</span>

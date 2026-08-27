@@ -20,6 +20,7 @@ import {useCurrencyFormatter} from "~/lib/currency";
 import {Cart} from "~/components/cart";
 import {useAccount} from "~/lib/account";
 import {FullScreenLoading} from "~/components/FullScreenLoading";
+import {PageShell} from "~/components/page-shell";
 
 export function meta({}: Route.MetaArgs) {
     return [
@@ -52,9 +53,13 @@ export default function Store({params}: Route.LoaderArgs) {
 
     if (!tebexEnabled) {
         return (
-            <div className="mx-auto mt-8">
-                <p className="text-white text-lg">The store is currently disabled.</p>
-            </div>
+            <PageShell className="flex flex-1 items-center justify-center py-24">
+                <div className="surface-panel max-w-xl p-10 text-center">
+                    <p className="page-eyebrow">Static store</p>
+                    <h1 className="page-title">Temporarily offline</h1>
+                    <p className="page-lede mx-auto">The store is currently disabled. Please check back soon.</p>
+                </div>
+            </PageShell>
         )
     }
 
@@ -67,18 +72,16 @@ export default function Store({params}: Route.LoaderArgs) {
     return (
         <>
             <ScrollRestoration/>
-            <div className="mx-2 my-8">
-                <div className="container mx-auto">
-                    <div className="flex flex-col md:flex-row gap-6">
-                        <div>
+            <PageShell>
+                    <div className="flex min-w-0 flex-col gap-7 md:flex-row">
+                        <div className="shrink-0">
                             <Sidebar/>
                         </div>
-                        <div className="w-full">
+                        <div className="min-w-0 flex-1">
                             {category && <Category category={category}/>}
                         </div>
                     </div>
-                </div>
-            </div>
+            </PageShell>
         </>
     )
 }
@@ -87,19 +90,22 @@ const Category = ({category}: { category: TebexCategory }) => {
     const {useCategory} = useTebexContent();
     const parent = useCategory(category.parent?.slug) ?? category;
     return (
-        <div className="flex flex-col gap-4">
+        <div className="flex flex-col gap-6">
             <div
-                className="relative flex flex-col gap-4 lg:flex-row lg:items-center justify-between">
-                <p className="hidden md:flex absolute top-0 left-0 text-3xl text-white font-bold">{parent.name}</p>
+                className="relative flex flex-col gap-5 border-b border-white/8 pb-5 lg:flex-row lg:items-end lg:justify-between">
+                <div className="hidden md:block">
+                    <p className="page-eyebrow">Static store</p>
+                    <h1 className="text-4xl font-black tracking-[-0.035em] text-white">{parent.name}</h1>
+                </div>
                 <MobileParentCategorySelect currentParent={parent}/>
-                <div className="flex-1 md:self-end flex flex-row flex-wrap [&>a]:flex-1 md:[&>a]:flex-0 text-center">
+                <div className="flex flex-1 flex-row flex-wrap gap-1 text-center md:self-end md:[&>a]:flex-0 [&>a]:flex-1">
                     {parent?.children?.map(child => (
                         <Link
                             preventScrollReset={true}
                             key={child.id}
                             to={`/store/${child.slug}`}
                             data-active={child.id == category.id}
-                            className="text-nowrap text-lg font-semibold px-4 pb-2 border-b text-white/70 border-indigo-800/50 data-[active=true]:border-indigo-800 data-[active=true]:border-b-3 data-[active=true]:text-white hover:border-b-3 hover:text-white transition-all">
+                            className="text-nowrap rounded-lg px-4 py-2 text-sm font-semibold text-slate-400 transition-colors hover:bg-white/5 hover:text-white data-[active=true]:bg-purple-500/12 data-[active=true]:text-purple-200">
                             {child.name}
                         </Link>
                     ))}
@@ -107,7 +113,7 @@ const Category = ({category}: { category: TebexCategory }) => {
                 <Cart/>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 gap-5 lg:grid-cols-2 2xl:grid-cols-3">
                 {category.packages.map(pkg => <PackageCard key={pkg.id} pkg={pkg}/>)}
             </div>
         </div>
@@ -126,7 +132,7 @@ const MobileParentCategorySelect = ({
     return (
         <div className="md:hidden">
             <Collapsible open={open} onOpenChange={setOpen}>
-                <div className="rounded-xl border border-indigo-700/50 bg-slate-800/90 overflow-hidden">
+                <div className="surface-panel overflow-hidden rounded-2xl">
                     <CollapsibleTrigger asChild>
                         <Button
                             variant="ghost"
@@ -147,7 +153,7 @@ const MobileParentCategorySelect = ({
                     </CollapsibleTrigger>
 
                     <CollapsibleContent>
-                        <div className="border-t border-indigo-800/40 bg-gradient-to-b from-purple-950/40 to-slate-900">
+                        <div className="border-t border-white/8 bg-slate-950/25">
                             {parentCategories.map(parent => {
                                 const active = parent.id === currentParent.id;
 
@@ -184,17 +190,21 @@ const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
     const price = useCurrencyFormatter(pkg.base_price);
     const salePrice = useCurrencyFormatter(pkg.sale_price);
     return (
-        <div className="rounded-lg border border-indigo-800/30 overflow-hidden h-full flex flex-col">
-            <img alt={pkg.name}
-                 className="object-cover w-full aspect-square bg-white flex-none"
-                 src={pkg.image ? pkg.image : undefined}/>
-            <div className="bg-slate-800 p-2 flex flex-col gap-4 flex-1">
-                <div className="flex flex-row justify-between">
-                    <p className="text-xl font-semibold text-white">{pkg.name}</p>
+        <article className="surface-card-interactive group flex h-full min-w-0 flex-col overflow-hidden">
+            <div className="relative aspect-square w-full overflow-hidden bg-white">
+                <img alt={pkg.name}
+                     loading="lazy" decoding="async"
+                     className="size-full flex-none object-cover transition duration-500 group-hover:scale-[1.035]"
+                     src={pkg.image ? pkg.image : undefined}/>
+                <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/20 to-transparent"/>
+            </div>
+            <div className="flex flex-1 flex-col gap-4 p-5">
+                <div className="flex min-h-14 items-start justify-between gap-3">
+                    <h2 className="min-w-0 text-xl font-bold leading-tight text-white">{pkg.name}</h2>
                     <TooltipProvider>
                         <Tooltip>
                             <TooltipTrigger asChild>
-                                <Button variant="ghost" size="icon" className="h-8 w-8 text-white/70 hover:text-white">
+                                <Button variant="ghost" size="icon" className="h-8 w-8 shrink-0 text-white/70 hover:text-white">
                                     <InfoIcon className="h-4 w-4"/>
                                     <span className="sr-only">View details</span>
                                 </Button>
@@ -212,30 +222,30 @@ const PackageCard = ({pkg}: { pkg: TebexPackage }) => {
                         </Tooltip>
                     </TooltipProvider>
                 </div>
-                <div className="flex flex-col gap-4 mt-auto">
-                    <div className="flex flex-row gap-2">
+                <div className="mt-auto flex flex-col gap-3 border-t border-white/8 pt-4">
+                    <div className="flex flex-wrap items-baseline gap-x-2 gap-y-1">
                         <p data-sale={price != salePrice}
-                           className="text-xl font-semibold text-purple-400/50 line-through hidden data-[sale=true]:flex">{price}</p>
-                        <p className="text-xl font-semibold text-purple-400">{salePrice}</p>
+                           className="hidden text-sm font-semibold text-slate-500 line-through data-[sale=true]:block">{price}</p>
+                        <p className="text-2xl font-black tracking-tight text-purple-300">{salePrice}</p>
                     </div>
-                    <div className="w-full flex flex-col xl:flex-row gap-2 items-center">
+                    <div className="grid w-full grid-cols-1 gap-2">
                         <Button
                             onClick={() => {
                                 addToCart(pkg, 1)
                             }}
-                            className="bg-purple-600 flex-1 w-full xl:w-auto">
-                            <ShoppingCartIcon/>
-                            <span className="ml-2">Add to Cart</span>
+                            className="h-11 w-full rounded-xl bg-gradient-to-r from-violet-500 to-purple-600 shadow-lg shadow-purple-950/25">
+                            <ShoppingCartIcon className="size-4"/>
+                            <span>Add to Cart</span>
                         </Button>
-                        <Link
-                            to={`/store/item/${pkg.id}`}
-                            className="bg-white hover:bg-white text-purple-600 hover:text-purple-400 flex-1 w-full xl:w-auto rounded-lg px-4 py-2 text-center">
-                            View Details
-                        </Link>
+                        <Button asChild variant="secondary" className="h-11 w-full">
+                            <Link to={`/store/item/${pkg.id}`}>
+                                View Details
+                            </Link>
+                        </Button>
                     </div>
                 </div>
             </div>
-        </div>
+        </article>
     )
 }
 
@@ -244,9 +254,9 @@ const Sidebar = () => {
 
     return (
         <div className="md:flex flex-col gap-4 hidden">
-            <SidebarProvider className="flex flex-col gap-4">
-                <div className="w-[300px] h-max rounded-lg border border-indigo-800/30 overflow-hidden">
-                    <SidebarInset className="p-4 bg-slate-800">
+            <SidebarProvider className="min-h-0! flex flex-col gap-4 bg-transparent!">
+                <div className="surface-panel h-max w-[300px] overflow-hidden rounded-2xl">
+                    <SidebarInset className="bg-transparent p-5">
                         <SidebarContent>
                             {parentCategories.map((parent, i) => (
                                 <div key={i}>
@@ -291,7 +301,7 @@ const Sidebar = () => {
                         </SidebarContent>
                     </SidebarInset>
                 </div>
-                <div className="rounded-lg border border-indigo-800/30 bg-slate-800 w-full p-4">
+                <div className="surface-card w-full p-5">
                     <GiftCardBalance/>
                 </div>
             </SidebarProvider>
@@ -335,7 +345,7 @@ const GiftCardBalance = () => {
             <div className="relative">
                 <input
                     type="text"
-                    className="w-full px-3 py-2 bg-black/20 rounded-md focus:border-wildphire-blue focus:ring-wildphire-blue mt-auto"
+                    className="field-control mt-auto w-full pr-11 font-mono"
                     placeholder="0000 0000 0000 0000"
                     value={cardNumber}
                     onChange={e => {
