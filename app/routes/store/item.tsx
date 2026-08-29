@@ -70,6 +70,7 @@ export default function Package({params}: Route.LoaderArgs) {
                             {category.parent ? (
                                 <PageLocation location={[
                                     {href: `/`, name: "Home"},
+                                    {href: `/store`, name: "Store"},
                                     {href: `/store/${parent.slug}`, name: parent.name},
                                     {href: `/store/${category.slug}`, name: category.name},
                                     {href: `/store/item/${pkg.id}`, name: pkg.name},
@@ -77,6 +78,7 @@ export default function Package({params}: Route.LoaderArgs) {
                             ) : (
                                 <PageLocation location={[
                                     {href: `/`, name: "Home"},
+                                    {href: `/store`, name: "Store"},
                                     {href: `/store/${category.slug}`, name: category.name},
                                     {href: `/store/item/${pkg.id}`, name: pkg.name},
                                 ]}/>
