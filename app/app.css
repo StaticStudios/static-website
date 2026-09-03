@@ -164,7 +164,7 @@ body {
     }
 
     :where(.markdown) hr {
-        @apply border-0 border-t border-indigo-500/40;
+        @apply my-8 border-0 border-t border-indigo-500/40;
     }
 
     :where(.markdown) .markdown-table-wrapper {
@@ -196,7 +196,7 @@ body {
     }
 
     :where(.markdown) img {
-        @apply w-[800px] rounded-xl border border-white/10 shadow-2xl shadow-slate-950/35;
+        @apply my-6 w-[800px] rounded-xl border border-white/10 shadow-2xl shadow-slate-950/35;
     }
 
     button {
