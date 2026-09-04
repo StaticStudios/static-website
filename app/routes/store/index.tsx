@@ -207,7 +207,7 @@ const Category = ({category, parent}: { category: TebexCategory; parent: TebexCa
                     <p className="mt-1 truncate text-lg font-bold text-white">{parent.name}</p>
                 </div>
                 <Button asChild variant="outline" className="shrink-0">
-                    <Link to="/store">Change mode</Link>
+                    <Link to="/store">Change category</Link>
                 </Button>
             </div>
 

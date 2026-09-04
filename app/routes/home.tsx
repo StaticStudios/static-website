@@ -1,6 +1,7 @@
 import type {Route} from "../+types/root";
 import wz1 from "~/assets/skyblock/wz1.png";
 import skyblockSpawn from "~/assets/skyblock/spawn.png";
+import skyblock3Thumbnail from "~/assets/skyblock/skyblock3_trailer_tumbnail.png";
 import skyblockSpawnSneakPeak from "~/assets/skyblock/spawn_sneak_peak.png";
 import skyblockOasis from "~/assets/skyblock/oasis_1.png";
 import mine from "~/assets/skyblock/mine.png";
@@ -8,6 +9,8 @@ import wz2 from "~/assets/skyblock/wz2.png";
 import prisonCherryMine from "~/assets/prison/cherry_mine.png";
 import {type ReactNode, useEffect} from "react";
 import {HeroV2} from "~/components/hero";
+import {FeaturedTrailer} from "~/components/featured-trailer";
+import {articleMedia, type ArticleMedia} from "~/lib/article-media";
 import {
     ArrowRightIcon,
     CalendarIcon,
@@ -56,11 +59,18 @@ export function meta({}: Route.MetaArgs) {
 
 const cards: CardProps[] = [
     {
+        title: "Static Skyblock | Season 3",
+        description: "Build your island into a production line with powered machines, robots, and automatic crafting. Compete in all-new island leaderboards for monthly gift cards and Season 3 titles. Launching September 4 at 3 PM Eastern.",
+        imageSrc: skyblock3Thumbnail,
+        ...articleMedia["skyblock-season-3"],
+        date: "September 4, 2026",
+        href: "/article/skyblock-season-3"
+    },
+    {
         title: "Static Prison | Season 1.0",
         description: "We are excited to announce the launch of Static Prison Season 1.0! This release brings a new prison gamemode with custom enchants, fast-paced progression, pets, and more!",
         imageSrc: prisonCherryMine,
         date: "March 13, 2026",
-        layout: "horizontal",
         href: "/article/prison-season-1"
     },
     {
@@ -68,7 +78,6 @@ const cards: CardProps[] = [
         description: "We are proud to announce that Static Skyblock Season 2.0 has reached a major milestone of 2,000+ unique players!",
         imageSrc: wz1,
         date: "Feb 8, 2026",
-        layout: "vertical",
         href: "/article/skyblock-season-2-2k-players"
     },
     {
@@ -76,7 +85,6 @@ const cards: CardProps[] = [
         description: "We are excited to announce the launch of Static Skyblock Season 2.0! This season brings hundreds of changes, increases the grind, and most notably adds PvP!",
         imageSrc: wz2,
         date: "Aug 8, 2025",
-        layout: "vertical",
         href: "/article/skyblock-season-2"
     },
     {
@@ -84,7 +92,6 @@ const cards: CardProps[] = [
         description: "After more than a year of active development, Static Skyblock Season 1.0 goes live! This release brings numerous changes - be sure to check them out!",
         imageSrc: mine,
         date: "May 30, 2025",
-        layout: "vertical",
         href: "/article/skyblock-season-1"
     },
     {
@@ -92,21 +99,18 @@ const cards: CardProps[] = [
         description: "Skyblock has received another major update! We've added island quests, island upgrades & island points, AFK tracking, island value & island top, profiles, and more! Join our discord to apply for beta access.",
         imageSrc: skyblockSpawn,
         date: "Jan 19, 2025",
-        layout: "vertical"
     },
     {
         title: "Static Skyblock | Beta #2",
         description: "Skyblock has received a major update! We've added an auction house, 3 brand new island presets, custom enchants, daily challenges, and more! Join our discord to apply for beta access.",
         imageSrc: skyblockSpawnSneakPeak,
         date: "Aug 23, 2024",
-        layout: "vertical"
     },
     {
         title: "Static Skyblock | Beta #1",
         description: "Static is back and we've released a brand new Skyblock server! Join our Discord to apply for beta access.",
         date: "June 21, 2024",
         imageSrc: skyblockOasis,
-        layout: "vertical"
     }
 ];
 
@@ -217,7 +221,7 @@ export default function Home() {
                         description="The latest and greatest from Static including: new seasons, community milestones, server updates, and more."
                     />
                     <div className="mt-10 space-y-7">
-                        <Card {...cards[0]} index={0}/>
+                        <Card {...cards[0]} index={0} featured/>
                         <div className="grid grid-cols-1 gap-7 md:grid-cols-2 lg:grid-cols-3">
                             {cards.slice(1).map((card, index) => (
                                 <Card key={card.title} {...card} index={index + 1}/>
@@ -323,16 +327,27 @@ const QuickLink = ({title, description, icon, href}: {
     );
 }
 
-type CardProps = {
+type CardProps = ArticleMedia & {
     title: string;
     description: string;
     imageSrc: string;
     date: string;
-    layout: "horizontal" | "vertical";
     href?: string;
 }
 
-const Card = ({title, description, imageSrc, date, layout, href, index}: CardProps & { index: number }) => {
+const Card = ({
+                  title,
+                  description,
+                  imageSrc,
+                  date,
+                  videoSrc,
+                  youtubeVideoId,
+                  autoplayDelaySeconds,
+                  href,
+                  index,
+                  featured = false
+              }: CardProps & { index: number; featured?: boolean }) => {
+    const layout = featured ? "horizontal" : "vertical";
     return (
         <article data-layout={layout}
                  className="group grid overflow-hidden rounded-2xl border border-white/10 bg-[linear-gradient(145deg,rgba(30,41,73,0.78),rgba(15,23,50,0.82))] opacity-0 shadow-xl shadow-slate-950/20 transition duration-300 hover:-translate-y-1 hover:border-purple-400/30 hover:shadow-[0_28px_80px_rgba(15,10,45,0.45)] motion-safe:animate-fade-in-up motion-reduce:opacity-100 md:data-[layout=horizontal]:grid-cols-[1.25fr_1fr]"
@@ -341,13 +356,19 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
                  }}>
             <div data-layout={layout}
                  className="relative h-56 overflow-hidden md:data-[layout=horizontal]:h-full md:data-[layout=horizontal]:min-h-[390px]">
-                <img src={imageSrc} alt={title} loading={index === 0 ? "eager" : "lazy"} decoding="async"
-                     className="size-full object-cover transition duration-700 ease-out group-hover:scale-[1.045]"/>
+                {featured && (videoSrc || youtubeVideoId) ? (
+                    <FeaturedTrailer key={`${videoSrc ?? ""}:${youtubeVideoId ?? ""}`} videoSrc={videoSrc}
+                                     youtubeVideoId={youtubeVideoId} autoplayDelaySeconds={autoplayDelaySeconds}
+                                     title={title} imageSrc={imageSrc}/>
+                ) : (
+                    <img src={imageSrc} alt={title} loading={featured ? "eager" : "lazy"} decoding="async"
+                         className="size-full object-cover transition duration-700 ease-out group-hover:scale-[1.045]"/>
+                )}
                 <div
-                    className="absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:data-[layout=horizontal]:bg-gradient-to-r md:data-[layout=horizontal]:from-transparent md:data-[layout=horizontal]:to-slate-950/25"/>
+                    className="pointer-events-none absolute inset-0 bg-gradient-to-t from-slate-950/60 via-transparent to-transparent md:data-[layout=horizontal]:bg-gradient-to-r md:data-[layout=horizontal]:from-transparent md:data-[layout=horizontal]:to-slate-950/25"/>
                 {layout === "horizontal" && (
                     <span
-                        className="absolute left-5 top-5 rounded-full border border-white/15 bg-slate-950/60 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.16em] text-purple-200 backdrop-blur-md">
+                        className="absolute left-2 top-2 rounded-full border border-white/15 bg-slate-950/60 px-2 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-purple-200 backdrop-blur-md md:left-5 md:top-5 md:px-3 md:py-1.5 md:text-xs md:tracking-[0.16em]">
                         Featured content
                     </span>
                 )}
@@ -362,7 +383,7 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
                     className="mt-4 text-xl font-bold leading-tight text-white md:data-[layout=horizontal]:text-3xl">{title}</h3>
                 <p data-layout={layout}
                    className="mt-3 line-clamp-3 leading-7 text-slate-400 md:data-[layout=horizontal]:line-clamp-none md:data-[layout=horizontal]:text-lg">{description}</p>
-                <div className="mt-6">
+                <div className="mt-6 flex flex-wrap items-center gap-x-6 gap-y-3">
                     {href ? (
                         <Link to={href}
                               className="inline-flex items-center gap-2 font-bold text-purple-300 transition-colors hover:text-purple-200">
@@ -371,6 +392,14 @@ const Card = ({title, description, imageSrc, date, layout, href, index}: CardPro
                         </Link>
                     ) : (
                         <span className="text-sm font-semibold uppercase tracking-[0.14em] text-slate-500">From the archive</span>
+                    )}
+                    {featured && youtubeVideoId && (
+                        <a href={`https://www.youtube.com/watch?v=${youtubeVideoId}`} target="_blank"
+                           rel="noopener noreferrer"
+                           className="inline-flex min-h-11 items-center gap-2 font-semibold text-slate-300 transition-colors hover:text-white">
+                            Watch the trailer
+                            <ArrowRightIcon className="size-4 transition-transform group-hover:translate-x-1"/>
+                        </a>
                     )}
                 </div>
             </div>

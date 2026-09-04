@@ -29,6 +29,15 @@ export const SITE_URL = "https://staticstudios.net";
 
 export const articles: Article[] = [
     {
+        slug: "skyblock-season-3",
+        metaTitle: "Skyblock Season 3 - Automation, Robots & Island Leaderboards",
+        description: "Static Skyblock Season 3 launches September 4, 2026 at 3 PM Eastern. Build automated production lines and compete for weekly points, monthly prizes, and season titles.",
+        ogDescription: "Power your island with machines and robots, turn production into island value, and race for monthly prizes and Season 3 leaderboard titles.",
+        date: "2026-09-04",
+        ogImage: "https://staticstudios.net/image/skyblock3_trailer_thumbnail.png",
+        breadcrumbName: "Skyblock Season 3",
+    },
+    {
         slug: "prison-season-1",
         metaTitle: "Prison Season 1.0 Launch - Custom Enchants, Pets & More",
         description: "Static Prison Season 1.0 launches with custom enchants, pets, fast-paced progression, and unique mines. Join at play.staticstudios.net.",
@@ -282,7 +291,7 @@ export function generateLlmsTxt(): string {
 ## Gamemodes
 
 ### Skyblock
-Static Skyblock is a fully custom Skyblock experience featuring custom enchants, an auction house, island quests, island upgrades, daily challenges, PvP warzones, and much more. Currently on Season 2.0 with 2,000+ unique players.
+Static Skyblock Season 3 launches September 4, 2026 at 3 PM Eastern, featuring powered automation, robots, island progression, and new weekly, monthly, and seasonal island leaderboards. Build production lines, gain island value, and compete for store gift cards and exclusive season tags.
 
 ### Prison
 Static Prison is a fast-paced prison gamemode featuring custom enchants, pets, progression systems, mines, and more. Currently on Season 1.0, launched March 2025.

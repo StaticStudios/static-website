@@ -132,7 +132,7 @@ body {
     }
 
     :where(.markdown) p {
-        @apply leading-8 text-slate-300;
+        @apply my-4 leading-8 text-slate-300 first:mt-0 last:mb-0;
     }
 
     :where(.markdown) strong {
@@ -172,7 +172,7 @@ body {
     }
 
     :where(.markdown) table {
-        @apply w-full min-w-[32rem] border-collapse text-left;
+        @apply w-full border-collapse text-left md:min-w-[32rem];
     }
 
     :where(.markdown) thead {
@@ -188,11 +188,11 @@ body {
     }
 
     :where(.markdown) th {
-        @apply px-4 py-3 font-semibold text-white;
+        @apply px-2 py-3 font-semibold text-white md:px-4;
     }
 
     :where(.markdown) td {
-        @apply px-4 py-3 align-top text-white/70;
+        @apply px-2 py-3 align-top text-white/70 md:px-4;
     }
 
     :where(.markdown) img {

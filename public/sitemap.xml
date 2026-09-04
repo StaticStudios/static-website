@@ -56,6 +56,11 @@
     <priority>0.3</priority>
   </url>
   <url>
+    <loc>https://staticstudios.net/article/skyblock-season-3</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://staticstudios.net/article/prison-season-1</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
